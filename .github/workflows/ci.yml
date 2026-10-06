@@ -70,6 +70,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PECCA_SKIP_DOCKER: "1"   # Docker-based cells are skipped in CI
+      PECCA_TEST_SMALL: "1"
+      PYTHONWARNINGS: ignore   # framework warnings embed the runner's venv path, which the notebook leak check rejects
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
