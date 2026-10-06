@@ -1,6 +1,6 @@
 # Calibration
 
-Method: **{{ model.calibration_kind }}** · ECE (hold-out) {{ model.ece | fmt(4) }}
+Method: **{{ model.calibration_kind }}** on {{ model.calibration_basis }} · ECE (hold-out) {{ model.ece | fmt(4) }}
 {% if audit.calibration_png %}
 ![calibration curve]({{ audit.calibration_png }})
 {% endif %}

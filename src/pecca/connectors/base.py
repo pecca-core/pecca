@@ -57,6 +57,10 @@ class Registry(ABC):
     def read_logs(self, path_key: str, since: str) -> pd.DataFrame: ...
 
     # Optional helpers with sensible defaults.
+    def list_calls(self, prefix: str) -> list[str]:
+        """Call names stored under ``pecca/<workspace>/<project>`` (best effort)."""
+        return []
+
     def audit_dir(self, path_key: str, version: str) -> str:
         raise ConnectorError(f"{type(self).__name__} has no local audit directory")
 
@@ -182,6 +186,10 @@ def get(interface: str, type: str) -> Any:  # noqa: A002
 def create(interface: str, config: dict[str, Any]) -> Any:
     cfg = dict(config)
     type_name = cfg.pop("type", None)
+    if cfg.get("transport") == "mcp":  # e.g. ticketer: {type: jira, transport: mcp}
+        cfg.pop("transport")
+        type_name = "mcp"
+    cfg.pop("transport", None)
     if not type_name:
         raise ConnectorError(f"{interface} config is missing 'type'")
     return get(interface, type_name)(**cfg)

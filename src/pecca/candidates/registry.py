@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import warnings
 from collections.abc import Callable
 from typing import Any
@@ -91,6 +92,8 @@ def select_candidates(
             and (cls.estimated_latency_ms or 0) > 10
         ):
             continue
+        if nm == "xlmr_finetune" and os.environ.get("PECCA_TEST_SMALL") == "1":
+            continue  # small mode: no model downloads / fine-tuning
         if cls.requires_gpu and not gpu and n > 20000:
             warnings.warn(f"skipping {nm}: no GPU/MPS and n_rows={n} > 20000", stacklevel=2)
             continue

@@ -51,6 +51,7 @@ class ModelVersion(Serializable):
     target_precision: float = 0.95
     target_met: bool = True
     calibration_kind: str = "none"
+    calibration_basis: str = "all_labels"
     holdout_metric: float | None = None
     labels: list[str] = field(default_factory=list)
     leaderboard: list[dict[str, Any]] = field(default_factory=list)

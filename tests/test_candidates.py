@@ -13,7 +13,13 @@ def prof(task="classification", inp="text", n=1000):
                        input_type=inp, replaceable=True)
 
 
-def test_selection_rules():
+def test_small_mode_excludes_xlmr(monkeypatch):
+    monkeypatch.setenv("PECCA_TEST_SMALL", "1")
+    assert "xlmr_finetune" not in select_candidates(prof(n=6000), has_gpu=True)
+
+
+def test_selection_rules(monkeypatch):
+    monkeypatch.setenv("PECCA_TEST_SMALL", "0")
     assert select_candidates(prof(n=1000), has_gpu=True) == ["tfidf_linear", "e5_logreg"]
     assert select_candidates(prof(n=2000), has_gpu=True) == ["tfidf_linear", "e5_logreg", "xlmr_finetune"]
     assert select_candidates(prof("regression")) == ["tfidf_ridge", "e5_ridge"]
@@ -26,7 +32,8 @@ def test_latency_budget_removes_transformers():
     assert select_candidates(prof(n=3000), latency_budget_ms=5, has_gpu=True) == ["tfidf_linear"]
 
 
-def test_xlmr_skipped_without_gpu_on_large_data():
+def test_xlmr_skipped_without_gpu_on_large_data(monkeypatch):
+    monkeypatch.setenv("PECCA_TEST_SMALL", "0")
     with pytest.warns(UserWarning):
         names = select_candidates(prof(n=30000), has_gpu=False)
     assert "xlmr_finetune" not in names

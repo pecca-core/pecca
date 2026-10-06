@@ -26,6 +26,7 @@ from pecca.trainer.lineage import build_lineage, environment, git_sha
 from pecca.trainer.threshold import search_threshold
 
 LATENCY_ROWS = 200
+MIN_HUMAN_CAL = 200  # human-labelled hold-out rows needed to calibrate on human labels only
 
 
 @dataclass
@@ -154,10 +155,15 @@ def run_tournament(
     confusion: dict[str, Any] = {}
     per_class: dict[str, Any] = {}
     calibrator = Calibrator("none")
+    cal_basis = "all_labels"
     if clf:
         classes = cand.classes_
         cidx = {c: i for i, c in enumerate(classes)}
-        known = [i for i, y in enumerate(ycal) if y in cidx]
+        # LLM label noise would cap measurable precision, so prefer human-labelled hold-out rows.
+        human_pos = [j for j, i in enumerate(cal_idx) if sources[i] == "human"]
+        pool = human_pos if len(human_pos) >= MIN_HUMAN_CAL else list(range(len(ycal)))
+        cal_basis = "human_labels" if pool is human_pos else "all_labels"
+        known = [j for j in pool if ycal[j] in cidx]
         proba = cand.predict_proba([Xcal[i] for i in known])
         y_idx = np.array([cidx[ycal[i]] for i in known])
         calibrator = fit_calibrator(proba, y_idx)
@@ -207,7 +213,7 @@ def run_tournament(
         metric_name=metric_name, metric=winner_entry["metric"], metric_std=winner_entry["metric_std"],
         llm_metric=llm_metric, threshold=threshold, expected_fallback_rate=fallback,
         latency_ms=winner_entry["predict_latency_ms"], trained_at=iso(),
-        target_precision=target_precision, target_met=target_met, calibration_kind=cal_kind,
+        target_precision=target_precision, target_met=target_met, calibration_kind=cal_kind, calibration_basis=cal_basis,
         holdout_metric=holdout_metric, labels=list(cand.classes_), leaderboard=board,
         lineage=lineage, confusion_matrix=confusion, per_class=per_class,
         calibration_curve=curve, ece=ece_val, environment=environment(), git_sha=git_sha(),
