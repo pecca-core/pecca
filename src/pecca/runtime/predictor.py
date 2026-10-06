@@ -17,10 +17,11 @@ from pecca.data.dataset import render_input
 from pecca.trainer.calibration import Calibrator
 
 
-class Predictor:
-    def __init__(self, call: Call, version: str) -> None:
-        self.call = call
-        self.version = version
+class Bundle:
+    """A trained model directory (config, labels, calibration, candidate) with no registry dependency."""
+
+    def __init__(self, directory: str, version: str = "v?") -> None:
+        self.dir, self.version = directory, version
         self._lock = threading.Lock()
         self._loaded = False
         self._cand: Any = None
@@ -34,15 +35,14 @@ class Predictor:
         with self._lock:
             if self._loaded:
                 return
-            d = Path(self.call.model_dir(self.version))
+            d = Path(self.dir)
             self._cfg = json.loads((d / "config.json").read_text())
             labels = json.loads((d / "labels.json").read_text())
             self._forms = labels.get("forms", {})
             cal_file = d / "calibration.json"
             if cal_file.exists():
                 self._cal = Calibrator.from_dict(json.loads(cal_file.read_text()))
-            cls = get_candidate(self._cfg["candidate"])
-            self._cand = cls.load(str(d))
+            self._cand = get_candidate(self._cfg["candidate"]).load(str(d))
             self._loaded = True
 
     @property
@@ -79,6 +79,19 @@ class Predictor:
             label = self._forms.get(norm, norm)
             out.append(Prediction(label, float(c), bool(thr is not None and c < thr), self.version))
         return out
+
+
+class Predictor(Bundle):
+    """A ``Bundle`` resolved lazily from a call's registry."""
+
+    def __init__(self, call: Call, version: str) -> None:
+        super().__init__("", version)
+        self.call = call
+
+    def _load(self) -> None:
+        if not self._loaded:
+            self.dir = self.call.model_dir(self.version)
+        super()._load()
 
 
 _cache: dict[tuple[int, str, str], Predictor] = {}

@@ -84,5 +84,4 @@ def mcp_serve(transport: str = typer.Option("stdio", "--transport"), port: int =
     if transport == "stdio":
         server.run("stdio")
     else:
-        server.settings.port = port  # type: ignore[attr-defined]
-        server.run("streamable-http")
+        server.run("streamable-http", host="127.0.0.1", port=port)

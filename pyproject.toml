@@ -39,7 +39,7 @@ dependencies = [
   "httpx",
   "matplotlib",
   "psycopg[binary]",
-  "mcp",
+  "mcp>=2,<3",
   "opentelemetry-api",
   "opentelemetry-sdk",
   "opentelemetry-exporter-otlp",
