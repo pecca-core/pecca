@@ -4,6 +4,8 @@
 
 Pecca finds the LLM calls in your pipeline that only ever return a fixed label, trains a CPU model on your logged outputs, shadows it against the LLM, and promotes it when it passes your gates. The LLM stays as fallback.
 
+![Pecca quickstart: profile, train, shadow, status](assets/quickstart.gif)
+
 ```python
 import pecca
 
@@ -32,7 +34,7 @@ flowchart LR
   C -.->|drift / revalidation| B
 ```
 
-[Quickstart](quickstart.md){ .md-button .md-button--primary } [Case study](case-study/autoresponse-routing.md){ .md-button }
+[Quickstart](quickstart.md){ .md-button .md-button--primary } [Examples](examples/index.md){ .md-button } [Case study](case-study/autoresponse-routing.md){ .md-button }
 
 ## Who is this for
 Teams running LLM calls that return a fixed label or number, that have logged outputs (and ideally human corrections), and that need cost, latency and auditability improvements without a new platform.

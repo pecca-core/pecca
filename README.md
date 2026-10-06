@@ -8,6 +8,8 @@
 
 Pecca finds the LLM calls in your pipeline that only ever return a fixed label, trains a CPU model on your logged outputs, shadows it against the LLM, and promotes it when it passes your gates. The LLM stays as fallback.
 
+![Pecca quickstart: profile, train, shadow, status](https://raw.githubusercontent.com/pecca-core/pecca/main/docs/assets/quickstart.gif)
+
 ```python
 import pecca
 
@@ -43,7 +45,11 @@ pecca train default/default/route_rfi --candidates tfidf_linear,e5_logreg
 pecca promote default/default/route_rfi --mode shadow
 pecca status default/default/route_rfi    # then: pecca promote ... --mode live once the gates pass
 ```
-Full walkthrough with real output: [Quickstart](https://pecca-core.github.io/pecca/quickstart/).
+Full walkthrough with real output: [Quickstart](https://pecca-core.github.io/pecca/quickstart/) · [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pecca-core/pecca/blob/main/examples/quickstart.ipynb)
+
+## Examples
+
+Executed notebooks (agent frameworks, monitoring) and config-only vendor guides: [Examples](https://pecca-core.github.io/pecca/examples/).
 
 ## How it works
 

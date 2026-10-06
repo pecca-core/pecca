@@ -1,6 +1,6 @@
 # Quickstart
 
-Everything below runs offline on the bundled synthetic dataset (a fictional "Northbridge Bank"). The outputs are real.
+Everything below runs offline on the bundled synthetic dataset (a fictional "Northbridge Bank"). The outputs are real. Prefer a notebook? [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pecca-core/pecca/blob/main/examples/quickstart.ipynb)
 
 ```bash
 pip install pecca
