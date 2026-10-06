@@ -1,0 +1,10 @@
+# Jaeger all-in-one: OTLP/HTTP in on :4318, UI on http://localhost:16686
+services:
+  jaeger:
+    image: jaegertracing/all-in-one:1.62.0
+    container_name: pecca-jaeger
+    environment:
+      COLLECTOR_OTLP_ENABLED: "true"
+    ports:
+      - "127.0.0.1:16686:16686"
+      - "127.0.0.1:4318:4318"

@@ -188,3 +188,27 @@ def test_audit_exports(monkeypatch, tmp_path):
     _cfg({"extends": "none"})
     with pytest.raises(PeccaError, match="no docs publisher"):
         pecca.audit_pack("p/route_rfi", out="confluence")
+
+
+@respx.mock
+def test_notifications_are_actually_sent():
+    """Regression: Call.notify used to pass `event` twice to the template, raise, and be swallowed silently."""
+    integ = {
+        "integrations": {
+            "notifier": {
+                "type": "slack",
+                "webhook": "https://hooks.example/x",
+                "events": ["trained", "shadow"],
+            }
+        }
+    }
+    route = respx.post("https://hooks.example/x").mock(return_value=httpx.Response(200))
+    _trained({"extends": "none"}, integ)
+    pecca.promote("p/route_rfi", "shadow")
+    texts = [json.loads(c.request.content)["text"] for c in route.calls]
+    assert len(texts) == 2 and "trained" in texts[0] and "shadow" in texts[1]
+    assert all("p/default/route_rfi" in t or "route_rfi" in t for t in texts)
+    pecca.promote(
+        "p/route_rfi", "off"
+    )  # `off` is not in the configured events: nothing more is sent
+    assert route.call_count == 2

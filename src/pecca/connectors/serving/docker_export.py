@@ -13,7 +13,6 @@ from pydantic import BaseModel
 
 from pecca.candidates import get_candidate
 import json, pathlib
-from pecca.runtime.predictor import Predictor  # noqa: F401  (loaded via the artefact dir below)
 
 app = FastAPI(title="pecca-{call}")
 MODEL_DIR = pathlib.Path(__file__).parent / "model"
