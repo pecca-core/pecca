@@ -1,0 +1,8 @@
+# Environment
+
+| package | version |
+| --- | --- |
+{% for k, v in model.environment.items() -%}
+| {{ k }} | {{ v }} |
+{% endfor %}
+Retention policy: {{ audit.retention }}

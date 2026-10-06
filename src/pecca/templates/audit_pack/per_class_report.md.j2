@@ -1,0 +1,7 @@
+# Per-class report (hold-out split)
+
+| class | precision | recall | f1 | support |
+| --- | --- | --- | --- | --- |
+{% for name, r in audit.per_class_rows -%}
+| {{ name }} | {{ r.precision | fmt(2) }} | {{ r.recall | fmt(2) }} | {{ r.f1 | fmt(2) }} | {{ r.support }} |
+{% endfor %}

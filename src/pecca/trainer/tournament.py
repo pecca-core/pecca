@@ -195,6 +195,7 @@ def run_tournament(
     (art / "calibration.json").write_text(json.dumps(calibrator.to_dict()))
     (art / "labels.json").write_text(json.dumps({"classes": cand.classes_, "forms": forms}))
     lineage = build_lineage(df, [str(x) for x in X], sources, call, ds.source, ds.input_template)
+    lineage["label_counts"] = dict(Counter(resolved)) if clf else {}
     (art / "lineage.json").write_text(json.dumps(lineage, indent=2))
     (art / "config.json").write_text(json.dumps({
         "candidate": winner, "format": fmt, "task_type": profile.task_type,

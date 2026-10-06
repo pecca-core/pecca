@@ -1,0 +1,13 @@
+# Threshold rationale
+
+The threshold is the **smallest** confidence `t` where precision on hold-out rows with `confidence >= t` is at least **{{ model.target_precision }}**.
+
+| | |
+| --- | --- |
+| threshold | {{ model.threshold | fmt(3) }} |
+| expected fallback rate | {{ model.expected_fallback_rate | pct }} |
+| target met | {{ model.target_met }} |
+
+Rows below the threshold are answered by the original LLM function.
+{% if not model.target_met %}**Warning:** no threshold reached the target; every call falls back to the LLM.
+{% endif %}

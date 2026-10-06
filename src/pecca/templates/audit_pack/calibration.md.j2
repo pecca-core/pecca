@@ -1,0 +1,11 @@
+# Calibration
+
+Method: **{{ model.calibration_kind }}** · ECE (hold-out) {{ model.ece | fmt(4) }}
+{% if audit.calibration_png %}
+![calibration curve]({{ audit.calibration_png }})
+{% endif %}
+| mean confidence | accuracy | n |
+| --- | --- | --- |
+{% for c, a, n in model.calibration_curve -%}
+| {{ c | fmt(3) }} | {{ a | fmt(3) }} | {{ n | int }} |
+{% endfor %}

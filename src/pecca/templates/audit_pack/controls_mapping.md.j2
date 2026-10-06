@@ -1,0 +1,8 @@
+# Controls mapping
+
+Free-form control references attached to this transition. Pecca assigns them no meaning.
+
+{% for c in audit.controls -%}
+- {{ c }}
+{% else %}None configured.
+{% endfor %}

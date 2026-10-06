@@ -1,0 +1,12 @@
+# Model card — {{ call.path }} {{ model.version }}
+
+**What it does.** Replaces the LLM call `{{ call.name }}` ({{ model.task_type }}) with a small `{{ model.candidate }}` model. Below a calibrated confidence of {{ model.threshold | fmt(2) }} the original LLM answers instead.
+
+**Training data.** {{ model.lineage.rows }} rows ({{ model.lineage.label_source_counts }}), dataset sha256 `{{ model.lineage.dataset_sha256 }}`.
+
+**Performance.** {{ model.metric_name }} {{ model.metric | fmt }} ± {{ model.metric_std | fmt }} (cross-validated). LLM vs human labels: {{ model.llm_metric | fmt }}.
+{% if model.llm_metric is none %}No human labels were available: the model matches the LLM, it is not shown to exceed it.
+{% endif %}
+**Latency.** {{ model.latency_ms | fmt(2) }} ms median single-row CPU prediction.
+
+**Intended use / limits.** Closed-set decisions on inputs like the training data. Revalidate on drift; do not use for out-of-distribution inputs.

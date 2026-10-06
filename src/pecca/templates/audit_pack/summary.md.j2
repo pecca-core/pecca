@@ -1,0 +1,12 @@
+# Audit pack — {{ call.path }} {{ model.version }}
+
+Generated {{ now }} · workspace `{{ workspace }}` · project `{{ project }}`
+
+| | |
+| --- | --- |
+| mode | {{ call.mode }} |
+| model | `{{ model.candidate }}` ({{ model.format }}) |
+| {{ model.metric_name }} (CV) | {{ model.metric | fmt }} ± {{ model.metric_std | fmt }} |
+| LLM metric (vs human) | {{ model.llm_metric | fmt }} |
+| threshold / expected fallback | {{ model.threshold | fmt(2) }} / {{ model.expected_fallback_rate | pct }} |
+| trained | {{ model.trained_at }} |

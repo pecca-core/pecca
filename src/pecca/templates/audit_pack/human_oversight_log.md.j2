@@ -1,0 +1,9 @@
+# Human oversight log
+
+Approvals, forced promotions and mode changes recorded for this call.
+
+| time | event | detail |
+| --- | --- | --- |
+{% for h in audit.history -%}
+| {{ h.ts }} | {{ h.kind }} | {{ h }} |
+{% endfor %}

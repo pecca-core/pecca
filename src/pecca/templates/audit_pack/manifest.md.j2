@@ -1,0 +1,6 @@
+# Manifest (sha256)
+
+{% for name, h in audit.hashes -%}
+- `{{ h }}`  {{ name }}
+{% endfor %}
+Signed: {{ audit.signed }}

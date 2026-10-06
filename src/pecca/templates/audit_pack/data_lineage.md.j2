@@ -1,0 +1,11 @@
+# Data lineage
+
+| | |
+| --- | --- |
+| source | {{ model.lineage.source }} |
+| rows | {{ model.lineage.rows }} |
+| date range | {{ model.lineage.date_range[0] }} → {{ model.lineage.date_range[1] }} |
+| label sources | {{ model.lineage.label_source_counts }} |
+| dataset sha256 | `{{ model.lineage.dataset_sha256 }}` |
+| input template | `{{ model.lineage.input_template }}` |
+| git sha | {{ model.git_sha }} |

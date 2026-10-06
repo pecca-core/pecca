@@ -1,0 +1,4 @@
+# Drift report (window {{ shadow.window }})
+
+Jensen–Shannon distance between the window's label distribution and training: **{{ shadow.drift_score | fmt(4) }}**
+{% if shadow.drift_score is none %}No shadow/live data yet.{% endif %}
