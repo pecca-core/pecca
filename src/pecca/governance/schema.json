@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "governance",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "extends": {"type": "string"},
+    "transitions": {
+      "type": "object",
+      "propertyNames": {"enum": ["record->shadow", "shadow->live"]},
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "gates": {"type": "array", "items": {"type": "string"}},
+          "approvals": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "groups": {"type": "array", "items": {"type": "string"}},
+              "users": {"type": "array", "items": {"type": "string"}},
+              "require": {"oneOf": [{"enum": ["all", "any"]}, {"type": "integer", "minimum": 1}]},
+              "via": {"type": "string", "pattern": "^(manual|jira:.+|github:.+/.+)$"},
+              "group_members": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}}
+            }
+          },
+          "evidence": {
+            "type": "array",
+            "items": {"enum": ["model_card", "confusion_matrix", "data_lineage", "threshold_rationale", "calibration", "per_class_report", "drift_report", "human_oversight_log"]}
+          },
+          "controls": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "retention": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {"type": "string", "pattern": "^\\d+(d|w|m|y)$"},
+        "logs": {"type": "string", "pattern": "^\\d+(d|w|m|y)$"},
+        "signed": {"type": "boolean"},
+        "gpg_key": {"type": "string"}
+      }
+    },
+    "schedule": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "revalidate": {"type": "object", "required": ["every"], "properties": {"every": {"type": "string", "pattern": "^\\d+(d|w|m|y)$"}, "approvals": {"type": "object"}}},
+        "drift_review": {"type": "object", "required": ["every"], "properties": {"every": {"type": "string", "pattern": "^\\d+(d|w|m|y)$"}, "notify": {"type": "string"}}}
+      }
+    }
+  }
+}
