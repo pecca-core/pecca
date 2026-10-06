@@ -1,0 +1,11 @@
+# Approvals
+
+Required: {{ policy.approvals | default("none") }}
+
+{% if audit.approvals %}| approver | groups | ticket | note | time |
+| --- | --- | --- | --- | --- |
+{% for a in audit.approvals -%}
+| {{ a.approver }} | {{ a.groups | default([]) | join(", ") }} | {{ a.ticket }} | {{ a.note }} | {{ a.ts }} |
+{% endfor %}{% else %}No approvals recorded.{% endif %}
+
+Ticket: {{ audit.ticket }}

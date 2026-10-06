@@ -39,7 +39,7 @@ dependencies = [
   "httpx",
   "matplotlib",
   "psycopg[binary]",
-  "mcp",
+  "mcp>=2,<3",
   "opentelemetry-api",
   "opentelemetry-sdk",
   "opentelemetry-exporter-otlp",
@@ -72,11 +72,22 @@ dev = [
   "nbconvert", "ipykernel", "types-PyYAML", "types-jsonschema", "pandas-stubs",
 ]
 
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
 [tool.hatch.version]
 path = "src/pecca/__init__.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/pecca"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"profiles" = "pecca/profiles"
 
 [tool.ruff]
 line-length = 100
@@ -85,6 +96,13 @@ src = ["src", "tests"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]  # `ruff format` wraps code; long docstrings/comments are fine
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["typer.Option", "typer.Argument"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["E501", "SIM115", "E741", "E402", "B017", "E731", "B905", "F841", "SIM"]
 
 [tool.mypy]
 python_version = "3.11"
@@ -93,10 +111,15 @@ mypy_path = "src"
 ignore_missing_imports = true
 files = ["src"]
 
+# These modules wrap optional third-party packages that may or may not be installed.
+[[tool.mypy.overrides]]
+module = ["pecca.connectors.registry._pyfunc", "pecca.connectors.datasource.databricks"]
+disallow_subclassing_any = false
+warn_unused_ignores = false
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
-env = []
 
 [tool.coverage.run]
 source = ["pecca"]

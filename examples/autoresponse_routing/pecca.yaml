@@ -1,0 +1,23 @@
+version: 1
+workspace:
+  name: default
+  registry: local://./.pecca
+projects:
+  autoresponse:
+    datasource:                       # historical LLM answers + human agent tags
+      type: csv
+      path: ../../data/demo/train.csv   # created by `pecca datasets demo`
+      columns:
+        input: {subject: email_subject, body: email_body}
+        llm_output: llm_rfi
+        human_label: human_rfi
+        call_name: {literal: route_rfi}
+        timestamp: timestamp
+        language: language
+    governance:
+      extends: default
+      transitions:
+        shadow->live:
+          gates: ["agreement >= 0.90", "shadow_days >= 14"]
+    calls:
+      route_rfi: {policy: {train_every: 7d, min_rows: 2000, target_precision: 0.95, latency_budget_ms: 50}}

@@ -1,0 +1,9 @@
+# Shadow / live results (window {{ shadow.window }})
+
+| | |
+| --- | --- |
+| calls | {{ shadow.n_rows }} |
+| agreement with LLM | {{ shadow.agreement_rate | pct }} |
+| fallback rate | {{ shadow.fallback_rate | pct }} |
+| shadow days | {{ audit.shadow_days | fmt(1) }} |
+| disagreements logged | {{ shadow.disagreements | length }} |

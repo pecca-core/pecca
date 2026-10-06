@@ -1,0 +1,14 @@
+# Approval requested: {{ call.path }} {{ model.version }} → {{ transition }}
+
+Pecca model `{{ model.candidate }}` ({{ model.format }}) for `{{ call.path }}` is ready for review.
+
+| metric | value |
+| --- | --- |
+| {{ model.metric_name }} (CV) | {{ model.metric | fmt }} ± {{ model.metric_std | fmt }} |
+| LLM on human labels | {{ model.llm_metric | fmt }} |
+| threshold | {{ model.threshold | fmt(2) }} (expected fallback {{ model.expected_fallback_rate | pct }}) |
+| training rows | {{ model.lineage.rows }} |
+{% if shadow.agreement_rate is not none %}| shadow agreement | {{ shadow.agreement_rate | pct }} over {{ shadow.n_rows }} calls |
+{% endif %}
+Approval required from: {{ policy.approvals.groups | default([]) | join(", ") }}{% if policy.approvals.users is defined %} {{ policy.approvals.users | join(", ") }}{% endif %}.
+Generated {{ now }}.

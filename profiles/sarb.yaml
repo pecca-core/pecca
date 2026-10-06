@@ -1,0 +1,17 @@
+# TEMPLATE ONLY. This file is a convenience preset and is NOT legal or regulatory advice.
+# Review with your compliance team and edit freely. Pecca enforces only what is written here.
+# Control strings below are illustrative placeholders, not real clause numbers.
+governance:
+  transitions:
+    "record->shadow":
+      gates: ["cv_metric >= 0.85", "rows >= 2000"]
+      controls: ["SARB-<clause>"]
+    "shadow->live":
+      gates: ["agreement >= 0.90", "shadow_days >= 14"]
+      approvals: {groups: [model-risk, business-owner], require: all, via: manual}
+      evidence: [model_card, confusion_matrix, data_lineage, threshold_rationale, calibration, per_class_report, drift_report]
+      controls: ["SARB-<clause>"]
+  retention: {evidence: 7y, logs: 2y, signed: true}
+  schedule:
+    revalidate: {every: 365d}
+    drift_review: {every: 30d}

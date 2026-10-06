@@ -1,0 +1,7 @@
+# Benchmark leaderboard ({{ model.metric_name }}, cross-validated)
+
+| candidate | {{ model.metric_name }} | std | fit s | latency ms | status |
+| --- | --- | --- | --- | --- | --- |
+{% for e in model.leaderboard -%}
+| {{ e.candidate }}{% if e.get("winner") %} ★{% endif %} | {{ e.get("metric") | fmt }} | {{ e.get("metric_std") | fmt }} | {{ e.get("fit_time_s") | fmt(1) }} | {{ e.get("predict_latency_ms") | fmt(2) }} | {{ e.status }}{% if e.get("error") %}: {{ e.get("error") }}{% endif %} |
+{% endfor %}

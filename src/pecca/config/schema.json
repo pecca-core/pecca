@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "pecca.yaml",
+  "type": "object",
+  "required": ["version"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {"const": 1},
+    "workspace": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+$"},
+        "registry": {"type": "string", "description": "local://./.pecca or mlflow://databricks-uc/<catalog>.<schema>"},
+        "telemetry": {"type": "object"},
+        "secrets": {"type": "object", "required": ["provider"], "properties": {"provider": {"type": "string"}}},
+        "scheduler": {"type": "object"}
+      }
+    },
+    "projects": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "datasource": {"type": "object", "required": ["type"], "properties": {"type": {"type": "string"}, "columns": {"type": "object"}}},
+          "labels": {"type": "object", "required": ["type"], "properties": {"type": {"type": "string"}, "join_on": {"type": "string"}, "column": {"type": "string"}}},
+          "governance": {"$ref": "#/$defs/governance"},
+          "integrations": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "notifier": {"type": "object", "required": ["type"]},
+              "ticketer": {"type": "object", "required": ["type"]},
+              "docs": {"type": "object", "required": ["type"]}
+            }
+          },
+          "calls": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "policy": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "train_every": {"type": "string", "pattern": "^\\d+(d|w|m|y)$"},
+                    "min_rows": {"type": "integer", "minimum": 1},
+                    "target_precision": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+                    "latency_budget_ms": {"type": "number", "exclusiveMinimum": 0},
+                    "metric": {"type": "string"}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

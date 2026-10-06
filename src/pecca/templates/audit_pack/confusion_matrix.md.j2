@@ -1,0 +1,8 @@
+# Confusion matrix (hold-out split)
+
+{% if audit.confusion_text %}```
+{{ audit.confusion_text }}
+```
+Full matrix (up to 50 classes): ![confusion matrix]({{ audit.confusion_png }})
+{% else %}Not available for {{ model.task_type }} calls.
+{% endif %}
