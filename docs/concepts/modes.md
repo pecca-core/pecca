@@ -8,7 +8,7 @@
 | `live` | Calls the model. If `confidence >= threshold` it returns the model's answer (`served_by=model`), otherwise it calls your function (`served_by=fallback`). |
 
 Allowed transitions: `off ↔ record`, `record → shadow`, `shadow → live`, `live → shadow`, anything → `off`. **`record → live` is forbidden.**
-Governance gates run on `record → shadow` and `shadow → live` (`pecca promote`). Retraining a `live` call puts it back in `shadow`: the new model must earn live status again.
+Governance gates run on `record → shadow` and `shadow → live` (`pecca promote`). **Retraining a `live` call demotes it to `shadow`** (recorded in the call history and notified): the new model is a different model, so it must pass the shadow → live gates and approvals again. Until then the call keeps serving through the LLM.
 
 Mode resolution: explicit `mode=` argument, then the stored call state, then `record`.
 

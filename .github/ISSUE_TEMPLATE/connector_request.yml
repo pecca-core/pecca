@@ -1,0 +1,23 @@
+name: Connector request
+description: Ask for (or offer) a new connector implementation
+labels: [connector]
+body:
+  - type: dropdown
+    id: interface
+    attributes:
+      label: Interface
+      options: [datasource, registry, notifier, ticketer, scheduler, serving, secrets, docs_publisher, identity]
+    validations: {required: true}
+  - type: input
+    id: system
+    attributes: {label: "System (e.g. ServiceNow, Kafka, SageMaker)"}
+    validations: {required: true}
+  - type: textarea
+    id: usage
+    attributes: {label: "How would you use it?"}
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I can contribute the implementation (see docs/connectors/writing-a-connector.md)
