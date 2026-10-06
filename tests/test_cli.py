@@ -45,7 +45,7 @@ def project(tmp_path):
 
 
 def test_version_and_help():
-    assert run("version").output.strip() == "0.1.0"
+    assert run("version").output.strip() == pecca.__version__
     assert "init" in run("--help").output
 
 

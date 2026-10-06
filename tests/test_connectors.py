@@ -228,6 +228,12 @@ def test_serving_docker_export(tmp_path):
         {"type": "docker_export", "out_dir": str(tmp_path / "out"), "home": str(tmp_path / "h")},
     )
     d = s.deploy(key, "v1")
+    import pecca
+
+    assert (
+        f"pecca=={pecca.__version__}"
+        in (tmp_path / "out" / "route_rfi-v1" / "requirements.txt").read_text()
+    )
     for f in ("Dockerfile", "app.py", "requirements.txt", "model/config.json"):
         assert (tmp_path / "out" / "route_rfi-v1" / f).exists()
     compile(open(f"{d}/app.py").read(), "app.py", "exec")
