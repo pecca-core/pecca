@@ -76,6 +76,17 @@ nav:
       - examples/agent_google_adk.md
       - examples/agent_openai_agents.md
       - examples/agent_claude_agent_sdk.md
+      - examples/connector_datasource.md
+      - examples/connector_registry.md
+      - examples/connector_notifier.md
+      - examples/connector_ticketer.md
+      - examples/connector_scheduler.md
+      - examples/connector_serving.md
+      - examples/connector_secrets.md
+      - examples/connector_docs_publisher.md
+      - examples/monitoring_jaeger.md
+      - examples/monitoring_grafana_tempo.md
+      - examples/monitoring_mlflow.md
       - examples/monitoring_datadog.md
       - examples/monitoring_new_relic.md
       - examples/monitoring_honeycomb.md

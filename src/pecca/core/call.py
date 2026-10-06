@@ -99,8 +99,10 @@ class Call:
                 return
             from pecca.templates_util import render
 
-            body = {"call": str(self.path), "event": event, **(payload or {})}
-            notifier.send(event, body, render("slack_event.md.j2", event=event, **body))
+            body = {"call": str(self.path), **(payload or {})}
+            notifier.send(
+                event, {**body, "event": event}, render("slack_event.md.j2", event=event, **body)
+            )
         except Exception:  # noqa: BLE001
             pass
 

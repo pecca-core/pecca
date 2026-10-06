@@ -1,0 +1,25 @@
+# Tempo (OTLP/HTTP in on :4318) + Grafana with a provisioned Pecca dashboard on http://localhost:3000
+# Anonymous admin access is for this local demo only (ports are bound to 127.0.0.1).
+services:
+  tempo:
+    image: grafana/tempo:2.6.1
+    container_name: pecca-tempo
+    command: ["-config.file=/etc/tempo.yaml"]
+    volumes:
+      - ./tempo.yaml:/etc/tempo.yaml:ro
+    ports:
+      - "127.0.0.1:3200:3200"
+      - "127.0.0.1:4318:4318"
+  grafana:
+    image: grafana/grafana:11.3.0
+    container_name: pecca-grafana
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+      GF_LOG_LEVEL: warn
+    volumes:
+      - ../grafana/provisioning:/etc/grafana/provisioning:ro
+      - ../grafana/dashboards:/var/lib/grafana/dashboards:ro
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on: [tempo]

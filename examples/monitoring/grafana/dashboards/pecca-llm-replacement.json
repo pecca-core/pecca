@@ -1,0 +1,133 @@
+{
+  "uid": "pecca-llm-replacement",
+  "title": "Pecca: LLM replacement",
+  "schemaVersion": 39,
+  "version": 1,
+  "editable": true,
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "refresh": "10s",
+  "tags": [
+    "pecca"
+  ],
+  "panels": [
+    {
+      "id": 1,
+      "type": "table",
+      "title": "Recent Pecca calls",
+      "description": "Every @pecca.replace invocation (one span each).",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 8
+      },
+      "datasource": {
+        "type": "tempo",
+        "uid": "pecca-tempo"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "tempo",
+            "uid": "pecca-tempo"
+          },
+          "queryType": "traceql",
+          "query": "{ name = \"pecca.call\" }",
+          "limit": 50,
+          "tableType": "spans"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "table",
+      "title": "Served by the LLM fallback",
+      "description": "Live calls where confidence was below the threshold, so the LLM answered.",
+      "gridPos": {
+        "x": 0,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "tempo",
+        "uid": "pecca-tempo"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "tempo",
+            "uid": "pecca-tempo"
+          },
+          "queryType": "traceql",
+          "query": "{ name = \"pecca.call\" && span.pecca.served_by = \"fallback\" }",
+          "limit": 50,
+          "tableType": "spans"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "table",
+      "title": "Shadow disagreements",
+      "description": "Shadow calls where the model disagreed with the LLM.",
+      "gridPos": {
+        "x": 12,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "tempo",
+        "uid": "pecca-tempo"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "tempo",
+            "uid": "pecca-tempo"
+          },
+          "queryType": "traceql",
+          "query": "{ name = \"pecca.call\" && span.pecca.agreement = false }",
+          "limit": 50,
+          "tableType": "spans"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "table",
+      "title": "Low confidence (< 0.6)",
+      "description": "Calls the model was unsure about.",
+      "gridPos": {
+        "x": 0,
+        "y": 16,
+        "w": 24,
+        "h": 8
+      },
+      "datasource": {
+        "type": "tempo",
+        "uid": "pecca-tempo"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "tempo",
+            "uid": "pecca-tempo"
+          },
+          "queryType": "traceql",
+          "query": "{ name = \"pecca.call\" && span.pecca.confidence < 0.6 }",
+          "limit": 50,
+          "tableType": "spans"
+        }
+      ]
+    }
+  ]
+}
