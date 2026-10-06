@@ -83,6 +83,7 @@ projects:
 | `projects.<name>.calls.<name>.policy.target_precision` | number |  |
 | `projects.<name>.calls.<name>.policy.latency_budget_ms` | number |  |
 | `projects.<name>.calls.<name>.policy.metric` | string |  |
+| `projects.<name>.calls.<name>.policy.candidates` | array | Restrict the tournament to these candidates (default: the selection rules). Use it to keep scheduled retrains off slow models such as xlmr_finetune. |
 
 Connector blocks (`datasource`, `labels`, `integrations.*`) take `type:` plus the options listed on the [connector pages](../connectors/overview.md).
 Durations use `<n>d`, `<n>w`, `<n>m` or `<n>y`. Gate expressions are described in [Governance](../governance/overview.md).

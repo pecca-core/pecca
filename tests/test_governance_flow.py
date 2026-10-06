@@ -212,3 +212,73 @@ def test_notifications_are_actually_sent():
         "p/route_rfi", "off"
     )  # `off` is not in the configured events: nothing more is sent
     assert route.call_count == 2
+
+
+def test_policy_candidates_restricts_tournament_and_scheduled_retrain():
+    from pecca.cli.commands import ops
+
+    c = _trained(
+        {"extends": "none"},
+        {"calls": {"route_rfi": {"policy": {"candidates": ["tfidf_linear"], "train_every": "7d"}}}},
+    )
+    assert [e["candidate"] for e in c.version("v1").leaderboard] == ["tfidf_linear"]
+    st = c.state()
+    st.last_trained = iso(now() - timedelta(days=8))
+    c.save_state(st)
+    # a scheduled retrain reads the datasource; give the project one so the tick can retrain
+    import pandas as pd
+
+    pd.DataFrame(
+        {
+            "s": [str(x) for x in _ds().to_pandas()["input"].map(lambda d: d["s"])],
+            "b": [x["b"] for x in _ds().to_pandas()["input"]],
+            "o": _ds().to_pandas()["llm_output"],
+            "h": _ds().to_pandas()["human_label"],
+        }
+    ).to_csv("logs.csv", index=False)
+    _cfg(
+        {"extends": "none"},
+        {
+            "datasource": {
+                "type": "csv",
+                "path": "logs.csv",
+                "columns": {
+                    "input": {"s": "s", "b": "b"},
+                    "llm_output": "o",
+                    "human_label": "h",
+                    "call_name": {"literal": "route_rfi"},
+                },
+                "input_template": "{s}\n\n{b}",
+            },
+            "calls": {
+                "route_rfi": {"policy": {"candidates": ["tfidf_linear"], "train_every": "7d"}}
+            },
+        },
+    )
+    c = context.get_call("p/route_rfi")
+    st = c.state()
+    st.last_trained = iso(now() - timedelta(days=8))
+    c.save_state(st)
+    assert any("retrained" in line for line in ops.tick())
+    assert [e["candidate"] for e in context.get_call("p/route_rfi").version("v2").leaderboard] == [
+        "tfidf_linear"
+    ]
+    # explicit argument still wins over the policy
+    res = pecca.train("p/route_rfi", candidates=["tfidf_linear", "e5_logreg"])
+    assert {e["candidate"] for e in res.leaderboard} == {"tfidf_linear", "e5_logreg"}
+
+
+def test_policy_candidates_validated_by_schema():
+    from pecca.config import loader
+    from pecca.core.errors import ConfigError
+
+    ok = {
+        "version": 1,
+        "projects": {"p": {"calls": {"c": {"policy": {"candidates": ["tfidf_linear"]}}}}},
+    }
+    loader.resolve(ok)
+    for bad in ([], "tfidf_linear", [1]):
+        with pytest.raises(ConfigError):
+            loader.resolve(
+                {"version": 1, "projects": {"p": {"calls": {"c": {"policy": {"candidates": bad}}}}}}
+            )

@@ -5,6 +5,7 @@ import shutil
 from pathlib import Path
 from typing import Any
 
+from pecca import __version__
 from pecca.connectors.base import ServingTarget, register
 from pecca.connectors.registry.local import LocalRegistry
 
@@ -49,12 +50,12 @@ class DockerExportServing(ServingTarget):
         self,
         out_dir: str = "docker_export",
         home: str | None = None,
-        pecca_version: str = "0.1.0",
+        pecca_version: str | None = None,
         **_: Any,
     ) -> None:
         self.out = Path(out_dir)
         self.registry = LocalRegistry(home or os.environ.get("PECCA_HOME") or ".pecca")
-        self.pecca_version = pecca_version
+        self.pecca_version = pecca_version or __version__
         self._last: dict[str, str] = {}
 
     def deploy(self, path_key: str, version: str) -> str:

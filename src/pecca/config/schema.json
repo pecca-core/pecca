@@ -49,7 +49,8 @@
                     "min_rows": {"type": "integer", "minimum": 1},
                     "target_precision": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
                     "latency_budget_ms": {"type": "number", "exclusiveMinimum": 0},
-                    "metric": {"type": "string"}
+                    "metric": {"type": "string"},
+                    "candidates": {"type": "array", "items": {"type": "string"}, "minItems": 1, "description": "Restrict the tournament to these candidates (default: the selection rules). Use it to keep scheduled retrains off slow models such as xlmr_finetune."}
                   }
                 }
               }

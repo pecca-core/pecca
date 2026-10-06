@@ -1,6 +1,6 @@
 """Pecca: replace repetitive LLM calls with small, auditable models."""
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from pecca import connectors  # noqa: E402
 from pecca.api import (  # noqa: E402
