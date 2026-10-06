@@ -3,11 +3,11 @@ __pycache__/
 .venv/
 .pecca/
 .env
-data/
-models/
-site/
-dist/
-build/
+/data/
+/models/
+/site/
+/dist/
+/build/
 *.egg-info/
 .coverage
 htmlcov/
@@ -16,3 +16,4 @@ htmlcov/
 .pytest_cache/
 .ipynb_checkpoints/
 .DS_Store
+.hypothesis/
