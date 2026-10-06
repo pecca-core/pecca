@@ -79,7 +79,7 @@ jobs:
           enable-cache: true
           python-version: "3.11"
       - run: uv sync --extra mlflow --dev
-      - run: uv pip install huggingface_hub langgraph langchain-core strands-agents google-adk openai-agents claude-agent-sdk
+      - run: uv pip install huggingface_hub requests respx pyyaml hvac boto3 "moto[secretsmanager]" "psycopg[binary]" langgraph langchain-core strands-agents google-adk openai-agents claude-agent-sdk
       - run: uv run python scripts/run_notebooks.py
 
   build:
