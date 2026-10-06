@@ -17,11 +17,13 @@ def route_email(text: str) -> str:
     return my_llm.classify(text)  #    (unchanged)
 
 
-pecca.train("route_email")  # 2. Pecca picks + trains the best small model
+pecca.train("route_email")  # 2. trains on the logs the decorator recorded
 pecca.promote("route_email", mode="live")  # 3. model answers in ~30 ms; LLM is the fallback
 ```
 
 *`my_llm` is whatever you already use (OpenAI, Bedrock, Claude, local). Pecca never calls it itself; it learns from the answers it already gave.*
+
+*`train` needs recorded logs or a configured datasource; see the [quickstart](https://pecca-core.github.io/pecca/quickstart/).*
 
 ## Install
 

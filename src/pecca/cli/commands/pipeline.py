@@ -176,7 +176,9 @@ def approve(
 def audit(
     path: str = typer.Argument(...),
     version: str = typer.Option(None, "--version"),
-    out: str = typer.Option("markdown", "--out"),
+    out: str = typer.Option(
+        "markdown", "--out", help="markdown | json | confluence | pdf (pdf is untested)"
+    ),
     dest: str = typer.Option(None, "--path"),
 ) -> None:
     """Generate the audit pack."""

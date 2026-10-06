@@ -46,11 +46,19 @@ def test_latency_budget_removes_transformers():
     assert select_candidates(prof(n=3000), latency_budget_ms=5, has_gpu=True) == ["tfidf_linear"]
 
 
-def test_xlmr_skipped_without_gpu_on_large_data(monkeypatch):
+def test_xlmr_skipped_without_gpu_above_5000_rows(monkeypatch):
+    import warnings
+
     monkeypatch.setenv("PECCA_TEST_SMALL", "0")
-    with pytest.warns(UserWarning):
-        names = select_candidates(prof(n=30000), has_gpu=False)
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter("always")
+        names = select_candidates(prof(n=6000), has_gpu=False)
     assert "xlmr_finetune" not in names
+    assert any("--candidates" in str(w.message) and "GPU" in str(w.message) for w in caught)
+    assert "xlmr_finetune" in select_candidates(
+        prof(n=5000), has_gpu=False
+    )  # at the limit: still included
+    assert "xlmr_finetune" in select_candidates(prof(n=30000), has_gpu=True)
 
 
 def test_plugin_registration():

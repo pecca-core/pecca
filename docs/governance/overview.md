@@ -29,3 +29,9 @@ governance:
 
 !!! note
     Gates assume *higher is better* for `cv_metric`. For regression calls (`rmse`), write lower-is-better gates, e.g. `cv_metric <= 5`.
+
+## Audit pack
+`pecca audit PATH [--version vN] [--out markdown|pdf|confluence|json]` writes one Markdown file per section (summary, model card, data lineage, benchmark leaderboard, confusion matrix, per-class report, calibration, threshold rationale, shadow results, approvals, drift report, controls mapping, environment, manifest) plus charts and a `manifest.sha256`.
+
+!!! warning "PDF export is untested"
+    `--out pdf` needs `pip install 'pecca[pdf]'` plus system libraries (pango). It has not been verified in v0.1; prefer Markdown, JSON or Confluence.

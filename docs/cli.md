@@ -269,7 +269,7 @@ $ pecca audit [OPTIONS] {path}
 **Options**:
 
 * `--version <str>`
-* `--out <str>`: [default: markdown]
+* `--out <str>`: markdown | json | confluence | pdf (pdf is untested)  [default: markdown]
 * `--path <str>`
 * `--help`: Show this message and exit.
 

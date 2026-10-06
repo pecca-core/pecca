@@ -34,9 +34,11 @@ It is the demo model of [Pecca](https://github.com/pecca-core/pecca), which repl
 small, auditable models. **Not for production.**
 
 ## How it was trained
-Pecca ran a tournament on the same cross-validated splits and picked the best candidate by macro-F1:
+Pecca ran a tournament on the same cross-validated splits and measured macro-F1:
 
 {leaderboard}
+
+{note}
 
 Training data: [pecca-core/demo-support-emails](https://huggingface.co/datasets/pecca-core/demo-support-emails)
 ({rows:,} rows; labels = human tag where present, else the simulated LLM's answer).
@@ -96,12 +98,28 @@ def main() -> None:
     prof = pecca.profile(ds).profiles["route_rfi"]
     names = [c for c in select_candidates(prof) if a.full or c != "xlmr_finetune"]
     print("candidates:", names)
-    res = pecca.train("route_rfi", ds, candidates=names, target_precision=0.95, progress=print)
+    tour = pecca.train("route_rfi", ds, candidates=names, target_precision=0.95, progress=print)
     print(
-        f"winner {res.winner} {res.metric_name}={res.metric:.3f} llm={res.llm_metric} threshold={res.threshold:.2f}"
+        f"tournament winner {tour.winner} {tour.metric_name}={tour.metric:.3f} llm={tour.llm_metric}"
     )
-    if res.winner != "e5_logreg":
-        print("note: expected winner is e5_logreg; got", res.winner)
+    scores = {e["candidate"]: e["metric"] for e in tour.leaderboard if e["status"] == "ok"}
+    tour_board = tour.leaderboard
+    if tour.winner == "e5_logreg":
+        res, note = tour, "`e5_logreg` won the tournament."
+    else:
+        # The published demo model is e5_logreg regardless; the data decided the tournament, so say so.
+        res = pecca.train(
+            "route_rfi", ds, candidates=["e5_logreg"], target_precision=0.95, progress=print
+        )
+        margin = scores[tour.winner] - scores["e5_logreg"]
+        note = (
+            f"On this synthetic data `{tour.winner}` won the tournament by {margin:.3f} macro-F1. "
+            "This published model is `e5_logreg` anyway: multilingual-e5 embeddings are more robust "
+            "on real multilingual data, where templated phrasing is not repeated as it is here."
+        )
+    print(
+        f"published {res.version}: {res.winner} {res.metric_name}={res.metric:.3f} threshold={res.threshold:.2f}"
+    )
 
     from pecca.core import context
 
@@ -130,13 +148,14 @@ def main() -> None:
         + "\n".join(
             f"| {e['candidate']}{' ★' if e.get('winner') else ''} | {e['metric']:.3f} | {e['metric_std']:.3f} | "
             f"{e['fit_time_s']:.1f} | {e['predict_latency_ms']:.1f} |"
-            for e in mv.leaderboard
+            for e in tour_board
             if e["status"] == "ok"
         )
     )
     (out / "model_card.md").write_text(
         CARD.format(
             leaderboard=board,
+            note=note,
             rows=mv.lineage["rows"],
             metric=mv.metric,
             std=mv.metric_std,

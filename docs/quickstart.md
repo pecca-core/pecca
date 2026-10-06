@@ -52,7 +52,7 @@ winner tfidf_linear  macro_f1 0.91 vs llm 0.83
 threshold 0.70  expected fallback 0%
 saved v1 → .pecca/default/default/route_rfi/versions/v1
 ```
-Without `--candidates`, Pecca also fine-tunes `xlmr_finetune` for calls with 2,000+ rows. That is fast on a GPU and slow (hours) on a laptop CPU.
+Without `--candidates`, Pecca also fine-tunes `xlmr_finetune` for calls with 2,000+ rows. On a machine with no GPU/MPS it is skipped automatically above 5,000 rows (with a warning); on a GPU or Apple Silicon it runs and is slow on a laptop, so this quickstart limits the tournament to the two fast candidates.
 The *data* decides the winner: on this synthetic data TF-IDF edges out the e5 embedding model.
 
 ## 4. Shadow it
@@ -99,11 +99,27 @@ pecca promote default/default/route_rfi --mode live
 blocked: shadow->live
   gate failing: shadow_days >= 7 (actual 0.000104)
 ```
-The gate `shadow_days >= 7` is doing its job. After a week of shadow traffic it passes. For a local demo you can override it explicitly (the override is logged in the audit trail):
+The gate `shadow_days >= 7` is doing its job: in production the model must run next to the LLM for a week first. For this local demo, relax the gate in `pecca.yaml` (under `projects.default.governance`), apply it, and promote again:
+```yaml
+    governance:
+      extends: none
+      transitions:
+        shadow->live:
+          gates: ["agreement >= 0.85", "shadow_days >= 0"]   # demo only; keep 7+ in real use
+```
 ```bash
-PECCA_ALLOW_FORCE=1 pecca promote default/default/route_rfi --mode live --force
+pecca apply
+pecca promote default/default/route_rfi --mode live
 ```
 ```text
-live since now  (forced)
+live since now
 ```
+```text
+call       default/default/route_rfi
+mode       live            since 2026-10-06
+...
+policy     shadow_at cv_metric>=0.80  live_at agreement>=0.85 & shadow_days>=0
+```
+Changing a gate is a reviewable config change; `pecca apply` prints the diff. (`pecca promote --force` exists for emergencies, needs `PECCA_ALLOW_FORCE=1` and is written to the audit trail, but it is not how you go live.)
+
 Next: [modes](concepts/modes.md), [the tournament](concepts/tournament.md), [governance](governance/overview.md).

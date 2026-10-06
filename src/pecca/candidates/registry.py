@@ -11,6 +11,8 @@ from pecca.candidates.base import Candidate
 from pecca.core.errors import PeccaError
 from pecca.core.models import CallProfile
 
+XLMR_CPU_MAX_ROWS = 5000  # above this, skip GPU-hungry candidates when no GPU/MPS is available
+
 _REGISTRY: dict[str, type[Candidate]] = {}
 _BUILTIN: set[str] = set()
 
@@ -94,13 +96,17 @@ def select_candidates(
             continue
         if nm == "xlmr_finetune" and os.environ.get("PECCA_TEST_SMALL") == "1":
             continue  # small mode: no model downloads / fine-tuning
-        if cls.requires_gpu and n > 20000:
+        if cls.requires_gpu and n > XLMR_CPU_MAX_ROWS:
             # only now do we need to know (importing torch is avoided otherwise)
             gpu = has_accelerator() if gpu_known is None else gpu_known
             if gpu:
                 out.append(nm)
                 continue
-            warnings.warn(f"skipping {nm}: no GPU/MPS and n_rows={n} > 20000", stacklevel=2)
+            warnings.warn(
+                f"skipping {nm}: no GPU/MPS available and n_rows={n} > {XLMR_CPU_MAX_ROWS}. "
+                f"Run on a GPU, or pass candidates explicitly (CLI: --candidates {nm},...) to include it.",
+                stacklevel=2,
+            )
             continue
         out.append(nm)
     for nm, cls in _REGISTRY.items():
