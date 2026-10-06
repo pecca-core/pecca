@@ -14,3 +14,5 @@ jobs:
       - uses: christophebedard/dco-check@0.5.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Bot commits cannot carry a sign-off; Dependabot bumps are reviewed before merge.
+          DCO_CHECK_EXCLUDE_EMAILS: "49699333+dependabot[bot]@users.noreply.github.com"
