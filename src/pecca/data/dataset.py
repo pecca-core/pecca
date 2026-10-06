@@ -96,7 +96,7 @@ def canonicalize(
         return [str(spec)]
 
     needed: list[str] = []
-    for key, spec in columns.items():
+    for spec in columns.values():
         if spec is not None:
             needed += src_cols(spec)
     absent = sorted({c for c in needed if c not in raw.columns})
@@ -122,9 +122,7 @@ def canonicalize(
     for k in OPTIONAL:
         spec = columns.get(k)
         if spec is not None:
-            out[k] = (
-                spec["literal"] if isinstance(spec, dict) and "literal" in spec else raw[spec]
-            )
+            out[k] = spec["literal"] if isinstance(spec, dict) and "literal" in spec else raw[spec]
         elif k in raw.columns and k not in needed:
             out[k] = raw[k]
         else:
