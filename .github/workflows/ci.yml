@@ -66,6 +66,22 @@ jobs:
       - run: git diff --exit-code docs/cli.md docs/config/pecca-yaml.md
       - run: uv run mkdocs build --strict
 
+  notebooks:
+    runs-on: ubuntu-latest
+    env:
+      PECCA_SKIP_DOCKER: "1"   # Docker-based cells are skipped in CI
+      PECCA_TEST_SMALL: "1"
+      PYTHONWARNINGS: ignore   # framework warnings embed the runner's venv path, which the notebook leak check rejects
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          python-version: "3.11"
+      - run: uv sync --extra mlflow --dev
+      - run: uv pip install huggingface_hub langgraph langchain-core strands-agents google-adk openai-agents claude-agent-sdk
+      - run: uv run python scripts/run_notebooks.py
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -80,7 +96,7 @@ jobs:
   ci:
     name: ci
     if: always()
-    needs: [test, docs, build]
+    needs: [test, docs, notebooks, build]
     runs-on: ubuntu-latest
     steps:
       - run: |

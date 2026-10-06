@@ -11,14 +11,20 @@ _configured = False
 _lock = threading.Lock()
 
 
-def configure(cfg: dict[str, Any] | None) -> None:
-    """Install an OTLP exporter once if the workspace config asks for it."""
+def configure(cfg: dict[str, Any] | None, secrets: Any = None) -> None:
+    """Install an OTLP exporter once if the workspace config asks for it.
+
+    ``${VAR}`` placeholders (e.g. in ``headers``) are resolved through ``secrets`` when given."""
     global _configured
     if not cfg or _configured or cfg.get("exporter") != "otlp":
         return
     with _lock:
         if _configured:
             return
+        if secrets is not None:
+            from pecca.config.resolve import substitute
+
+            cfg = substitute(cfg, secrets)
         from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
         from opentelemetry.sdk.resources import Resource
         from opentelemetry.sdk.trace import TracerProvider

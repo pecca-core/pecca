@@ -316,3 +316,40 @@ def test_mcp_remaining_tools():
         "per_class_f1_delta" in out["pecca_diff"].content[0].text
         and "Audit pack" in out["pecca_audit"].content[0].text
     )
+
+
+def test_telemetry_headers_resolve_secrets(monkeypatch):
+    """`${VAR}` in workspace.telemetry.headers must be resolved before reaching the OTLP exporter."""
+    from pecca.connectors.secrets.env import EnvSecrets
+
+    seen = {}
+
+    class FakeExporter:
+        def __init__(self, **kw):
+            seen.update(kw)
+
+        def export(self, spans):
+            return None
+
+        def shutdown(self):
+            return None
+
+        def force_flush(self, timeout_millis=30000):
+            return True
+
+    import opentelemetry.exporter.otlp.proto.http.trace_exporter as te
+
+    monkeypatch.setattr(te, "OTLPSpanExporter", FakeExporter)
+    monkeypatch.setattr(telemetry, "_configured", False)
+    monkeypatch.setenv("VENDOR_KEY", "s3cret")
+    monkeypatch.setattr("opentelemetry.trace.set_tracer_provider", lambda p: None)
+    telemetry.configure(
+        {
+            "exporter": "otlp",
+            "endpoint": "https://otlp.example/v1/traces",
+            "headers": {"api-key": "${VENDOR_KEY}"},
+        },
+        EnvSecrets(),
+    )
+    assert seen == {"endpoint": "https://otlp.example/v1/traces", "headers": {"api-key": "s3cret"}}
+    monkeypatch.setattr(telemetry, "_configured", False)

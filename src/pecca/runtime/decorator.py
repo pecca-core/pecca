@@ -83,7 +83,10 @@ class _Runtime:
             self._call = context.get_call(self.name, ws, self.project)
             self._ws_id = id(ws)
             self._state_at = 0.0
-            telemetry.configure(ws.telemetry)
+            try:
+                telemetry.configure(ws.telemetry, ws.secrets)
+            except Exception as e:  # noqa: BLE001 - observability must never break the call
+                _warn_once("telemetry", f"pecca: telemetry disabled ({e})")
         return self._call
 
     def resolve_mode(self, call: Call) -> str:

@@ -68,6 +68,19 @@ nav:
       - integrations/agent-frameworks.md
       - integrations/mlflow-unity-catalog.md
       - integrations/opentelemetry.md
+  - Examples:
+      - examples/index.md
+      - examples/quickstart.md
+      - examples/agent_langgraph.md
+      - examples/agent_strands.md
+      - examples/agent_google_adk.md
+      - examples/agent_openai_agents.md
+      - examples/agent_claude_agent_sdk.md
+      - examples/monitoring_datadog.md
+      - examples/monitoring_new_relic.md
+      - examples/monitoring_honeycomb.md
+      - examples/monitoring_langfuse.md
+      - examples/monitoring_dynatrace.md
   - Extending: extending/custom-candidates.md
   - CLI reference: cli.md
   - API reference: api/index.md
