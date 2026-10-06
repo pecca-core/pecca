@@ -8,7 +8,7 @@ The user says *what* to replace; Pecca owns *how*. Eligible candidates are chose
 | text regression | `tfidf_ridge`, `e5_ridge` | same |
 | tabular classification / regression | `logreg`, `lightgbm` / `ridge`, `lightgbm_reg` | same |
 
-`latency_budget_ms < 10` removes transformer candidates. Without a GPU/MPS, `xlmr_finetune` is skipped above 5,000 rows (a warning says how to include it: `--candidates`). Custom candidates join via [`@pecca.register`](../extending/custom-candidates.md).
+`latency_budget_ms < 10` removes transformer candidates. Without a GPU/MPS, `xlmr_finetune` is skipped above 5,000 rows (a warning says how to include it: `--candidates`). Custom candidates join via [`@pecca.register`](../extending/custom-candidates.md). To restrict a call to specific candidates (for example to keep scheduled retrains off `xlmr_finetune`), set `calls.<name>.policy.candidates: [tfidf_linear, e5_logreg]`; an explicit `candidates=` argument (or `--candidates`) overrides it.
 
 Procedure: hold out 15% for calibration, run stratified 5-fold CV (3-fold under 2,000 rows) with `random_state=42`, record mean/std of the primary metric (`macro_f1`, or `rmse` for regression), fit time and median single-row CPU latency (200 predictions). Highest metric wins; ties go to lower latency. The winner is refit, calibrated, thresholded and exported (ONNX when its output matches the native model within 1e-3, otherwise the native artefact).
 

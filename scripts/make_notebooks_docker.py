@@ -693,7 +693,7 @@ Path("pecca.yaml").write_text(yaml.safe_dump({"version": 1, "projects": {"defaul
     "datasource": {"type": "csv", "path": "logs.csv", "columns": {"input": {"subject": "email_subject", "body": "email_body"}, "llm_output": "llm_rfi",
                                                               "human_label": "human_rfi", "call_name": {"literal": "route_rfi"}},
                    "input_template": "{subject}\\n\\n{body}"},
-    "governance": {"extends": "default"}, "calls": {"route_rfi": {"policy": {"train_every": "7d", "latency_budget_ms": 5}}}}}}))   # a 5 ms budget keeps scheduled retrains to the fast models
+    "governance": {"extends": "default"}, "calls": {"route_rfi": {"policy": {"train_every": "7d", "candidates": ["tfidf_linear"]}}}}}}))   # scheduled retrains skip the slow models (e.g. xlmr_finetune)
 context.reset()
 print(pecca.train("route_rfi", candidates=["tfidf_linear"]).version)
 from pecca.governance import schedule

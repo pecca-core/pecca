@@ -5,6 +5,7 @@ uv run python scripts/make_notebooks.py          # writes examples/quickstart.ip
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
 import nbformat as nbf
@@ -20,7 +21,14 @@ def badge(path: str) -> str:
     )
 
 
+ONLY = set(
+    sys.argv[1:]
+)  # `make_notebooks.py name ...` regenerates just those notebooks (keeps the others' outputs)
+
+
 def build(path: str, cells: list[tuple[str, str]]) -> None:
+    if ONLY and Path(path).stem not in ONLY:
+        return
     nb = nbf.v4.new_notebook()
     nb.metadata["kernelspec"] = {
         "display_name": "Python 3",
@@ -718,7 +726,12 @@ def main() -> None:
         "Claude Agent SDK",
         "claude-agent-sdk",
         CLAUDE,
-        note="\n*Needs the Claude Code CLI bundled with `claude-agent-sdk`; no Anthropic account or API key is used here.*",
+        note=(
+            "\n> **Stand-in model.** The Claude Agent SDK drives the Claude Code CLI against the Messages API. "
+            "To stay offline this notebook points the CLI at a small local fake API that replays a scripted plan; "
+            "no Anthropic account or API key is used. The tools, the in-process MCP server and the Pecca tool are real; "
+            "only the model is a stand-in.\n"
+        ),
     )
     print("wrote 6 notebooks")
 

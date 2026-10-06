@@ -188,7 +188,7 @@ def train(
             target_precision=target_precision
             if target_precision is not None
             else float(pol.get("target_precision", 0.95)),
-            candidates=candidates,
+            candidates=candidates if candidates is not None else pol.get("candidates"),
             progress=progress,
         )
         mv = out.version
