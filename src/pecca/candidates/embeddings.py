@@ -98,7 +98,9 @@ def get_embedder(name: str | None = None) -> Embedder:
         name = f"hashing-{HASH_DIM}" if os.environ.get("PECCA_TEST_SMALL") == "1" else E5_MODEL
     if name not in _EMBEDDERS:
         _EMBEDDERS[name] = (
-            HashingEmbedder(int(name.split("-")[1])) if name.startswith("hashing-") else SentenceEmbedder(name)
+            HashingEmbedder(int(name.split("-")[1]))
+            if name.startswith("hashing-")
+            else SentenceEmbedder(name)
         )
     return _EMBEDDERS[name]
 
@@ -130,8 +132,13 @@ class _EmbeddingCandidate(SklearnCandidate):
         return obj
 
 
-@register("e5_logreg", task_types=["classification"], estimated_latency_ms=40.0,
-          input_types=("text", "multi_text"), _builtin=True)
+@register(
+    "e5_logreg",
+    task_types=["classification"],
+    estimated_latency_ms=40.0,
+    input_types=("text", "multi_text"),
+    _builtin=True,
+)
 class E5LogReg(_EmbeddingCandidate):
     kind = "classification"
 
@@ -139,8 +146,13 @@ class E5LogReg(_EmbeddingCandidate):
         return LogisticRegression(class_weight="balanced", max_iter=2000)
 
 
-@register("e5_ridge", task_types=["regression"], estimated_latency_ms=40.0,
-          input_types=("text", "multi_text"), _builtin=True)
+@register(
+    "e5_ridge",
+    task_types=["regression"],
+    estimated_latency_ms=40.0,
+    input_types=("text", "multi_text"),
+    _builtin=True,
+)
 class E5Ridge(_EmbeddingCandidate):
     kind = "regression"
 

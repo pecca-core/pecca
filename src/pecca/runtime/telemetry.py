@@ -24,7 +24,9 @@ def configure(cfg: dict[str, Any] | None) -> None:
         from opentelemetry.sdk.trace import TracerProvider
         from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
-        provider = TracerProvider(resource=Resource.create({"service.name": cfg.get("service", "pecca")}))
+        provider = TracerProvider(
+            resource=Resource.create({"service.name": cfg.get("service", "pecca")})
+        )
         kwargs: dict[str, Any] = {}
         if cfg.get("endpoint"):
             kwargs["endpoint"] = cfg["endpoint"]

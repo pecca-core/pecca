@@ -71,10 +71,17 @@ def _log_dataset(call: Call, include_fallbacks: bool) -> pd.DataFrame:
         logs = logs[logs["served_by"] != "fallback"]
     if logs.empty:
         return pd.DataFrame()
-    raw = pd.DataFrame({"input": logs["input"], "llm_output": logs["llm_output"],
-                        "ts": logs["ts"], "name": call.name})
-    return canonicalize(raw, {"input": "input", "llm_output": "llm_output",
-                              "call_name": "name", "timestamp": "ts"})
+    raw = pd.DataFrame(
+        {
+            "input": logs["input"],
+            "llm_output": logs["llm_output"],
+            "ts": logs["ts"],
+            "name": call.name,
+        }
+    )
+    return canonicalize(
+        raw, {"input": "input", "llm_output": "llm_output", "call_name": "name", "timestamp": "ts"}
+    )
 
 
 def load_dataset(
@@ -92,32 +99,49 @@ def load_dataset(
         mapping = getattr(ds, "columns", {})
         lab = cfg.get("labels")
         if lab and include_human_labels:
-            lconn = connectors.create("datasource", {
-                **lab, "columns": {"input": lab["join_on"], "llm_output": lab["column"],
-                                   "call_name": {"literal": call.name}}})
+            lconn = connectors.create(
+                "datasource",
+                {
+                    **lab,
+                    "columns": {
+                        "input": lab["join_on"],
+                        "llm_output": lab["column"],
+                        "call_name": {"literal": call.name},
+                    },
+                },
+            )
             ldf = lconn._read_raw(None, None)  # noqa: SLF001
             df = join_labels(df, ldf, lab["join_on"], lab["column"])
         if not include_human_labels:
             df["human_label"] = None
-        frames.append(df)
+        if not df.empty:
+            frames.append(df)
     logged = _log_dataset(call, include_fallbacks)
     if not logged.empty:
         frames.append(logged)
     if not frames:
         raise PeccaError(
             f"no data for {call.path}",
-            "pass dataset=..., configure a datasource in pecca.yaml, or record calls with @pecca.replace",
+            "check the call name against `pecca connect`, pass dataset=..., or record calls with @pecca.replace",
         )
     df = pd.concat(frames, ignore_index=True)
     return Dataset(df, mapping, template, source="project")
 
 
-def profile(dataset: Dataset | None = None, call: str | None = None, *,
-            min_rows: int = 500, workspace: WS = None, project: PR = None) -> ProfileReport:
+def profile(
+    dataset: Dataset | None = None,
+    call: str | None = None,
+    *,
+    min_rows: int = 500,
+    workspace: WS = None,
+    project: PR = None,
+) -> ProfileReport:
     """Profile each call in ``dataset`` (default: the project's configured datasource)."""
     if dataset is None:
         if call is None:
-            raise PeccaError("profile() needs a dataset or a call", "profile(dataset) or profile(call=...)")
+            raise PeccaError(
+                "profile() needs a dataset or a call", "profile(dataset) or profile(call=...)"
+            )
         dataset = load_dataset(_call(call, workspace, project))
         call = _call(call, workspace, project).name
     return profile_dataset(dataset, call, min_rows)
@@ -142,8 +166,9 @@ def train(
     c = _call(call, workspace, project)
     pol = c.project.policy(c.name)
     if dataset is None:
-        dataset = load_dataset(c, include_fallbacks=include_fallbacks,
-                               include_human_labels=include_human_labels)
+        dataset = load_dataset(
+            c, include_fallbacks=include_fallbacks, include_human_labels=include_human_labels
+        )
     mr = min_rows if min_rows is not None else int(pol.get("min_rows", 500))
     prof: CallProfile = profile_dataset(dataset, c.name, mr).profiles[c.name]
     if not prof.replaceable:
@@ -151,11 +176,21 @@ def train(
     version = c.next_version()
     with tempfile.TemporaryDirectory() as work:
         out = run_tournament(
-            c.name, dataset, prof, version=version, workdir=work,
+            c.name,
+            dataset,
+            prof,
+            version=version,
+            workdir=work,
             metric=metric or pol.get("metric"),
-            latency_budget_ms=latency_budget_ms if latency_budget_ms is not None else pol.get("latency_budget_ms"),
-            target_precision=target_precision if target_precision is not None else float(pol.get("target_precision", 0.95)),
-            candidates=candidates, progress=progress)
+            latency_budget_ms=latency_budget_ms
+            if latency_budget_ms is not None
+            else pol.get("latency_budget_ms"),
+            target_precision=target_precision
+            if target_precision is not None
+            else float(pol.get("target_precision", 0.95)),
+            candidates=candidates,
+            progress=progress,
+        )
         mv = out.version
         path = c.registry.save_model(c.key, version, out.artefacts_dir, mv.to_dict())
     st = c.state()
@@ -169,28 +204,62 @@ def train(
     if not c.has_state():
         st.since = iso()
     c.save_state(st)
-    c.notify("trained", {"version": version, "message": f"{mv.candidate} {mv.metric_name} {mv.metric:.3f}"})
-    return TrainResult(version, mv.candidate, mv.metric_name, mv.metric, mv.metric_std, mv.llm_metric,
-                       mv.threshold, mv.expected_fallback_rate, mv.latency_ms, mv.leaderboard, path, mv.lineage)
+    c.notify(
+        "trained",
+        {"version": version, "message": f"{mv.candidate} {mv.metric_name} {mv.metric:.3f}"},
+    )
+    return TrainResult(
+        version,
+        mv.candidate,
+        mv.metric_name,
+        mv.metric,
+        mv.metric_std,
+        mv.llm_metric,
+        mv.threshold,
+        mv.expected_fallback_rate,
+        mv.latency_ms,
+        mv.leaderboard,
+        path,
+        mv.lineage,
+    )
 
 
-def retrain(call: str, *, include_fallbacks: bool = True, include_human_labels: bool = True,
-            workspace: WS = None, project: PR = None, **kw: Any) -> TrainResult:
-    return train(call, None, include_fallbacks=include_fallbacks,
-                 include_human_labels=include_human_labels, workspace=workspace, project=project, **kw)
+def retrain(
+    call: str,
+    *,
+    include_fallbacks: bool = True,
+    include_human_labels: bool = True,
+    workspace: WS = None,
+    project: PR = None,
+    **kw: Any,
+) -> TrainResult:
+    return train(
+        call,
+        None,
+        include_fallbacks=include_fallbacks,
+        include_human_labels=include_human_labels,
+        workspace=workspace,
+        project=project,
+        **kw,
+    )
 
 
-def predict(call: str, inputs: list[Any], *, workspace: WS = None, project: PR = None) -> list[Prediction]:
+def predict(
+    call: str, inputs: list[Any], *, workspace: WS = None, project: PR = None
+) -> list[Prediction]:
     return get_predictor(_call(call, workspace, project)).predict(list(inputs))
 
 
-def evaluate(call: str, since: str = "14d", *, workspace: WS = None, project: PR = None) -> EvalReport:
+def evaluate(
+    call: str, since: str = "14d", *, workspace: WS = None, project: PR = None
+) -> EvalReport:
     return evaluate_call(_call(call, workspace, project), since)
 
 
 # ---- promotion & governance ---------------------------------------------------------------
-def promote(call: str, mode: str, *, force: bool = False, workspace: WS = None,
-            project: PR = None) -> Decision:
+def promote(
+    call: str, mode: str, *, force: bool = False, workspace: WS = None, project: PR = None
+) -> Decision:
     c = _call(call, workspace, project)
     st = c.state()
     src = st.mode if c.has_state() else "record"
@@ -211,11 +280,19 @@ def promote(call: str, mode: str, *, force: bool = False, workspace: WS = None,
         if not force:
             return dec
         if os.environ.get("PECCA_ALLOW_FORCE") != "1":
-            raise GovernanceError("--force requires PECCA_ALLOW_FORCE=1", "set it explicitly to override gates")
+            raise GovernanceError(
+                "--force requires PECCA_ALLOW_FORCE=1", "set it explicitly to override gates"
+            )
         dec.forced = True
         st = c.state()
-        c.log_event(st, "forced_promotion", transition=transition, failing_gates=dec.failing_gates,
-                    pending_approvals=dec.pending_approvals, evidence_missing=dec.evidence_missing)
+        c.log_event(
+            st,
+            "forced_promotion",
+            transition=transition,
+            failing_gates=dec.failing_gates,
+            pending_approvals=dec.pending_approvals,
+            evidence_missing=dec.evidence_missing,
+        )
         c.save_state(st)
     st = c.state()
     st.mode, st.since = mode, iso()
@@ -245,16 +322,27 @@ def _ensure_ticket(c: Call, transition: str, cfg: dict[str, Any], dec: Decision)
     ctx["transition"] = transition
     ctx["policy"] = {**ctx["policy"], "approvals": ap}
     body = render("approval_ticket.md.j2", **ctx)
-    tid = ticketer.create(f"Pecca: approve {c.path} {mv.version} ({transition})", body,
-                          {"call": str(c.path), "version": mv.version})
+    tid = ticketer.create(
+        f"Pecca: approve {c.path} {mv.version} ({transition})",
+        body,
+        {"call": str(c.path), "version": mv.version},
+    )
     st.tickets[mv.version] = tid
     c.save_state(st)
     c.notify("ready_for_approval", {"version": mv.version, "message": f"ticket {tid}"})
 
 
-def approve(call: str, version: str, *, approver: str, ticket: str | None = None,
-            note: str | None = None, groups: list[str] | None = None,
-            workspace: WS = None, project: PR = None) -> dict[str, Any]:
+def approve(
+    call: str,
+    version: str,
+    *,
+    approver: str,
+    ticket: str | None = None,
+    note: str | None = None,
+    groups: list[str] | None = None,
+    workspace: WS = None,
+    project: PR = None,
+) -> dict[str, Any]:
     c = _call(call, workspace, project)
     c.version(version)  # raises if unknown
     if groups is None:
@@ -263,8 +351,14 @@ def approve(call: str, version: str, *, approver: str, ticket: str | None = None
             groups = ident["groups"] if ident.get("user") == approver else []
         except Exception:  # noqa: BLE001
             groups = []
-    rec = {"version": version, "approver": approver, "groups": groups, "ticket": ticket,
-           "note": note, "ts": iso()}
+    rec = {
+        "version": version,
+        "approver": approver,
+        "groups": groups,
+        "ticket": ticket,
+        "note": note,
+        "ts": iso(),
+    }
     st = c.state()
     st.approvals.append(rec)
     c.log_event(st, "approval", approver=approver, version=version)
@@ -272,19 +366,32 @@ def approve(call: str, version: str, *, approver: str, ticket: str | None = None
     return rec
 
 
-def audit_pack(call: str, version: str | None = None, *, out: str = "markdown",
-               path: str | None = None, workspace: WS = None, project: PR = None) -> str:
+def audit_pack(
+    call: str,
+    version: str | None = None,
+    *,
+    out: str = "markdown",
+    path: str | None = None,
+    workspace: WS = None,
+    project: PR = None,
+) -> str:
     return _audit.export(_call(call, workspace, project), version, out, path)
 
 
 # ---- agent tools --------------------------------------------------------------------------
-def as_tool(call: str, *, project: PR = None, workspace: WS = None,
-            description: str | None = None) -> Callable[[str], dict[str, Any]]:
+def as_tool(
+    call: str, *, project: PR = None, workspace: WS = None, description: str | None = None
+) -> Callable[[str], dict[str, Any]]:
     """A plain typed callable ``f(text) -> {label, confidence, fallback, version}`` for agent frameworks."""
 
     def tool(text: str) -> dict[str, Any]:
         p = predict(call, [text], workspace=workspace, project=project)[0]
-        return {"label": p.label, "confidence": p.confidence, "fallback": p.fallback, "version": p.version}
+        return {
+            "label": p.label,
+            "confidence": p.confidence,
+            "fallback": p.fallback,
+            "version": p.version,
+        }
 
     tool.__name__ = call.rsplit("/", 1)[-1]
     tool.__doc__ = description or (

@@ -12,7 +12,9 @@ from pecca.profiler.rules import infer_task_type
 
 def _ds(inputs, outputs, human=None, call="c"):
     raw = pd.DataFrame({"i": inputs, "o": outputs, "h": human or [None] * len(outputs)})
-    df = canonicalize(raw, {"input": "i", "llm_output": "o", "human_label": "h", "call_name": {"literal": call}})
+    df = canonicalize(
+        raw, {"input": "i", "llm_output": "o", "human_label": "h", "call_name": {"literal": call}}
+    )
     return Dataset(df)
 
 
@@ -37,7 +39,9 @@ def test_extraction_not_replaceable():
 
 
 def test_free_text():
-    p = profile_call(_ds([f"t{i}" for i in range(600)], [f"reply number {i} " * 3 for i in range(600)]), "c")
+    p = profile_call(
+        _ds([f"t{i}" for i in range(600)], [f"reply number {i} " * 3 for i in range(600)]), "c"
+    )
     assert p.task_type == "free_text" and not p.replaceable and "closed set" in p.reason
 
 
@@ -49,9 +53,13 @@ def test_insufficient_rows():
 
 def test_tabular_and_multi_text():
     raw = pd.DataFrame({"x": range(600), "y": range(600), "o": ["a", "b"] * 300, "s": ["hi"] * 600})
-    df = canonicalize(raw, {"input": {"x": "x", "y": "y"}, "llm_output": "o", "call_name": {"literal": "c"}})
+    df = canonicalize(
+        raw, {"input": {"x": "x", "y": "y"}, "llm_output": "o", "call_name": {"literal": "c"}}
+    )
     assert profile_call(Dataset(df), "c").input_type == "tabular"
-    df = canonicalize(raw, {"input": {"s": "s", "t": "s"}, "llm_output": "o", "call_name": {"literal": "c"}})
+    df = canonicalize(
+        raw, {"input": {"s": "s", "t": "s"}, "llm_output": "o", "call_name": {"literal": "c"}}
+    )
     assert profile_call(Dataset(df), "c").input_type == "multi_text"
 
 

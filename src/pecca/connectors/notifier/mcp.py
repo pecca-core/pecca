@@ -10,7 +10,13 @@ from pecca.connectors.base import Notifier, register
 class McpNotifier(Notifier):
     """Send via a remote MCP tool. ``tool_map: {send: <tool>}``; args: ``event``, ``text`` (+ ``args``)."""
 
-    def __init__(self, url: Any = None, tool_map: dict[str, str] | None = None, args: dict[str, Any] | None = None, **_: Any) -> None:
+    def __init__(
+        self,
+        url: Any = None,
+        tool_map: dict[str, str] | None = None,
+        args: dict[str, Any] | None = None,
+        **_: Any,
+    ) -> None:
         self.remote = McpRemote(url, tool_map, {"send": args or {}})
 
     def send(self, event: str, payload: dict[str, Any], rendered: str) -> None:

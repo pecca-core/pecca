@@ -14,7 +14,13 @@ from pecca.candidates.registry import register
 _TAB = ("tabular",)
 
 
-@register("logreg", task_types=["classification"], estimated_latency_ms=1.0, input_types=_TAB, _builtin=True)
+@register(
+    "logreg",
+    task_types=["classification"],
+    estimated_latency_ms=1.0,
+    input_types=_TAB,
+    _builtin=True,
+)
 class LogReg(SklearnCandidate):
     kind = "classification"
     onnx_input = "float"
@@ -23,7 +29,9 @@ class LogReg(SklearnCandidate):
         return Pipeline([("scale", StandardScaler()), ("clf", LogisticRegression(max_iter=2000))])
 
 
-@register("ridge", task_types=["regression"], estimated_latency_ms=1.0, input_types=_TAB, _builtin=True)
+@register(
+    "ridge", task_types=["regression"], estimated_latency_ms=1.0, input_types=_TAB, _builtin=True
+)
 class RidgeTab(SklearnCandidate):
     kind = "regression"
     onnx_input = "float"
@@ -32,7 +40,13 @@ class RidgeTab(SklearnCandidate):
         return Pipeline([("scale", StandardScaler()), ("reg", Ridge())])
 
 
-@register("lightgbm", task_types=["classification"], estimated_latency_ms=2.0, input_types=_TAB, _builtin=True)
+@register(
+    "lightgbm",
+    task_types=["classification"],
+    estimated_latency_ms=2.0,
+    input_types=_TAB,
+    _builtin=True,
+)
 class LightGBMClf(SklearnCandidate):
     kind = "classification"
     onnx_input = "float"
@@ -43,7 +57,13 @@ class LightGBMClf(SklearnCandidate):
         return LGBMClassifier(class_weight="balanced", verbose=-1, random_state=42, n_jobs=1)
 
 
-@register("lightgbm_reg", task_types=["regression"], estimated_latency_ms=2.0, input_types=_TAB, _builtin=True)
+@register(
+    "lightgbm_reg",
+    task_types=["regression"],
+    estimated_latency_ms=2.0,
+    input_types=_TAB,
+    _builtin=True,
+)
 class LightGBMReg(SklearnCandidate):
     kind = "regression"
     onnx_input = "float"

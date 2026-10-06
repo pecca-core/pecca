@@ -14,8 +14,13 @@ class McpDataSource(MappedDataSource):
     """Read rows from a remote MCP tool. ``tool_map: {read: <tool>}``; the tool returns a JSON list of
     row objects (or ``{rows: [...]}``). ``since``/``limit`` are passed as arguments when set."""
 
-    def __init__(self, url: Any = None, tool_map: dict[str, str] | None = None,
-                 args: dict[str, Any] | None = None, **kw: Any) -> None:
+    def __init__(
+        self,
+        url: Any = None,
+        tool_map: dict[str, str] | None = None,
+        args: dict[str, Any] | None = None,
+        **kw: Any,
+    ) -> None:
         super().__init__(**kw)
         self.remote = McpRemote(url, tool_map, {"read": args or {}})
 

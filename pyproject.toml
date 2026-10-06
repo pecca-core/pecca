@@ -88,6 +88,13 @@ src = ["src", "tests"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]  # `ruff format` wraps code; long docstrings/comments are fine
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["typer.Option", "typer.Argument"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["E501", "SIM115", "E741", "E402", "B017", "E731", "B905", "F841", "SIM"]
 
 [tool.mypy]
 python_version = "3.11"

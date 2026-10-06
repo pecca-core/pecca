@@ -21,12 +21,17 @@ def _softmax(z: np.ndarray) -> np.ndarray:
 
 
 def _logits(proba: np.ndarray) -> np.ndarray:
-    return np.log(np.clip(proba, 1e-12, 1.0))
+    return np.asarray(np.log(np.clip(proba, 1e-12, 1.0)))
 
 
 class Calibrator:
-    def __init__(self, kind: str = "temperature", T: float = 1.0,
-                 x: list[float] | None = None, y: list[float] | None = None) -> None:
+    def __init__(
+        self,
+        kind: str = "temperature",
+        T: float = 1.0,
+        x: list[float] | None = None,
+        y: list[float] | None = None,
+    ) -> None:
         self.kind, self.T, self.x, self.y = kind, T, x or [], y or []
 
     def apply(self, proba: np.ndarray) -> np.ndarray:
@@ -39,7 +44,7 @@ class Calibrator:
         cal = self.apply(proba)
         top = cal.max(axis=1)
         if self.kind == "isotonic":
-            return np.interp(top, self.x, self.y)
+            return np.asarray(np.interp(top, self.x, self.y))
         return np.asarray(top)
 
     def to_dict(self) -> dict[str, Any]:
@@ -67,8 +72,11 @@ def fit_calibrator(proba: np.ndarray, y_idx: np.ndarray) -> Calibrator:
         iso = IsotonicRegression(y_min=0.0, y_max=1.0, out_of_bounds="clip").fit(
             proba.max(axis=1), correct
         )
-        iso_cal = Calibrator("isotonic", x=[float(v) for v in iso.X_thresholds_],
-                             y=[float(v) for v in iso.y_thresholds_])
+        iso_cal = Calibrator(
+            "isotonic",
+            x=[float(v) for v in iso.X_thresholds_],
+            y=[float(v) for v in iso.y_thresholds_],
+        )
         t_ece = ece(temp.confidence(proba), correct)
         i_ece = ece(iso_cal.confidence(proba), correct)
         if i_ece < t_ece:

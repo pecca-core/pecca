@@ -15,8 +15,9 @@ INTERVAL_S = 5.0
 
 
 class LogSink:
-    def __init__(self, registry: Registry, path_key: str, batch: int = BATCH,
-                 interval_s: float = INTERVAL_S) -> None:
+    def __init__(
+        self, registry: Registry, path_key: str, batch: int = BATCH, interval_s: float = INTERVAL_S
+    ) -> None:
         self.registry, self.key, self.batch, self.interval = registry, path_key, batch, interval_s
         self._rows: list[dict[str, Any]] = []
         self._lock = threading.Lock()

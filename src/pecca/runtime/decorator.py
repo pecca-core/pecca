@@ -61,8 +61,14 @@ class _Plan:
 class _Runtime:
     """Per-decorated-function state: cached call handle and call state."""
 
-    def __init__(self, name: str, mode: str | None, project: Any, workspace: Any,
-                 adapter: Callable[..., Any] | None) -> None:
+    def __init__(
+        self,
+        name: str,
+        mode: str | None,
+        project: Any,
+        workspace: Any,
+        adapter: Callable[..., Any] | None,
+    ) -> None:
         self.name, self.mode, self.project, self.workspace = name, mode, project, workspace
         self.adapter = adapter or default_input_adapter
         self._lock = threading.Lock()
@@ -104,7 +110,10 @@ def _prepare(rt: _Runtime, args: tuple[Any, ...], kwargs: dict[str, Any]) -> _Pl
             try:
                 pred = get_predictor(call).predict([inp])[0]
             except Exception as e:  # noqa: BLE001
-                _warn_once(f"{rt.name}-predict", f"pecca: model unavailable for {call.path} ({e}); using LLM only")
+                _warn_once(
+                    f"{rt.name}-predict",
+                    f"pecca: model unavailable for {call.path} ({e}); using LLM only",
+                )
         return _Plan(mode, inp, pred, call)
     except Exception as e:  # noqa: BLE001
         _warn_once(f"{rt.name}-prep-{type(e).__name__}", f"pecca: {e}")
@@ -128,12 +137,17 @@ def _record(plan: _Plan, llm_out: Any, served_by: str, started: float, span: Any
         if plan.mode == "shadow" and pred is not None and llm_out is not None:
             agreement = agrees(pred.label, llm_out)
         row = {
-            "ts": iso(), "path": str(call.path), "mode": plan.mode,
-            "version": pred.version if pred else None, "served_by": served_by,
-            "input": _jsonable(plan.inp), "llm_output": _jsonable(llm_out),
+            "ts": iso(),
+            "path": str(call.path),
+            "mode": plan.mode,
+            "version": pred.version if pred else None,
+            "served_by": served_by,
+            "input": _jsonable(plan.inp),
+            "llm_output": _jsonable(llm_out),
             "model_output": pred.label if pred else None,
             "confidence": pred.confidence if pred else None,
-            "agreement": agreement, "latency_ms": round(latency_ms, 3),
+            "agreement": agreement,
+            "latency_ms": round(latency_ms, 3),
         }
         get_sink(call.registry, call.key).add(row)
         span.set_attribute("pecca.path", str(call.path))

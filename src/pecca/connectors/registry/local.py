@@ -98,8 +98,11 @@ class LocalRegistry(Registry):
         d = self._dir(prefix)
         if not d.exists():
             return []
-        return sorted(p.name for p in d.iterdir()
-                      if p.is_dir() and ((p / "state.json").exists() or (p / "versions").exists()))
+        return sorted(
+            p.name
+            for p in d.iterdir()
+            if p.is_dir() and ((p / "state.json").exists() or (p / "versions").exists())
+        )
 
     def audit_dir(self, path_key: str, version: str) -> str:
         d = self._dir(path_key) / "audit" / version

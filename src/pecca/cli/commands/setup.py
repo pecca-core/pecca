@@ -11,7 +11,6 @@ import typer
 from pecca import __version__
 from pecca.cli.common import console, handle
 from pecca.config import apply as apply_mod
-from pecca.config.resolve import profiles_dir
 from pecca.core import context
 from pecca.core.errors import PeccaError
 
@@ -36,7 +35,9 @@ GITIGNORE_LINES = [".pecca/", ".env"]
 
 @handle
 def init(
-    profile: str = typer.Option("default", "--profile", help="Governance profile (none, default, sr11-7, ...)"),
+    profile: str = typer.Option(
+        "default", "--profile", help="Governance profile (none, default, sr11-7, ...)"
+    ),
     project: str = typer.Option("default", "--project", help="Project name"),
     force: bool = typer.Option(False, "--force", help="Overwrite an existing pecca.yaml"),
 ) -> None:
@@ -60,10 +61,12 @@ def init(
     env_example = Path(".env.example")
     if not env_example.exists():
         src = Path(__file__).resolve().parents[4] / ".env.example"
-        env_example.write_text(src.read_text() if src.exists() else "# SLACK_WEBHOOK=\n# JIRA_TOKEN=\n")
+        env_example.write_text(
+            src.read_text() if src.exists() else "# SLACK_WEBHOOK=\n# JIRA_TOKEN=\n"
+        )
     gi = Path(".gitignore")
     existing = gi.read_text().splitlines() if gi.exists() else []
-    add = [l for l in GITIGNORE_LINES if l not in existing]
+    add = [line for line in GITIGNORE_LINES if line not in existing]
     if add:
         gi.write_text("\n".join([*existing, *add]) + "\n")
     apply_mod.apply(target)
@@ -83,7 +86,9 @@ def connect(project: str = typer.Option("default", "--project")) -> None:
     proj = context.get_project(None, project)
     ds = proj.datasource()
     if ds is None:
-        raise PeccaError(f"project {project!r} has no datasource", "add projects.<name>.datasource to pecca.yaml")
+        raise PeccaError(
+            f"project {project!r} has no datasource", "add projects.<name>.datasource to pecca.yaml"
+        )
     df = ds.read()
     counts = df["call_name"].value_counts()
     for call, n in counts.items():
@@ -111,7 +116,7 @@ def doctor() -> None:
     def warn(msg: str) -> None:
         console.print(f"! {msg}", markup=False)
 
-    if sys.version_info >= (3, 11):
+    if sys.version_info >= (3, 11):  # noqa: UP036
         ok(f"python {sys.version.split()[0]}")
     else:
         bad("python >= 3.11 required")
@@ -151,7 +156,11 @@ def doctor() -> None:
     for pname, c in calls:
         call = context.get_call(f"{ws.name}/{pname}/{c}", ws)
         st = call.state()
-        if st.mode == "shadow" and st.shadow_since and (now() - from_iso(st.shadow_since)).days > 30:
+        if (
+            st.mode == "shadow"
+            and st.shadow_since
+            and (now() - from_iso(st.shadow_since)).days > 30
+        ):
             warn(f"{call.path} has been in shadow > 30 days")
         for item in schedule.due_items(call, now()):
             warn(f"{call.path}: {item} is due")

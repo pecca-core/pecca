@@ -11,12 +11,23 @@ from typing import Any
 from pecca.core.errors import GovernanceError
 
 VARIABLES = (
-    "cv_metric", "cv_f1", "rows", "agreement", "shadow_days",
-    "fallback_rate", "drift", "llm_metric", "min_class_count",
+    "cv_metric",
+    "cv_f1",
+    "rows",
+    "agreement",
+    "shadow_days",
+    "fallback_rate",
+    "drift",
+    "llm_metric",
+    "min_class_count",
 )
 _OPS: dict[str, Callable[[Any, Any], bool]] = {
-    ">=": operator.ge, "<=": operator.le, ">": operator.gt,
-    "<": operator.lt, "==": operator.eq, "!=": operator.ne,
+    ">=": operator.ge,
+    "<=": operator.le,
+    ">": operator.gt,
+    "<": operator.lt,
+    "==": operator.eq,
+    "!=": operator.ne,
 }
 _COND = re.compile(r"^\s*([a-z_][a-z0-9_]*)\s*(>=|<=|==|!=|>|<)\s*(-?\d+(?:\.\d+)?)\s*$")
 _SPLIT = re.compile(r"\s*(?:&&|&|\band\b)\s*")
@@ -45,7 +56,9 @@ def parse_gate(expr: str) -> list[Condition]:
             )
         var, op, val = m.groups()
         if var not in VARIABLES:
-            raise GovernanceError(f"unknown gate variable {var!r}", f"allowed: {', '.join(VARIABLES)}")
+            raise GovernanceError(
+                f"unknown gate variable {var!r}", f"allowed: {', '.join(VARIABLES)}"
+            )
         out.append(Condition(var, op, float(val)))
     return out
 

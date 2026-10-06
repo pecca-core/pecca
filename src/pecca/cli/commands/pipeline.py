@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 from typing import Any
 
 import typer
@@ -28,9 +27,13 @@ def _call_exists(path: str) -> bool:
 
 
 @handle
-def profile(path: str = typer.Argument(None, help="workspace/project/call (default: every call in the project datasource)"),
-            project: str = typer.Option("default", "--project"),
-            min_rows: int = typer.Option(500, "--min-rows")) -> None:
+def profile(
+    path: str = typer.Argument(
+        None, help="workspace/project/call (default: every call in the project datasource)"
+    ),
+    project: str = typer.Option("default", "--project"),
+    min_rows: int = typer.Option(500, "--min-rows"),
+) -> None:
     """Table of CallProfiles."""
     from pecca.api import load_dataset
     from pecca.profiler import profile_dataset
@@ -42,29 +45,46 @@ def profile(path: str = typer.Argument(None, help="workspace/project/call (defau
         proj = context.get_project(None, project)
         ds = proj.datasource()
         if ds is None:
-            raise PeccaError("no datasource configured", "add projects.<name>.datasource to pecca.yaml")
+            raise PeccaError(
+                "no datasource configured", "add projects.<name>.datasource to pecca.yaml"
+            )
         from pecca.data.dataset import Dataset
 
-        rep = profile_dataset(Dataset(ds.read(), getattr(ds, "columns", {}), getattr(ds, "input_template", None)),
-                              None, min_rows)
+        rep = profile_dataset(
+            Dataset(ds.read(), getattr(ds, "columns", {}), getattr(ds, "input_template", None)),
+            None,
+            min_rows,
+        )
     t = Table(show_header=True, header_style="bold")
     for col in ("call", "task", "classes", "rows", "languages", "replaceable"):
         t.add_column(col)
     for p in rep.profiles.values():
-        t.add_row(p.call, p.task_type, f"{len(p.labels)} labels" if p.labels else "—", f"{p.n_rows:,} rows",
-                  ",".join(p.languages) or "—", "✔" if p.replaceable else f"✘ {p.reason or ''}")
+        t.add_row(
+            p.call,
+            p.task_type,
+            f"{len(p.labels)} labels" if p.labels else "—",
+            f"{p.n_rows:,} rows",
+            ",".join(p.languages) or "—",
+            "✔" if p.replaceable else f"✘ {p.reason or ''}",
+        )
     console.print(t)
 
 
 @handle
-def train(path: str = typer.Argument(...),
-          metric: str = typer.Option(None, "--metric"),
-          latency_budget_ms: float = typer.Option(None, "--latency-budget-ms")) -> None:
+def train(
+    path: str = typer.Argument(...),
+    metric: str = typer.Option(None, "--metric"),
+    latency_budget_ms: float = typer.Option(None, "--latency-budget-ms"),
+) -> None:
     """Run the tournament and print the leaderboard."""
     c = context.get_call(path)
     console.print(f"training {c.path} ...", markup=False)
-    res = pecca.train(path, metric=metric, latency_budget_ms=latency_budget_ms,
-                      progress=lambda m: console.print(m, markup=False))
+    res = pecca.train(
+        path,
+        metric=metric,
+        latency_budget_ms=latency_budget_ms,
+        progress=lambda m: console.print(m, markup=False),
+    )
     t = Table(show_header=True, header_style="bold")
     for col in ("candidate", res.metric_name, "std", "fit s", "latency ms"):
         t.add_column(col)
@@ -74,26 +94,44 @@ def train(path: str = typer.Argument(...),
             continue
         win = e.get("winner")
         name = f"★ {e['candidate']}" if win else e["candidate"]
-        t.add_row(name, f"{e['metric']:.3f}", f"{e['metric_std']:.3f}", f"{e['fit_time_s']:.1f}",
-                  f"{e['predict_latency_ms']:.1f}", style="bold green" if win else None)
+        t.add_row(
+            name,
+            f"{e['metric']:.3f}",
+            f"{e['metric_std']:.3f}",
+            f"{e['fit_time_s']:.1f}",
+            f"{e['predict_latency_ms']:.1f}",
+            style="bold green" if win else None,
+        )
     console.print(t)
-    llm = f"vs llm {res.llm_metric:.2f}" if res.llm_metric is not None else "(no human labels: matches the LLM, not compared)"
+    llm = (
+        f"vs llm {res.llm_metric:.2f}"
+        if res.llm_metric is not None
+        else "(no human labels: matches the LLM, not compared)"
+    )
     console.print(f"winner {res.winner}  {res.metric_name} {res.metric:.2f} {llm}", markup=False)
     if res.threshold is not None:
-        console.print(f"threshold {res.threshold:.2f}  expected fallback {100 * (res.expected_fallback_rate or 0):.0f}%", markup=False)
+        console.print(
+            f"threshold {res.threshold:.2f}  expected fallback {100 * (res.expected_fallback_rate or 0):.0f}%",
+            markup=False,
+        )
     console.print(f"saved {res.version} → {res.model_path}", markup=False)
 
 
 @handle
-def promote(path: str = typer.Argument(...),
-            mode: str = typer.Option(..., "--mode", help="off | record | shadow | live"),
-            force: bool = typer.Option(False, "--force", help="Override gates (requires PECCA_ALLOW_FORCE=1)")) -> None:
+def promote(
+    path: str = typer.Argument(...),
+    mode: str = typer.Option(..., "--mode", help="off | record | shadow | live"),
+    force: bool = typer.Option(
+        False, "--force", help="Override gates (requires PECCA_ALLOW_FORCE=1)"
+    ),
+) -> None:
     """Governance-gated mode change. Prints the Decision."""
     dec = pecca.promote(path, mode, force=force)
     if dec.allowed:
-        c = context.get_call(path)
         since = "now" if mode in ("shadow", "live") else ""
-        console.print(f"{mode} since {since}".strip() + ("  (forced)" if dec.forced else ""), markup=False)
+        console.print(
+            f"{mode} since {since}".strip() + ("  (forced)" if dec.forced else ""), markup=False
+        )
         return
     console.print(f"blocked: {dec.transition}", markup=False)
     for g in dec.failing_gates:
@@ -106,22 +144,39 @@ def promote(path: str = typer.Argument(...),
 
 
 @handle
-def approve(path: str = typer.Argument(...),
-            version: str = typer.Option(..., "--version"),
-            approver: str = typer.Option(..., "--approver", help="Approver email"),
-            ticket: str = typer.Option(None, "--ticket"),
-            note: str = typer.Option(None, "--note"),
-            group: list[str] = typer.Option(None, "--group", help="Group(s) the approver represents (repeatable)")) -> None:
+def approve(
+    path: str = typer.Argument(...),
+    version: str = typer.Option(..., "--version"),
+    approver: str = typer.Option(..., "--approver", help="Approver email"),
+    ticket: str = typer.Option(None, "--ticket"),
+    note: str = typer.Option(None, "--note"),
+    group: list[str] = typer.Option(
+        None, "--group", help="Group(s) the approver represents (repeatable)"
+    ),
+) -> None:
     """Record a manual approval."""
-    pecca.approve(path, version, approver=approver, ticket=ticket, note=note, groups=list(group) if group else None)
+    pecca.approve(
+        path,
+        version,
+        approver=approver,
+        ticket=ticket,
+        note=note,
+        groups=list(group) if group else None,
+    )
     console.print(f"approved {version} by {approver}", markup=False)
 
 
 @handle
-def audit(path: str = typer.Argument(...), version: str = typer.Option(None, "--version"),
-          out: str = typer.Option("markdown", "--out"), dest: str = typer.Option(None, "--path")) -> None:
+def audit(
+    path: str = typer.Argument(...),
+    version: str = typer.Option(None, "--version"),
+    out: str = typer.Option("markdown", "--out"),
+    dest: str = typer.Option(None, "--path"),
+) -> None:
     """Generate the audit pack."""
-    console.print(pecca.audit_pack(path, version, out=out, path=dest), markup=False, highlight=False)
+    console.print(
+        pecca.audit_pack(path, version, out=out, path=dest), markup=False, highlight=False
+    )
 
 
 @handle
@@ -145,7 +200,9 @@ def _f1(mv: ModelVersion) -> dict[str, float]:
 
 
 @handle
-def diff(path: str = typer.Argument(...), a: str = typer.Argument(...), b: str = typer.Argument(...)) -> None:
+def diff(
+    path: str = typer.Argument(...), a: str = typer.Argument(...), b: str = typer.Argument(...)
+) -> None:
     """Side-by-side comparison of two versions."""
     c = context.get_call(path)
     va, vb = c.version(a), c.version(b)
@@ -159,14 +216,20 @@ def diff(path: str = typer.Argument(...), a: str = typer.Argument(...), b: str =
         ("threshold", _fmt(va.threshold), _fmt(vb.threshold)),
         ("expected fallback", _fmt(va.expected_fallback_rate), _fmt(vb.expected_fallback_rate)),
         ("rows", f"{va.lineage.get('rows', 0):,}", f"{vb.lineage.get('rows', 0):,}"),
-        ("date range", " → ".join(str(x)[:10] for x in va.lineage.get("date_range", ["-", "-"])),
-         " → ".join(str(x)[:10] for x in vb.lineage.get("date_range", ["-", "-"]))),
+        (
+            "date range",
+            " → ".join(str(x)[:10] for x in va.lineage.get("date_range", ["-", "-"])),
+            " → ".join(str(x)[:10] for x in vb.lineage.get("date_range", ["-", "-"])),
+        ),
     ]
     for r in rows:
         t.add_row(*[str(x) for x in r])
     console.print(t)
     fa, fb = _f1(va), _f1(vb)
-    deltas = sorted(((k, fb.get(k, 0.0) - fa.get(k, 0.0)) for k in set(fa) | set(fb)), key=lambda kv: -abs(kv[1]))[:20]
+    deltas = sorted(
+        ((k, fb.get(k, 0.0) - fa.get(k, 0.0)) for k in set(fa) | set(fb)),
+        key=lambda kv: -abs(kv[1]),
+    )[:20]
     d = Table(title="per-class F1 deltas (top 20)", show_header=True, header_style="bold")
     for col in ("class", va.version, vb.version, "delta"):
         d.add_column(col)
@@ -176,10 +239,13 @@ def diff(path: str = typer.Argument(...), a: str = typer.Argument(...), b: str =
 
 
 @handle
-def logs(path: str = typer.Argument(...), since: str = typer.Option("1d", "--since"),
-         disagreements: bool = typer.Option(False, "--disagreements"),
-         fallbacks: bool = typer.Option(False, "--fallbacks"),
-         limit: int = typer.Option(20, "--limit")) -> None:
+def logs(
+    path: str = typer.Argument(...),
+    since: str = typer.Option("1d", "--since"),
+    disagreements: bool = typer.Option(False, "--disagreements"),
+    fallbacks: bool = typer.Option(False, "--fallbacks"),
+    limit: int = typer.Option(20, "--limit"),
+) -> None:
     """Tail decision logs."""
     c = context.get_call(path)
     df = c.registry.read_logs(c.key, since)
@@ -195,10 +261,20 @@ def logs(path: str = typer.Argument(...), since: str = typer.Option("1d", "--sin
         t.add_column(col)
     for _, r in df.tail(limit).iterrows():
         conf = r.get("confidence")
-        t.add_row(str(r.get("ts", ""))[:19], str(r.get("mode", "")), str(r.get("served_by", "")),
-                  str(r.get("llm_output", "")), str(r.get("model_output", "")),
-                  "-" if conf is None or conf != conf else f"{conf:.2f}", str(r.get("agreement", "")))
+        t.add_row(
+            str(r.get("ts", ""))[:19],
+            str(r.get("mode", "")),
+            str(r.get("served_by", "")),
+            str(r.get("llm_output", "")),
+            str(r.get("model_output", "")),
+            "-" if conf is None or conf != conf else f"{conf:.2f}",
+            str(r.get("agreement", "")),
+        )
     console.print(t)
+
+
+def _d(s: str | None) -> str:
+    return (s or "-")[:10]
 
 
 def render_status(call: Any) -> str:
@@ -207,28 +283,54 @@ def render_status(call: Any) -> str:
     st = call.state()
     lines: list[tuple[str, str, str]] = []
     mv = call.version() if call.versions() else None
-    d = lambda s: (s or "-")[:10]  # noqa: E731
     lines.append(("call", str(call.path), ""))
-    lines.append(("mode", st.mode, f"since {d(st.since)}"))
+    lines.append(("mode", st.mode, f"since {_d(st.since)}"))
     if mv:
-        lines.append(("version", mv.version, f"trained {d(mv.trained_at)} on {mv.lineage.get('rows', 0):,} rows"))
-        lines.append(("model", mv.candidate, f"{mv.metric_name} {mv.metric:.2f}  (llm {_fmt(mv.llm_metric)})"))
+        lines.append(
+            (
+                "version",
+                mv.version,
+                f"trained {_d(mv.trained_at)} on {mv.lineage.get('rows', 0):,} rows",
+            )
+        )
+        lines.append(
+            (
+                "model",
+                mv.candidate,
+                f"{mv.metric_name} {mv.metric:.2f}  (llm {_fmt(mv.llm_metric)})",
+            )
+        )
         fb = "-" if mv.expected_fallback_rate is None else f"{100 * mv.expected_fallback_rate:.0f}%"
         lines.append(("threshold", _fmt(mv.threshold), f"expected fallback {fb}"))
     from pecca.evaluation import evaluate_call
 
     rep = evaluate_call(call, "14d")
     fbr = "-" if rep.fallback_rate is None else f"{100 * rep.fallback_rate:.0f}%"
-    lines.append(("agreement", f"{_fmt(rep.agreement_rate)} (14d)", f"fallback {fbr}   drift {_fmt(rep.drift_score)}"))
-    tr = (call.project.governance.get("transitions") or {})
+    lines.append(
+        (
+            "agreement",
+            f"{_fmt(rep.agreement_rate)} (14d)",
+            f"fallback {fbr}   drift {_fmt(rep.drift_score)}",
+        )
+    )
+    tr = call.project.governance.get("transitions") or {}
 
     def gates(t: str) -> str:
         g = (tr.get(t) or {}).get("gates", [])
         return " & ".join(x.replace(" ", "") for x in g) or "-"
 
-    lines.append(("policy", f"shadow_at {gates('record->shadow')}", f"live_at {gates('shadow->live')}"))
+    lines.append(
+        ("policy", f"shadow_at {gates('record->shadow')}", f"live_at {gates('shadow->live')}")
+    )
     nxt = schedule.next_dates(call)
-    lines.append(("next", "   ".join(f"{k.replace('drift_review', 'drift')} {v.date()}" for k, v in nxt.items()) or "-", ""))
+    lines.append(
+        (
+            "next",
+            "   ".join(f"{k.replace('drift_review', 'drift')} {v.date()}" for k, v in nxt.items())
+            or "-",
+            "",
+        )
+    )
     out = []
     for key, a, b in lines:
         if key == "policy":
@@ -247,25 +349,28 @@ def status(path: str = typer.Argument(None)) -> None:
     if path and path.count("/") == 2 or (path and _call_exists(path)):
         console.print(render_status(context.get_call(path)), markup=False, highlight=False)
         return
-    projects: list[str]
-    if path:
-        projects = [path.split("/")[-1]]
-    else:
-        projects = list(ws.projects) or ["default"]
+    projects = [path.split("/")[-1]] if path else (list(ws.projects) or ["default"])
     t = Table(show_header=True, header_style="bold")
     for col in ("call", "rows", "metric", "mode", "agreement", "fallback", "version"):
         t.add_column(col)
     from pecca.evaluation import evaluate_call
 
     for pname in projects:
-        names = set(ws.registry.list_calls(f"pecca/{ws.name}/{pname}")) | set((ws.project(pname).config.get("calls") or {}))
+        names = set(ws.registry.list_calls(f"pecca/{ws.name}/{pname}")) | set(
+            ws.project(pname).config.get("calls") or {}
+        )
         for cname in sorted(names):
             c = context.get_call(f"{ws.name}/{pname}/{cname}", ws)
             st = c.state()
             mv = c.version() if c.versions() else None
             rep = evaluate_call(c, "14d")
-            t.add_row(f"{pname}/{cname}", f"{mv.lineage.get('rows', 0):,}" if mv else "-",
-                      f"{mv.metric:.2f}" if mv else "-", st.mode, _fmt(rep.agreement_rate),
-                      "-" if rep.fallback_rate is None else f"{100 * rep.fallback_rate:.0f}%",
-                      mv.version if mv else "-")
+            t.add_row(
+                f"{pname}/{cname}",
+                f"{mv.lineage.get('rows', 0):,}" if mv else "-",
+                f"{mv.metric:.2f}" if mv else "-",
+                st.mode,
+                _fmt(rep.agreement_rate),
+                "-" if rep.fallback_rate is None else f"{100 * rep.fallback_rate:.0f}%",
+                mv.version if mv else "-",
+            )
     console.print(t)

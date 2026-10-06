@@ -6,8 +6,11 @@ import typer
 
 from pecca.cli.commands import ops, pipeline, setup
 
-app = typer.Typer(help="Pecca: replace repetitive LLM calls with small, auditable models.",
-                  no_args_is_help=True, add_completion=False)
+app = typer.Typer(
+    help="Pecca: replace repetitive LLM calls with small, auditable models.",
+    no_args_is_help=True,
+    add_completion=False,
+)
 
 app.command("init")(setup.init)
 app.command("apply")(setup.apply)

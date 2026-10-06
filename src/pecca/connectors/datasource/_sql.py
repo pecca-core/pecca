@@ -28,7 +28,11 @@ class SqlDataSource(MappedDataSource):
     def _execute(self, sql: str) -> pd.DataFrame: ...
 
     def build_sql(self, since: str | None, limit: int | None) -> str:
-        base = f"SELECT * FROM ({self.query}) AS _pecca_q" if self.query else f"SELECT * FROM {self.table}"
+        base = (
+            f"SELECT * FROM ({self.query}) AS _pecca_q"
+            if self.query
+            else f"SELECT * FROM {self.table}"
+        )
         ts = self.columns.get("timestamp")
         if since and isinstance(ts, str) and _IDENT.match(ts):
             cutoff = parse_since(since)

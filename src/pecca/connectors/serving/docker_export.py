@@ -8,7 +8,7 @@ from typing import Any
 from pecca.connectors.base import ServingTarget, register
 from pecca.connectors.registry.local import LocalRegistry
 
-APP = '''from fastapi import FastAPI
+APP = """from fastapi import FastAPI
 from pydantic import BaseModel
 
 from pecca.candidates import get_candidate
@@ -32,21 +32,27 @@ def predict(req: Req):
     classes = cand.classes_
     return [{{"label": labels["forms"].get(classes[int(p.argmax())], classes[int(p.argmax())]),
               "confidence": float(p.max())}} for p in proba]
-'''
-DOCKERFILE = '''FROM python:3.11-slim
+"""
+DOCKERFILE = """FROM python:3.11-slim
 WORKDIR /srv
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
-'''
+"""
 
 
 @register("serving", "docker_export")
 class DockerExportServing(ServingTarget):
     """Writes ``<out_dir>/<call>-<version>/`` with Dockerfile, FastAPI ``/predict`` app and the model."""
 
-    def __init__(self, out_dir: str = "docker_export", home: str | None = None, pecca_version: str = "0.1.0", **_: Any) -> None:
+    def __init__(
+        self,
+        out_dir: str = "docker_export",
+        home: str | None = None,
+        pecca_version: str = "0.1.0",
+        **_: Any,
+    ) -> None:
         self.out = Path(out_dir)
         self.registry = LocalRegistry(home or os.environ.get("PECCA_HOME") or ".pecca")
         self.pecca_version = pecca_version

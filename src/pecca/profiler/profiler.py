@@ -6,19 +6,17 @@ from collections import Counter
 from typing import Any
 
 from pecca.core.models import CallProfile, Serializable
-from pecca.data.dataset import Dataset, render_input, resolve_labels
+from pecca.data.dataset import Dataset, normalise_output, render_input, resolve_labels
 from pecca.profiler import rules
 
 DEFAULT_MIN_ROWS = 500
 
 
-def profile_call(
-    dataset: Dataset, call: str, min_rows: int = DEFAULT_MIN_ROWS
-) -> CallProfile:
+def profile_call(dataset: Dataset, call: str, min_rows: int = DEFAULT_MIN_ROWS) -> CallProfile:
     df = dataset.to_pandas(call)
     n = len(df)
     outputs = list(df["llm_output"])
-    norm_unique = {rules.normalise_output(o) for o in outputs}
+    norm_unique = {normalise_output(o) for o in outputs}
     task, reason, labels = rules.infer_task_type(outputs, n)
     inputs = list(df["input"])
     input_type = rules.infer_input_type(inputs)
@@ -27,7 +25,9 @@ def profile_call(
         replaceable, reason = False, f"insufficient rows (n<{min_rows})"
     languages: list[str] = []
     if input_type in {"text", "multi_text"}:
-        languages = rules.detect_languages([render_input(x, dataset.input_template) for x in inputs])
+        languages = rules.detect_languages(
+            [render_input(x, dataset.input_template) for x in inputs]
+        )
     resolved, sources = resolve_labels(df) if n else ([], [])
     min_count: int | None = None
     below: int | None = None
@@ -65,7 +65,9 @@ class ProfileReport(Serializable):
         for p in self.profiles.values():
             detail = f"{len(p.labels)} labels" if p.task_type == "classification" else "—"
             mark = "✔" if p.replaceable else "✘"
-            lines.append(f"{p.call:<20}{p.task_type:<16}{detail:<12}{p.n_rows:>8,} rows  replaceable {mark}")
+            lines.append(
+                f"{p.call:<20}{p.task_type:<16}{detail:<12}{p.n_rows:>8,} rows  replaceable {mark}"
+            )
         return "\n".join(lines)
 
 

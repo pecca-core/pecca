@@ -70,7 +70,9 @@ class Call:
     def version(self, v: str | None = None) -> ModelVersion:
         vs = self.versions()
         if not vs:
-            raise NotFoundError(f"no trained model for {self.path}", f"run `pecca train {self.path}`")
+            raise NotFoundError(
+                f"no trained model for {self.path}", f"run `pecca train {self.path}`"
+            )
         if v is None:
             cur = self.state().current_version
             v = cur or vs[-1].version

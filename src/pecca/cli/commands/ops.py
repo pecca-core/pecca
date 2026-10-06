@@ -62,8 +62,10 @@ def tick() -> list[str]:
 
 
 @handle
-def scheduler_run(once: bool = typer.Option(False, "--once", help="Run a single tick and exit"),
-                  interval: int = typer.Option(60, "--interval", help="Seconds between ticks")) -> None:
+def scheduler_run(
+    once: bool = typer.Option(False, "--once", help="Run a single tick and exit"),
+    interval: int = typer.Option(60, "--interval", help="Seconds between ticks"),
+) -> None:
     """Evaluate due train_every / revalidate / drift_review items, execute them and notify."""
     while True:
         done = tick()
@@ -74,9 +76,12 @@ def scheduler_run(once: bool = typer.Option(False, "--once", help="Run a single 
 
 
 @handle
-def mcp_serve(transport: str = typer.Option("stdio", "--transport"), port: int = typer.Option(8765, "--port"),
-              workspace: str = typer.Option(None, "--workspace"),
-              allow_promote: bool = typer.Option(False, "--allow-promote", help="Expose pecca_promote")) -> None:
+def mcp_serve(
+    transport: str = typer.Option("stdio", "--transport"),
+    port: int = typer.Option(8765, "--port"),
+    workspace: str = typer.Option(None, "--workspace"),
+    allow_promote: bool = typer.Option(False, "--allow-promote", help="Expose pecca_promote"),
+) -> None:
     """Run the Pecca MCP server."""
     from pecca.mcp.server import build_server
 

@@ -23,7 +23,9 @@ class AwsSecretsManager(Secrets):
         try:
             value = client.get_secret_value(SecretId=f"{self.prefix}{name}")["SecretString"]
         except Exception as e:  # noqa: BLE001
-            raise ConnectorError(f"secret {name!r} not available from AWS Secrets Manager: {e}") from e
+            raise ConnectorError(
+                f"secret {name!r} not available from AWS Secrets Manager: {e}"
+            ) from e
         try:
             parsed = json.loads(value)
             if isinstance(parsed, dict) and name in parsed:

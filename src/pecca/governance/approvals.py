@@ -9,7 +9,8 @@ def _approvers(call: Any, version: str, via: str) -> list[dict[str, Any]]:
     st = call.state()
     people = [
         {"principal": a["approver"], "groups": a.get("groups", [])}
-        for a in st.approvals if a.get("version") == version
+        for a in st.approvals
+        if a.get("version") == version
     ]
     if via != "manual":
         ticket = st.tickets.get(version)
@@ -17,8 +18,12 @@ def _approvers(call: Any, version: str, via: str) -> list[dict[str, Any]]:
         if ticket and ticketer is not None:
             for a in ticketer.get_approvers(ticket):
                 grp = a.get("group")
-                people.append({"principal": a.get("principal"),
-                               "groups": list(a.get("groups") or ([grp] if grp else []))})
+                people.append(
+                    {
+                        "principal": a.get("principal"),
+                        "groups": list(a.get("groups") or ([grp] if grp else [])),
+                    }
+                )
     return people
 
 

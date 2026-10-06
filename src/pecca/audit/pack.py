@@ -53,12 +53,17 @@ def generate(call: Call, version: str | None = None) -> Path:
     for f in out.glob("*"):
         if f.is_file():
             f.unlink()
-    evidence = {e for t in (ctx["governance"].get("transitions") or {}).values() for e in t.get("evidence", [])}
+    evidence = {
+        e
+        for t in (ctx["governance"].get("transitions") or {}).values()
+        for e in t.get("evidence", [])
+    }
     names = [*SECTIONS, *[s for s in EXTRA_SECTIONS if s in evidence]]
     for name in names:
         builder = SECTIONS.get(name)
         extras = builder(ctx, out) if builder else {}
         (out / f"{name}.md").write_text(renderer.render_section(name, ctx, extras))
+    (out / "audit.md").write_text(combined_markdown(out))  # included in the manifest below
     ret = ctx["governance"].get("retention") or {}
     pre = signing.hashes(out)
     ctx["audit"]["hashes"] = pre
@@ -85,7 +90,6 @@ def export(call: Call, version: str | None, out: str, path: str | None) -> str:
         if dest != d:
             for f in d.iterdir():
                 (dest / f.name).write_bytes(f.read_bytes())
-        (dest / "audit.md").write_text(md)
         return str(dest / "audit.md")
     if out == "json":
         ctx = build_context(call, version)

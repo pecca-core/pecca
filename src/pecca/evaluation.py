@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import contextlib
 from collections import Counter
 from typing import Any
 
@@ -46,10 +47,8 @@ def evaluate_call(call: Call, since: str = "14d") -> EvalReport:
     agreement = float(shadow_ag.astype(float).mean()) if len(shadow_ag) else None
 
     thr = None
-    try:
+    with contextlib.suppress(Exception):
         thr = call.version().threshold
-    except Exception:  # noqa: BLE001
-        pass
     live = df[df["mode"] == "live"]
     fb: float | None = None
     if len(live):
@@ -60,19 +59,32 @@ def evaluate_call(call: Call, since: str = "14d") -> EvalReport:
     dis = []
     if "agreement" in sh:
         for _, r in sh[sh["agreement"] == False].head(MAX_DISAGREEMENTS).iterrows():  # noqa: E712
-            dis.append({k: (None if pd.isna(r.get(k)) else r.get(k))
-                        for k in ("ts", "input", "llm_output", "model_output", "confidence")})
+            dis.append(
+                {
+                    k: (None if pd.isna(r.get(k)) else r.get(k))
+                    for k in ("ts", "input", "llm_output", "model_output", "confidence")
+                }
+            )
     per_class: dict[str, float] = {}
     if "agreement" in sh and len(shadow_ag):
         tmp = sh.dropna(subset=["agreement"]).copy()
         tmp["cls"] = tmp["llm_output"].map(normalise_output)
-        per_class = {str(k): float(v) for k, v in tmp.groupby("cls")["agreement"].apply(lambda s: s.astype(float).mean()).items()}
+        per_class = {
+            str(k): float(v)
+            for k, v in tmp.groupby("cls")["agreement"]
+            .apply(lambda s: s.astype(float).mean())
+            .items()
+        }
 
     drift = None
     try:
         counts = call.version().lineage.get("label_counts") or {}
-        resolved = [normalise_output(a if a is not None and a == a else b)
-                    for a, b in zip(df.get("llm_output", [None] * n), df.get("model_output", [None] * n), strict=True)]
+        resolved = [
+            normalise_output(a if a is not None and a == a else b)
+            for a, b in zip(
+                df.get("llm_output", [None] * n), df.get("model_output", [None] * n), strict=True
+            )
+        ]
         drift = js_distance(dict(Counter(resolved)), counts)
     except Exception:  # noqa: BLE001
         pass
@@ -96,16 +108,34 @@ def shadow_days(call: Call) -> float | None:
 def variables(call: Call, since: str = "14d") -> dict[str, Any]:
     """Values available to governance gates (``None`` = no data yet)."""
     v: dict[str, Any] = dict.fromkeys(
-        ["cv_metric", "cv_f1", "rows", "agreement", "shadow_days", "fallback_rate", "drift",
-         "llm_metric", "min_class_count"])
+        [
+            "cv_metric",
+            "cv_f1",
+            "rows",
+            "agreement",
+            "shadow_days",
+            "fallback_rate",
+            "drift",
+            "llm_metric",
+            "min_class_count",
+        ]
+    )
     try:
         mv = call.version()
-        v.update(cv_metric=mv.metric, rows=mv.lineage.get("rows"), llm_metric=mv.llm_metric,
-                 min_class_count=mv.min_class_count)
+        v.update(
+            cv_metric=mv.metric,
+            rows=mv.lineage.get("rows"),
+            llm_metric=mv.llm_metric,
+            min_class_count=mv.min_class_count,
+        )
         v["cv_f1"] = mv.metric if mv.metric_name == "macro_f1" else None
     except Exception:  # noqa: BLE001
         pass
     rep = evaluate_call(call, since)
-    v.update(agreement=rep.agreement_rate, fallback_rate=rep.fallback_rate, drift=rep.drift_score,
-             shadow_days=shadow_days(call))
+    v.update(
+        agreement=rep.agreement_rate,
+        fallback_rate=rep.fallback_rate,
+        drift=rep.drift_score,
+        shadow_days=shadow_days(call),
+    )
     return v

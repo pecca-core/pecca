@@ -8,18 +8,27 @@ from pecca.connectors.base import Ticketer, register
 from pecca.core.errors import ConnectorError
 
 
+@register("ticketer", "github")
 @register("ticketer", "github_issues")
 class GithubIssuesTicketer(Ticketer):
     """Approval = a ``/approve`` comment by a user; groups come from ``group_members`` config."""
 
-    def __init__(self, repo: str, token: str, group_members: dict[str, list[str]] | None = None,
-                 api_url: str = "https://api.github.com", **_: Any) -> None:
+    def __init__(
+        self,
+        repo: str,
+        token: str,
+        group_members: dict[str, list[str]] | None = None,
+        api_url: str = "https://api.github.com",
+        **_: Any,
+    ) -> None:
         self.repo, self.api = repo, api_url.rstrip("/")
         self.members = group_members or {}
         self.h = {"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"}
 
     def _req(self, method: str, path: str, **kw: Any) -> Any:
-        r = httpx.request(method, f"{self.api}/repos/{self.repo}{path}", headers=self.h, timeout=15, **kw)
+        r = httpx.request(
+            method, f"{self.api}/repos/{self.repo}{path}", headers=self.h, timeout=15, **kw
+        )
         if r.status_code >= 300:
             raise ConnectorError(f"GitHub {method} {path} → {r.status_code}", r.text[:200])
         return r.json()
@@ -36,8 +45,14 @@ class GithubIssuesTicketer(Ticketer):
             if str(c.get("body", "")).strip().lower().startswith("/approve"):
                 user = c["user"]["login"]
                 groups = [g for g, us in self.members.items() if user in us]
-                out.append({"principal": user, "group": groups[0] if groups else None,
-                            "groups": groups, "ts": c.get("created_at")})
+                out.append(
+                    {
+                        "principal": user,
+                        "group": groups[0] if groups else None,
+                        "groups": groups,
+                        "ts": c.get("created_at"),
+                    }
+                )
         return out
 
     def comment(self, ticket_id: str, body: str) -> None:

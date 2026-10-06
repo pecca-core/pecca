@@ -4,11 +4,21 @@ from pecca.core.errors import GovernanceError
 from pecca.governance.gates import check_gate, parse_gate
 
 
-@pytest.mark.parametrize("bad", [
-    "__import__('os').system('x') > 1", "agreement >= 0.9 or rows > 1", "eval(1) == 1",
-    "agreement >= abs(1)", "nonsense >= 1", "agreement", "", "rows >= 1; rows >= 2", "rows >= 0x10",
-    "agreement >= 0.9 and (rows > 1)",
-])
+@pytest.mark.parametrize(
+    "bad",
+    [
+        "__import__('os').system('x') > 1",
+        "agreement >= 0.9 or rows > 1",
+        "eval(1) == 1",
+        "agreement >= abs(1)",
+        "nonsense >= 1",
+        "agreement",
+        "",
+        "rows >= 1; rows >= 2",
+        "rows >= 0x10",
+        "agreement >= 0.9 and (rows > 1)",
+    ],
+)
 def test_gate_parser_rejects_non_gates(bad):
     with pytest.raises(GovernanceError):
         parse_gate(bad)

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections import Counter
 from collections.abc import Iterator
+from typing import Any
 
 import numpy as np
 from sklearn.model_selection import KFold, StratifiedKFold, train_test_split
@@ -12,7 +13,7 @@ SEED = 42
 HOLDOUT = 0.15
 
 
-def holdout_split(y: list, classification: bool) -> tuple[np.ndarray, np.ndarray]:
+def holdout_split(y: list[Any], classification: bool) -> tuple[np.ndarray, np.ndarray]:
     idx = np.arange(len(y))
     strat = None
     if classification:
@@ -27,7 +28,9 @@ def n_folds(n_rows: int) -> int:
     return 3 if n_rows < 2000 else 5
 
 
-def cv_splits(y: list, classification: bool, n_rows: int) -> Iterator[tuple[np.ndarray, np.ndarray]]:
+def cv_splits(
+    y: list[Any], classification: bool, n_rows: int
+) -> Iterator[tuple[np.ndarray, np.ndarray]]:
     k = n_folds(n_rows)
     X = np.zeros(len(y))
     if classification:

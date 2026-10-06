@@ -25,8 +25,15 @@ def _device() -> str:
     return "cpu"
 
 
-@register("xlmr_finetune", task_types=["classification"], min_rows=2000, requires_gpu=True,
-          estimated_latency_ms=80.0, input_types=("text", "multi_text"), _builtin=True)
+@register(
+    "xlmr_finetune",
+    task_types=["classification"],
+    min_rows=2000,
+    requires_gpu=True,
+    estimated_latency_ms=80.0,
+    input_types=("text", "multi_text"),
+    _builtin=True,
+)
 class XlmrFinetune(Candidate):
     max_len = 256
     epochs = 3
@@ -56,13 +63,15 @@ class XlmrFinetune(Candidate):
         labels = np.array([idx[str(v)] for v in y])
         texts = [str(x) for x in X]
         try:
-            tr, va = train_test_split(range(len(texts)), test_size=0.1, random_state=42, stratify=labels)
+            tr, va = train_test_split(
+                range(len(texts)), test_size=0.1, random_state=42, stratify=labels
+            )
         except ValueError:
             tr, va = train_test_split(range(len(texts)), test_size=0.1, random_state=42)
         dev = _device()
         self._tok = AutoTokenizer.from_pretrained(self.base_model)
         model = AutoModelForSequenceClassification.from_pretrained(
-            self.base_model, num_labels=len(self._classes)
+            self.base_model, num_labels=len(self._classes), ignore_mismatched_sizes=True
         ).to(dev)
         opt = torch.optim.AdamW(model.parameters(), lr=self.lr)
         best, best_state = -1.0, None
@@ -71,8 +80,13 @@ class XlmrFinetune(Candidate):
             order = np.random.RandomState(42).permutation(tr)
             for s in range(0, len(order), self.batch_size):
                 b = order[s : s + self.batch_size]
-                enc = self._tok([texts[i] for i in b], truncation=True, max_length=self.max_len,
-                                padding=True, return_tensors="pt").to(dev)
+                enc = self._tok(
+                    [texts[i] for i in b],
+                    truncation=True,
+                    max_length=self.max_len,
+                    padding=True,
+                    return_tensors="pt",
+                ).to(dev)
                 out = model(**enc, labels=torch.tensor(labels[b]).to(dev))
                 out.loss.backward()
                 opt.step()
@@ -94,13 +108,18 @@ class XlmrFinetune(Candidate):
         outs = []
         with torch.no_grad():
             for s in range(0, len(texts), 32):
-                enc = self._tok(texts[s : s + 32], truncation=True, max_length=self.max_len,
-                                padding=True, return_tensors="pt").to(dev)
+                enc = self._tok(
+                    texts[s : s + 32],
+                    truncation=True,
+                    max_length=self.max_len,
+                    padding=True,
+                    return_tensors="pt",
+                ).to(dev)
                 outs.append(self._model.to(dev)(**enc).logits.cpu().numpy())
         return np.vstack(outs) if outs else np.zeros((0, len(self._classes)))
 
     def _predict_idx(self, texts: list[str], dev: str) -> np.ndarray:
-        return self._logits(texts, dev).argmax(axis=1)
+        return np.asarray(self._logits(texts, dev).argmax(axis=1))
 
     def predict_proba(self, X: list[Any]) -> np.ndarray:
         z = self._logits([str(x) for x in X], "cpu")
@@ -109,7 +128,9 @@ class XlmrFinetune(Candidate):
         return np.asarray(e / e.sum(axis=1, keepdims=True), dtype=np.float64)
 
     def predict(self, X: list[Any]) -> np.ndarray:
-        return np.asarray(self._classes, dtype=object)[self.predict_proba(X).argmax(axis=1)]
+        return np.asarray(
+            np.asarray(self._classes, dtype=object)[self.predict_proba(X).argmax(axis=1)]
+        )
 
     def save(self, path: str) -> None:
         d = Path(path)
@@ -117,7 +138,9 @@ class XlmrFinetune(Candidate):
         self._model.save_pretrained(d / "hf")
         self._tok.save_pretrained(d / "hf")
         (d / "candidate.json").write_text(
-            json.dumps({"candidate": self.name, "classes": self._classes, "base_model": self.base_model})
+            json.dumps(
+                {"candidate": self.name, "classes": self._classes, "base_model": self.base_model}
+            )
         )
 
     @classmethod

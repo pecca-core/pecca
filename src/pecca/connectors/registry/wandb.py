@@ -35,7 +35,9 @@ class WandbRegistry(Registry):
     """Models = artefact versions (type ``model``, alias = version id, metadata = ModelVersion).
     State = ``state.json`` in the latest ``state`` artefact. Logs = one ``logs`` artefact version per flush."""
 
-    def __init__(self, uri: str = "wandb://", home: str | os.PathLike[str] | None = None, **_: Any) -> None:
+    def __init__(
+        self, uri: str = "wandb://", home: str | os.PathLike[str] | None = None, **_: Any
+    ) -> None:
         parts = uri.removeprefix("wandb://").strip("/").split("/")
         if len(parts) != 2 or not all(parts):
             raise ConnectorError(f"bad wandb uri {uri!r}", "use wandb://<entity>/<project>")
@@ -56,10 +58,14 @@ class WandbRegistry(Registry):
     def _full(self, name: str, alias: str) -> str:
         return f"{self.entity}/{self.project}/{name}:{alias}"
 
-    def save_model(self, path_key: str, version: str, artefacts_dir: str, metadata: dict[str, Any]) -> str:
+    def save_model(
+        self, path_key: str, version: str, artefacts_dir: str, metadata: dict[str, Any]
+    ) -> str:
         wandb = _wandb()
         name = f"{_slug(path_key)}-model"
-        art = wandb.Artifact(name, type="model", metadata=json.loads(json.dumps(metadata, default=str)))
+        art = wandb.Artifact(
+            name, type="model", metadata=json.loads(json.dumps(metadata, default=str))
+        )
         art.add_dir(artefacts_dir)
         self._write("pecca-train", art, [version, "latest"])
         return self._full(name, version)
@@ -71,17 +77,23 @@ class WandbRegistry(Registry):
         try:
             art = self._api().artifact(self._full(f"{_slug(path_key)}-model", version))
         except Exception as e:  # noqa: BLE001
-            raise NotFoundError(f"model {path_key}@{version} not found in W&B", "run `pecca train`") from e
+            raise NotFoundError(
+                f"model {path_key}@{version} not found in W&B", "run `pecca train`"
+            ) from e
         art.download(root=str(dst))
         return str(dst)
 
     def list_versions(self, path_key: str) -> list[dict[str, Any]]:
         try:
-            col = self._api().artifact_collection("model", f"{self.entity}/{self.project}/{_slug(path_key)}-model")
+            col = self._api().artifact_collection(
+                "model", f"{self.entity}/{self.project}/{_slug(path_key)}-model"
+            )
             metas = [dict(a.metadata) for a in col.artifacts()]
         except Exception:  # noqa: BLE001
             return []
-        return sorted((m for m in metas if "version" in m), key=lambda m: int(str(m["version"]).lstrip("v")))
+        return sorted(
+            (m for m in metas if "version" in m), key=lambda m: int(str(m["version"]).lstrip("v"))
+        )
 
     def get_state(self, path_key: str) -> dict[str, Any]:
         try:
@@ -99,15 +111,26 @@ class WandbRegistry(Registry):
         return art
 
     def set_state(self, path_key: str, state: dict[str, Any]) -> None:
-        self._write("pecca-state", self._file_artifact(f"{_slug(path_key)}-state", "state", "state.json",
-                                                       json.dumps(state, default=str)))
+        self._write(
+            "pecca-state",
+            self._file_artifact(
+                f"{_slug(path_key)}-state", "state", "state.json", json.dumps(state, default=str)
+            ),
+        )
 
     def append_logs(self, path_key: str, rows: list[dict[str, Any]]) -> None:
         by_day: dict[str, list[str]] = {}
         for r in rows:
-            by_day.setdefault(str(r.get("ts") or datetime.now(UTC).isoformat())[:10], []).append(json.dumps(r, default=str))
+            by_day.setdefault(str(r.get("ts") or datetime.now(UTC).isoformat())[:10], []).append(
+                json.dumps(r, default=str)
+            )
         for day, lines in by_day.items():
-            art = self._file_artifact(f"{_slug(path_key)}-logs-{day}", "logs", f"{uuid.uuid4().hex}.jsonl", "\n".join(lines) + "\n")
+            art = self._file_artifact(
+                f"{_slug(path_key)}-logs-{day}",
+                "logs",
+                f"{uuid.uuid4().hex}.jsonl",
+                "\n".join(lines) + "\n",
+            )
             self._write("pecca-logs", art)
 
     def read_logs(self, path_key: str, since: str) -> pd.DataFrame:
@@ -123,10 +146,14 @@ class WandbRegistry(Registry):
                 for art in col.artifacts():
                     d = Path(art.download(root=tempfile.mkdtemp()))
                     for f in d.glob("*.jsonl"):
-                        rows += [json.loads(line) for line in f.read_text().splitlines() if line.strip()]
+                        rows += [
+                            json.loads(line) for line in f.read_text().splitlines() if line.strip()
+                        ]
         except Exception:  # noqa: BLE001
             return pd.DataFrame()
         df = pd.DataFrame(rows)
         if cutoff is not None and not df.empty and "ts" in df:
-            df = df[pd.to_datetime(df["ts"], utc=True, format="ISO8601") >= pd.Timestamp(cutoff)].reset_index(drop=True)
+            df = df[
+                pd.to_datetime(df["ts"], utc=True, format="ISO8601") >= pd.Timestamp(cutoff)
+            ].reset_index(drop=True)
         return df

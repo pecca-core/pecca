@@ -38,6 +38,7 @@ class MappedDataSource(DataSource):
         if since and "timestamp" in df and df["timestamp"].notna().any():
             cutoff = parse_since(since)
             ts = pd.to_datetime(df["timestamp"], utc=True, errors="coerce")
+            assert cutoff is not None
             df = df[ts >= pd.Timestamp(cutoff)]
         if call is not None:
             df = df[df["call_name"] == call]

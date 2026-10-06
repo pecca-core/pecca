@@ -102,11 +102,15 @@ def select_candidates(
         if nm in _BUILTIN or nm in out:
             continue
         if task in cls.task_types and n >= cls.min_rows:
-            if latency_budget_ms is not None and latency_budget_ms < 10 and (cls.estimated_latency_ms or 0) > 10:
+            if (
+                latency_budget_ms is not None
+                and latency_budget_ms < 10
+                and (cls.estimated_latency_ms or 0) > 10
+            ):
                 continue
             out.append(nm)
     return out
 
 
 def build(name: str, **kwargs: Any) -> Candidate:
-    return get_candidate(name)(**kwargs)  # type: ignore[call-arg]
+    return get_candidate(name)(**kwargs)

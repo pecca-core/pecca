@@ -28,8 +28,20 @@ class ManualTicketer(Ticketer):
     def create(self, title: str, body: str, meta: dict[str, Any]) -> str:
         self.dir.mkdir(parents=True, exist_ok=True)
         tid = f"MAN-{len(list(self.dir.glob('MAN-*.json'))) + 1}"
-        self._f(tid).write_text(json.dumps({"id": tid, "title": title, "body": body, "meta": meta,
-                                            "status": "pending", "comments": [], "created": iso()}, indent=2))
+        self._f(tid).write_text(
+            json.dumps(
+                {
+                    "id": tid,
+                    "title": title,
+                    "body": body,
+                    "meta": meta,
+                    "status": "pending",
+                    "comments": [],
+                    "created": iso(),
+                },
+                indent=2,
+            )
+        )
         return tid
 
     def get_status(self, ticket_id: str) -> str:

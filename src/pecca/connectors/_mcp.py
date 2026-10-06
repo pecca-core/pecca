@@ -12,7 +12,12 @@ from pecca.core.errors import ConnectorError
 class McpRemote:
     """``server`` is a streamable-HTTP URL, or an in-process ``MCPServer`` (tests)."""
 
-    def __init__(self, server: Any, tool_map: dict[str, str] | None = None, static_args: dict[str, dict[str, Any]] | None = None) -> None:
+    def __init__(
+        self,
+        server: Any,
+        tool_map: dict[str, str] | None = None,
+        static_args: dict[str, dict[str, Any]] | None = None,
+    ) -> None:
         if not server:
             raise ConnectorError("mcp transport needs url=...", "or use transport: rest")
         self.server = server
@@ -32,7 +37,9 @@ class McpRemote:
         except ConnectorError:
             raise
         except Exception as e:  # noqa: BLE001
-            raise ConnectorError(f"MCP call failed: {e}", "check the server URL, or use transport: rest") from e
+            raise ConnectorError(
+                f"MCP call failed: {e}", "check the server URL, or use transport: rest"
+            ) from e
 
     def tool_names(self) -> set[str]:
         if self._tools is None:

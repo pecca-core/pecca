@@ -94,10 +94,10 @@ class SklearnCandidate(Candidate):
     def predict(self, X: list[Any]) -> np.ndarray:
         if self.kind == "regression":
             if self._sess is not None:
-                return self._onnx_run(X)[0].reshape(-1)
+                return np.asarray(self._onnx_run(X)[0], dtype=np.float64).reshape(-1)
             return np.asarray(self.model.predict(self._prep(X)), dtype=np.float64).reshape(-1)
         proba = self.predict_proba(X)
-        return np.asarray(self._classes, dtype=object)[proba.argmax(axis=1)]
+        return np.asarray(np.asarray(self._classes, dtype=object)[proba.argmax(axis=1)])
 
     # -- onnx -------------------------------------------------------------------------------
     def _onnx_feed(self, X: list[Any]) -> np.ndarray:
@@ -126,7 +126,9 @@ class SklearnCandidate(Candidate):
             options: Any = {"zipmap": False} if self.kind == "classification" else None
             if options is not None:
                 options = {id(self._final_estimator()): options}
-            onx = convert_sklearn(self.model, initial_types=initial, options=options, target_opset=15)
+            onx = convert_sklearn(
+                self.model, initial_types=initial, options=options, target_opset=15
+            )
             Path(path).write_bytes(onx.SerializeToString())
             return True
         except Exception:  # noqa: BLE001
@@ -172,9 +174,7 @@ class SklearnCandidate(Candidate):
             try:
                 import onnxruntime as ort
 
-                obj._sess = ort.InferenceSession(
-                    str(onnx_path), providers=["CPUExecutionProvider"]
-                )
+                obj._sess = ort.InferenceSession(str(onnx_path), providers=["CPUExecutionProvider"])
                 obj.format = "onnx"
                 return obj
             except Exception:  # noqa: BLE001

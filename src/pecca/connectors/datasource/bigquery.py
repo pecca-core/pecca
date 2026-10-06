@@ -21,6 +21,8 @@ class BigQueryDataSource(SqlDataSource):
         try:
             from google.cloud import bigquery
         except ImportError as e:
-            raise ConnectorError("google-cloud-bigquery is not installed", "pip install 'pecca[bigquery]'") from e
+            raise ConnectorError(
+                "google-cloud-bigquery is not installed", "pip install 'pecca[bigquery]'"
+            ) from e
         df: pd.DataFrame = bigquery.Client(project=self.project).query(sql).to_dataframe()
         return df

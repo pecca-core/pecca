@@ -78,7 +78,7 @@ def run_tournament(
     df = ds.to_pandas()
     X_all = ds.texts()
     resolved, sources = resolve_labels(df)
-    keep = [i for i, l in enumerate(resolved) if l != ""]
+    keep = [i for i, lab in enumerate(resolved) if lab != ""]
     if clf:
         y_all: list[Any] = [resolved[i] for i in keep]
     else:
@@ -99,7 +99,9 @@ def run_tournament(
 
     names = candidates or select_candidates(profile, latency_budget_ms)
     if not names:
-        raise PeccaError(f"no eligible candidates for {call}", "check the profile with `pecca profile`")
+        raise PeccaError(
+            f"no eligible candidates for {call}", "check the profile with `pecca profile`"
+        )
 
     tr_idx, cal_idx = splits.holdout_split(y_all if clf else [0] * len(y_all), clf)
     Xtr, ytr = [X[i] for i in tr_idx], [y_all[i] for i in tr_idx]
@@ -130,7 +132,14 @@ def run_tournament(
         except Exception as e:  # noqa: BLE001
             entry.update(status="failed", error=f"{type(e).__name__}: {e}")
         board.append(entry)
-        say(f"  {nm}: " + (f"{metric_name} {entry['metric']:.4f}" if entry["status"] == "ok" else entry["error"]))
+        say(
+            f"  {nm}: "
+            + (
+                f"{metric_name} {entry['metric']:.4f}"
+                if entry["status"] == "ok"
+                else entry["error"]
+            )
+        )
 
     ok = [e for e in board if e["status"] == "ok"]
     if not ok:
@@ -203,20 +212,48 @@ def run_tournament(
     lineage = build_lineage(df, [str(x) for x in X], sources, call, ds.source, ds.input_template)
     lineage["label_counts"] = dict(Counter(resolved)) if clf else {}
     (art / "lineage.json").write_text(json.dumps(lineage, indent=2))
-    (art / "config.json").write_text(json.dumps({
-        "candidate": winner, "format": fmt, "task_type": profile.task_type,
-        "input_type": profile.input_type, "input_template": ds.input_template,
-        "metric": metric_name, "threshold": threshold}))
+    (art / "config.json").write_text(
+        json.dumps(
+            {
+                "candidate": winner,
+                "format": fmt,
+                "task_type": profile.task_type,
+                "input_type": profile.input_type,
+                "input_template": ds.input_template,
+                "metric": metric_name,
+                "threshold": threshold,
+            }
+        )
+    )
 
     mv = ModelVersion(
-        version=version, candidate=winner, format=fmt, task_type=profile.task_type,
-        metric_name=metric_name, metric=winner_entry["metric"], metric_std=winner_entry["metric_std"],
-        llm_metric=llm_metric, threshold=threshold, expected_fallback_rate=fallback,
-        latency_ms=winner_entry["predict_latency_ms"], trained_at=iso(),
-        target_precision=target_precision, target_met=target_met, calibration_kind=cal_kind, calibration_basis=cal_basis,
-        holdout_metric=holdout_metric, labels=list(cand.classes_), leaderboard=board,
-        lineage=lineage, confusion_matrix=confusion, per_class=per_class,
-        calibration_curve=curve, ece=ece_val, environment=environment(), git_sha=git_sha(),
-        input_template=ds.input_template, min_class_count=profile.min_class_count,
+        version=version,
+        candidate=winner,
+        format=fmt,
+        task_type=profile.task_type,
+        metric_name=metric_name,
+        metric=winner_entry["metric"],
+        metric_std=winner_entry["metric_std"],
+        llm_metric=llm_metric,
+        threshold=threshold,
+        expected_fallback_rate=fallback,
+        latency_ms=winner_entry["predict_latency_ms"],
+        trained_at=iso(),
+        target_precision=target_precision,
+        target_met=target_met,
+        calibration_kind=cal_kind,
+        calibration_basis=cal_basis,
+        holdout_metric=holdout_metric,
+        labels=list(cand.classes_),
+        leaderboard=board,
+        lineage=lineage,
+        confusion_matrix=confusion,
+        per_class=per_class,
+        calibration_curve=curve,
+        ece=ece_val,
+        environment=environment(),
+        git_sha=git_sha(),
+        input_template=ds.input_template,
+        min_class_count=profile.min_class_count,
     )
     return Outcome(mv, str(art))

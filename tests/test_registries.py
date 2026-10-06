@@ -1,7 +1,5 @@
-import json
 import os
 
-import numpy as np
 import pytest
 
 os.environ["MLFLOW_DISABLE_AGENT_HINT"] = "1"
@@ -13,7 +11,6 @@ from pecca.connectors.registry.mlflow import MlflowRegistry, parse_uri
 from pecca.core import context
 from pecca.data.dataset import Dataset, canonicalize
 from pecca.data.synthetic import generate
-from pecca.runtime.predictor import Bundle
 
 KEY = "pecca/default/default/route_rfi"
 
@@ -28,7 +25,11 @@ def _fake_artefacts(tmp_path):
 
 @pytest.mark.parametrize("make", ["local", "mlflow"])
 def test_registry_contract(make, tmp_path):
-    reg = LocalRegistry(tmp_path / "loc") if make == "local" else MlflowRegistry(f"mlflow://sqlite/{tmp_path}/mlflow.db", home=tmp_path)
+    reg = (
+        LocalRegistry(tmp_path / "loc")
+        if make == "local"
+        else MlflowRegistry(f"mlflow://sqlite/{tmp_path}/mlflow.db", home=tmp_path)
+    )
     assert reg.get_state(KEY) == {} and reg.list_versions(KEY) == []
     reg.set_state(KEY, {"mode": "shadow"})
     assert reg.get_state(KEY) == {"mode": "shadow"}
@@ -39,7 +40,10 @@ def test_registry_contract(make, tmp_path):
     assert [m["version"] for m in reg.list_versions(KEY)] == ["v1", "v2", "v10"]
     d = reg.load_model(KEY, "v2")
     assert os.path.exists(os.path.join(d, "x.bin"))
-    reg.append_logs(KEY, [{"ts": "2026-10-01T00:00:00+00:00", "a": 1}, {"ts": "2026-10-02T00:00:00+00:00", "a": 2}])
+    reg.append_logs(
+        KEY,
+        [{"ts": "2026-10-01T00:00:00+00:00", "a": 1}, {"ts": "2026-10-02T00:00:00+00:00", "a": 2}],
+    )
     reg.append_logs(KEY, [{"ts": "2099-01-01T00:00:00+00:00", "a": 3}])
     assert sorted(reg.read_logs(KEY, "2000-01-01")["a"]) == [1, 2, 3]
     assert list(reg.read_logs(KEY, "2026-10-02")["a"]) == [2, 3]
@@ -51,7 +55,9 @@ def test_registry_contract(make, tmp_path):
 def test_parse_uri():
     assert parse_uri("mlflow://databricks-uc/ml.pecca")["uc"] == "ml.pecca"
     assert parse_uri("mlflow://sqlite/x/y.db")["tracking"].startswith("sqlite:///")
-    assert parse_uri("mlflow://https/mlflow.example.com")["tracking"] == "https://mlflow.example.com"
+    assert (
+        parse_uri("mlflow://https/mlflow.example.com")["tracking"] == "https://mlflow.example.com"
+    )
     with pytest.raises(Exception):
         parse_uri("mlflow://nonsense")
 
@@ -59,13 +65,23 @@ def test_parse_uri():
 def test_train_with_mlflow_registry_and_pyfunc(tmp_path, monkeypatch):
     from pecca.core.workspace import Workspace
 
-    ws = Workspace("default", {"workspace": {"registry": f"mlflow://sqlite/{tmp_path}/mlflow.db"}}, tmp_path / ".pecca")
-    cols = {"input": {"s": "email_subject", "b": "email_body"}, "llm_output": "llm_rfi",
-            "human_label": "human_rfi", "call_name": {"literal": "route_rfi"}}
+    ws = Workspace(
+        "default",
+        {"workspace": {"registry": f"mlflow://sqlite/{tmp_path}/mlflow.db"}},
+        tmp_path / ".pecca",
+    )
+    cols = {
+        "input": {"s": "email_subject", "b": "email_body"},
+        "llm_output": "llm_rfi",
+        "human_label": "human_rfi",
+        "call_name": {"literal": "route_rfi"},
+    }
     ds = Dataset(canonicalize(generate(1500), cols), cols, "{s}\n\n{b}")
     res = pecca.train("route_rfi", ds, workspace=ws)
     assert res.version == "v1"
-    p = pecca.predict("route_rfi", [{"s": "lost card", "b": "my card was stolen yesterday"}], workspace=ws)[0]
+    p = pecca.predict(
+        "route_rfi", [{"s": "lost card", "b": "my card was stolen yesterday"}], workspace=ws
+    )[0]
     assert isinstance(p.label, str)
     c = context.get_call("route_rfi", ws)
     assert c.registry.get_state(c.key)["current_version"] == "v1"

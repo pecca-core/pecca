@@ -3,14 +3,21 @@ import warnings
 import numpy as np
 import pytest
 
-from pecca.candidates import all_candidates, register, select_candidates, Candidate
+from pecca.candidates import Candidate, all_candidates, register, select_candidates
 from pecca.candidates.registry import _REGISTRY
 from pecca.core.models import CallProfile
 
 
 def prof(task="classification", inp="text", n=1000):
-    return CallProfile(call="c", n_rows=n, n_unique_outputs=3, unique_ratio=0.0, task_type=task,
-                       input_type=inp, replaceable=True)
+    return CallProfile(
+        call="c",
+        n_rows=n,
+        n_unique_outputs=3,
+        unique_ratio=0.0,
+        task_type=task,
+        input_type=inp,
+        replaceable=True,
+    )
 
 
 def test_small_mode_excludes_xlmr(monkeypatch):
@@ -21,11 +28,18 @@ def test_small_mode_excludes_xlmr(monkeypatch):
 def test_selection_rules(monkeypatch):
     monkeypatch.setenv("PECCA_TEST_SMALL", "0")
     assert select_candidates(prof(n=1000), has_gpu=True) == ["tfidf_linear", "e5_logreg"]
-    assert select_candidates(prof(n=2000), has_gpu=True) == ["tfidf_linear", "e5_logreg", "xlmr_finetune"]
+    assert select_candidates(prof(n=2000), has_gpu=True) == [
+        "tfidf_linear",
+        "e5_logreg",
+        "xlmr_finetune",
+    ]
     assert select_candidates(prof("regression")) == ["tfidf_ridge", "e5_ridge"]
     assert select_candidates(prof(inp="tabular")) == ["logreg", "lightgbm"]
     assert select_candidates(prof("regression", "tabular")) == ["ridge", "lightgbm_reg"]
-    assert select_candidates(prof("classification", "multi_text", 3000), has_gpu=True)[-1] == "xlmr_finetune"
+    assert (
+        select_candidates(prof("classification", "multi_text", 3000), has_gpu=True)[-1]
+        == "xlmr_finetune"
+    )
 
 
 def test_latency_budget_removes_transformers():
@@ -45,7 +59,9 @@ def test_plugin_registration():
         def fit(self, X, y): ...
         def predict_proba(self, X): ...
         def predict(self, X): ...
+
         classes_ = []
+
         def save(self, path): ...
         @classmethod
         def load(cls, path): ...
@@ -59,14 +75,27 @@ def test_plugin_registration():
 
 
 def test_all_builtins_registered():
-    assert {"tfidf_linear", "tfidf_ridge", "e5_logreg", "e5_ridge", "xlmr_finetune",
-            "logreg", "lightgbm", "ridge", "lightgbm_reg"} <= set(all_candidates())
+    assert {
+        "tfidf_linear",
+        "tfidf_ridge",
+        "e5_logreg",
+        "e5_ridge",
+        "xlmr_finetune",
+        "logreg",
+        "lightgbm",
+        "ridge",
+        "lightgbm_reg",
+    } <= set(all_candidates())
 
 
 @pytest.mark.parametrize("name", ["e5_logreg"])  # tfidf: see test_trainer (parity-gated fallback)
 def test_fit_save_load_onnx_parity(name, tmp_path):
     rng = np.random.RandomState(0)
-    words = {"a": ["card", "lost", "stolen"], "b": ["loan", "rate", "interest"], "c": ["login", "app", "password"]}
+    words = {
+        "a": ["card", "lost", "stolen"],
+        "b": ["loan", "rate", "interest"],
+        "c": ["login", "app", "password"],
+    }
     X, y = [], []
     for _ in range(300):
         k = rng.choice(list(words))

@@ -23,11 +23,15 @@ def confusion_matrix(ctx: dict[str, Any], out: Path) -> dict[str, Any]:
         return {"confusion_text": "", "confusion_png": ""}
     labels, m = cm["labels"], np.array(cm["matrix"])
     top = min(12, len(labels))
-    w = max(len(l) for l in labels[:top]) + 1
+    w = max(len(name) for name in labels[:top]) + 1
     lines = [" " * w + " ".join(f"{i:>4}" for i in range(top))]
     for i in range(top):
-        lines.append(f"{i:>2} {labels[i][: w - 3]:<{w - 3}}" + " ".join(f"{int(v):>4}" for v in m[i, :top]))
-    lines.append("(rows=true, cols=predicted; first 12 classes by support, column index = row index)")
+        lines.append(
+            f"{i:>2} {labels[i][: w - 3]:<{w - 3}}" + " ".join(f"{int(v):>4}" for v in m[i, :top])
+        )
+    lines.append(
+        "(rows=true, cols=predicted; first 12 classes by support, column index = row index)"
+    )
     plt = _plt()
     fig, ax = plt.subplots(figsize=(8, 7))
     ax.imshow(m, cmap="Blues")

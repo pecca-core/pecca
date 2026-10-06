@@ -11,8 +11,12 @@ from pecca.data.synthetic import generate
 from pecca.runtime.logging_sink import flush_all
 from pecca.runtime.predictor import clear_cache
 
-COLS = {"input": {"subject": "email_subject", "body": "email_body"}, "llm_output": "llm_rfi",
-        "human_label": "human_rfi", "call_name": {"literal": "route_rfi"}}
+COLS = {
+    "input": {"subject": "email_subject", "body": "email_body"},
+    "llm_output": "llm_rfi",
+    "human_label": "human_rfi",
+    "call_name": {"literal": "route_rfi"},
+}
 
 
 @pytest.fixture()
@@ -62,20 +66,35 @@ def test_modes_off_record_shadow_live(trained, df):
     off = pecca.replace("route_rfi", mode="off")(fn)
     assert off(texts[0]) == table[texts[0]]
     flush_all()
-    assert context.get_call("route_rfi").registry.read_logs("pecca/default/default/route_rfi", "1d").empty
+    assert (
+        context.get_call("route_rfi")
+        .registry.read_logs("pecca/default/default/route_rfi", "1d")
+        .empty
+    )
 
     rec = pecca.replace("route_rfi", mode="record")(fn)
     for t in texts[:5]:
         assert rec(t) == table[t]
-    sh = pecca.replace("route_rfi", mode="shadow", input_adapter=lambda t: {"subject": t.split("\n\n")[0], "body": t.split("\n\n", 1)[1]})(fn)
+    sh = pecca.replace(
+        "route_rfi",
+        mode="shadow",
+        input_adapter=lambda t: {"subject": t.split("\n\n")[0], "body": t.split("\n\n", 1)[1]},
+    )(fn)
     for t in texts[5:15]:
         assert sh(t) == table[t]  # shadow always returns the LLM answer
     flush_all()
     logs = context.get_call("route_rfi").registry.read_logs("pecca/default/default/route_rfi", "1d")
-    assert set(logs["mode"]) == {"record", "shadow"} and logs[logs["mode"] == "shadow"]["agreement"].notna().all()
+    assert (
+        set(logs["mode"]) == {"record", "shadow"}
+        and logs[logs["mode"] == "shadow"]["agreement"].notna().all()
+    )
 
     before = len(calls)
-    live = pecca.replace("route_rfi", mode="live", input_adapter=lambda t: {"subject": t.split("\n\n")[0], "body": t.split("\n\n", 1)[1]})(fn)
+    live = pecca.replace(
+        "route_rfi",
+        mode="live",
+        input_adapter=lambda t: {"subject": t.split("\n\n")[0], "body": t.split("\n\n", 1)[1]},
+    )(fn)
     outs = [live(t) for t in texts[15:40]]
     served_by_model = 25 - (len(calls) - before)
     assert served_by_model > 0 and all(isinstance(o, str) for o in outs)
@@ -158,7 +177,11 @@ def test_shadow_to_live_after_enough_data(trained, df):
     st = c.state()
     st.shadow_since = iso(now() - timedelta(days=10))
     c.save_state(st)
-    sh = pecca.replace("route_rfi", mode="shadow", input_adapter=lambda t: {"subject": t.split("\n\n")[0], "body": t.split("\n\n", 1)[1]})(fn)
+    sh = pecca.replace(
+        "route_rfi",
+        mode="shadow",
+        input_adapter=lambda t: {"subject": t.split("\n\n")[0], "body": t.split("\n\n", 1)[1]},
+    )(fn)
     for t in list(table)[:60]:
         sh(t)
     flush_all()
@@ -178,7 +201,9 @@ def test_retrain_in_live_demotes_to_shadow(trained, ds, monkeypatch):
 
 
 def test_approve_and_audit_pack(trained, tmp_path):
-    rec = pecca.approve("route_rfi", "v1", approver="lead@example.com", groups=["ml-leads"], note="ok")
+    rec = pecca.approve(
+        "route_rfi", "v1", approver="lead@example.com", groups=["ml-leads"], note="ok"
+    )
     assert rec["approver"] == "lead@example.com"
     p = pecca.audit_pack("route_rfi", out="markdown", path=str(tmp_path / "pack"))
     text = open(p).read()
@@ -193,8 +218,12 @@ def test_approve_and_audit_pack(trained, tmp_path):
 def test_unreplaceable_call_raises():
     import pandas as pd
 
-    raw = pd.DataFrame({"i": [f"t{i}" for i in range(600)], "o": [f"unique answer {i} " * 4 for i in range(600)]})
-    ds = Dataset(canonicalize(raw, {"input": "i", "llm_output": "o", "call_name": {"literal": "gen"}}))
+    raw = pd.DataFrame(
+        {"i": [f"t{i}" for i in range(600)], "o": [f"unique answer {i} " * 4 for i in range(600)]}
+    )
+    ds = Dataset(
+        canonicalize(raw, {"input": "i", "llm_output": "o", "call_name": {"literal": "gen"}})
+    )
     with pytest.raises(PeccaError, match="not replaceable"):
         pecca.train("gen", ds)
 

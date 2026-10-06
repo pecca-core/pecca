@@ -11,8 +11,12 @@ from pecca.data.dataset import Dataset, canonicalize
 from pecca.data.synthetic import generate
 from pecca.mcp.server import build_server
 
-COLS = {"input": {"s": "email_subject", "b": "email_body"}, "llm_output": "llm_rfi",
-        "human_label": "human_rfi", "call_name": {"literal": "route_rfi"}}
+COLS = {
+    "input": {"s": "email_subject", "b": "email_body"},
+    "llm_output": "llm_rfi",
+    "human_label": "human_rfi",
+    "call_name": {"literal": "route_rfi"},
+}
 
 
 @pytest.fixture()
@@ -31,7 +35,14 @@ def _names(server):
 
 
 def test_mcp_lists_tools_and_gates_promote():
-    base = ["pecca_audit", "pecca_diff", "pecca_evaluate", "pecca_predict", "pecca_profile", "pecca_status"]
+    base = [
+        "pecca_audit",
+        "pecca_diff",
+        "pecca_evaluate",
+        "pecca_predict",
+        "pecca_profile",
+        "pecca_status",
+    ]
     assert _names(build_server()) == base
     assert _names(build_server(allow_promote=True)) == sorted([*base, "pecca_promote"])
 
@@ -42,7 +53,10 @@ def test_mcp_tools_work(trained):
     async def go():
         async with Client(build_server(allow_promote=True)) as c:
             st = await c.call_tool("pecca_status", {"path": "route_rfi"})
-            pr = await c.call_tool("pecca_predict", {"path": "route_rfi", "inputs": [{"s": "lost card", "b": "my card was stolen"}]})
+            pr = await c.call_tool(
+                "pecca_predict",
+                {"path": "route_rfi", "inputs": [{"s": "lost card", "b": "my card was stolen"}]},
+            )
             pm = await c.call_tool("pecca_promote", {"path": "route_rfi", "mode": "shadow"})
             return st, pr, pm
 
@@ -60,41 +74,80 @@ def _fake(monkeypatch, module, **attrs):
     monkeypatch.setitem(sys.modules, module, mod)
     parts = module.split(".")
     for i in range(1, len(parts)):  # make parent packages importable
-        monkeypatch.setitem(sys.modules, ".".join(parts[:i]), sys.modules.get(".".join(parts[:i])) or types.ModuleType(".".join(parts[:i])))
+        monkeypatch.setitem(
+            sys.modules,
+            ".".join(parts[:i]),
+            sys.modules.get(".".join(parts[:i])) or types.ModuleType(".".join(parts[:i])),
+        )
     return mod
 
 
 def test_as_tool_plain(trained):
     t = pecca.as_tool("route_rfi")
     assert t.__name__ == "route_rfi" and "Pecca" in t.__doc__
-    assert set(t("lost card\n\nmy card was stolen")) == {"label", "confidence", "fallback", "version"}
+    assert set(t("lost card\n\nmy card was stolen")) == {
+        "label",
+        "confidence",
+        "fallback",
+        "version",
+    }
 
 
 def test_shims_with_mocked_frameworks(monkeypatch, trained):
     from pecca.integrations import claude_agent, google_adk, langgraph, openai_agents, strands
 
     seen = {}
-    _fake(monkeypatch, "langchain_core.tools", tool=lambda name, description=None: (lambda f: seen.setdefault("lc", (name, description, f))))
+    _fake(
+        monkeypatch,
+        "langchain_core.tools",
+        tool=lambda name, description=None: lambda f: seen.setdefault("lc", (name, description, f)),
+    )
     assert langgraph.tool("route_rfi")[0] == "route_rfi"
     _fake(monkeypatch, "strands", tool=lambda f, name=None, description=None: ("strands", name, f))
     assert strands.tool("route_rfi")[:2] == ("strands", "route_rfi")
     _fake(monkeypatch, "google.adk.tools", FunctionTool=lambda func: ("adk", func.__name__))
     assert google_adk.tool("route_rfi") == ("adk", "route_rfi")
-    _fake(monkeypatch, "agents", function_tool=lambda f, name_override=None, description_override=None: ("oa", name_override))
+    _fake(
+        monkeypatch,
+        "agents",
+        function_tool=lambda f, name_override=None, description_override=None: (
+            "oa",
+            name_override,
+        ),
+    )
     assert openai_agents.tool("route_rfi") == ("oa", "route_rfi")
-    _fake(monkeypatch, "claude_agent_sdk", tool=lambda name, desc, schema: (lambda h: ("claude", name, h)))
+    _fake(
+        monkeypatch,
+        "claude_agent_sdk",
+        tool=lambda name, desc, schema: lambda h: ("claude", name, h),
+    )
     kind, name, handler = claude_agent.tool("route_rfi")
     assert (kind, name) == ("claude", "route_rfi")
     out = asyncio.run(handler({"text": "lost card\n\nmy card was stolen"}))
     assert json.loads(out["content"][0]["text"])["version"] == "v1"
 
 
-@pytest.mark.parametrize("mod,pkg", [("langgraph", "langchain-core"), ("strands", "strands-agents"), ("google_adk", "google-adk"),
-                                     ("openai_agents", "openai-agents"), ("claude_agent", "claude-agent-sdk")])
+@pytest.mark.parametrize(
+    "mod,pkg",
+    [
+        ("langgraph", "langchain-core"),
+        ("strands", "strands-agents"),
+        ("google_adk", "google-adk"),
+        ("openai_agents", "openai-agents"),
+        ("claude_agent", "claude-agent-sdk"),
+    ],
+)
 def test_shims_raise_clear_error_when_framework_missing(mod, pkg, monkeypatch):
     import importlib
 
-    for name in ("langchain_core", "langchain_core.tools", "strands", "google.adk.tools", "agents", "claude_agent_sdk"):
+    for name in (
+        "langchain_core",
+        "langchain_core.tools",
+        "strands",
+        "google.adk.tools",
+        "agents",
+        "claude_agent_sdk",
+    ):
         monkeypatch.setitem(sys.modules, name, None)  # None => ImportError on import
     shim = importlib.import_module(f"pecca.integrations.{mod}")
     with pytest.raises(PeccaError, match=f"install {pkg}"):

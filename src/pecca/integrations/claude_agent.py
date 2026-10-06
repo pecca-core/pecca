@@ -13,11 +13,13 @@ from typing import Any
 from pecca.integrations._common import base_tool, import_framework
 
 
-def tool(call: str, *, project: Any = None, workspace: Any = None, description: str | None = None) -> Any:
+def tool(
+    call: str, *, project: Any = None, workspace: Any = None, description: str | None = None
+) -> Any:
     fn = base_tool(call, project, workspace, description)
     sdk = import_framework("claude_agent_sdk", "claude-agent-sdk")
 
-    @sdk.tool(fn.__name__, fn.__doc__ or "", {"text": str})
+    @sdk.tool(fn.__name__, fn.__doc__ or "", {"text": str})  # type: ignore[untyped-decorator]
     async def handler(args: dict[str, Any]) -> dict[str, Any]:
         return {"content": [{"type": "text", "text": json.dumps(fn(args["text"]))}]}
 

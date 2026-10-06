@@ -32,7 +32,7 @@ class CronScheduler(Scheduler):
         self.path = Path(path or Path(os.environ.get("PECCA_HOME") or ".pecca") / "scheduler.json")
 
     def _load(self) -> list[dict[str, Any]]:
-        return json.loads(self.path.read_text()) if self.path.exists() else []  # type: ignore[no-any-return]
+        return json.loads(self.path.read_text()) if self.path.exists() else []
 
     def register_job(self, name: str, every: str, command: list[str]) -> None:
         jobs = [j for j in self._load() if j["name"] != name]

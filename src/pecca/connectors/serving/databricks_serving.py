@@ -18,7 +18,9 @@ class DatabricksServing(ServingTarget):
         try:
             from databricks.sdk import WorkspaceClient
         except ImportError as e:
-            raise PeccaError("databricks-sdk is not installed", "pip install 'pecca[databricks]'") from e
+            raise PeccaError(
+                "databricks-sdk is not installed", "pip install 'pecca[databricks]'"
+            ) from e
         return WorkspaceClient()
 
     def deploy(self, path_key: str, version: str) -> str:
@@ -28,9 +30,18 @@ class DatabricksServing(ServingTarget):
         entity = f"{self.prefix}{path_key.replace('pecca/', '').replace('/', '_')}"
         self._client().serving_endpoints.create(
             name=name,
-            config=EndpointCoreConfigInput(served_entities=[ServedEntityInput(
-                entity_name=entity, entity_version=version.lstrip("v"),
-                workload_size=self.size, scale_to_zero_enabled=True)]))
+            config=EndpointCoreConfigInput(
+                name=name,
+                served_entities=[
+                    ServedEntityInput(
+                        entity_name=entity,
+                        entity_version=version.lstrip("v"),
+                        workload_size=self.size,
+                        scale_to_zero_enabled=True,
+                    )
+                ],
+            ),
+        )
         self._endpoints[path_key] = name
         return name
 

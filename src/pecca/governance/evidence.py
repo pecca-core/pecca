@@ -10,9 +10,16 @@ def audit_dir(call: Any, version: str) -> Path:
     try:
         return Path(call.registry.audit_dir(call.key, version))
     except Exception:  # noqa: BLE001
-        d = call.workspace.home / call.path.workspace / call.path.project / call.path.call / "audit" / version
+        d = (
+            call.workspace.home
+            / call.path.workspace
+            / call.path.project
+            / call.path.call
+            / "audit"
+            / version
+        )
         d.mkdir(parents=True, exist_ok=True)
-        return d
+        return Path(d)
 
 
 def missing_evidence(call: Any, version: str, required: list[str]) -> list[str]:

@@ -29,7 +29,9 @@ def _mlflow() -> Any:
     try:
         import mlflow
     except ImportError as e:
-        raise ConnectorError("mlflow is not installed", "pip install 'pecca[mlflow]' (or 'pecca[databricks]')") from e
+        raise ConnectorError(
+            "mlflow is not installed", "pip install 'pecca[mlflow]' (or 'pecca[databricks]')"
+        ) from e
     return mlflow
 
 
@@ -39,16 +41,29 @@ def parse_uri(uri: str) -> dict[str, str]:
         return {"tracking": "databricks", "registry": "databricks-uc", "uc": rest.split("/", 1)[1]}
     if rest.startswith("sqlite/"):
         db = Path(rest.split("/", 1)[1]).resolve()
-        return {"tracking": f"sqlite:///{db}", "registry": "", "uc": "", "artifacts": str(db.parent / "artifacts")}
+        return {
+            "tracking": f"sqlite:///{db}",
+            "registry": "",
+            "uc": "",
+            "artifacts": str(db.parent / "artifacts"),
+        }
     if rest.startswith(("http/", "https/")):
         scheme, host = rest.split("/", 1)
         return {"tracking": f"{scheme}://{host}", "registry": "", "uc": ""}
-    raise ConnectorError(f"unsupported mlflow uri {uri!r}", "use mlflow://databricks-uc/<catalog>.<schema>, mlflow://sqlite/<path>.db or mlflow://http(s)/<host>")
+    raise ConnectorError(
+        f"unsupported mlflow uri {uri!r}",
+        "use mlflow://databricks-uc/<catalog>.<schema>, mlflow://sqlite/<path>.db or mlflow://http(s)/<host>",
+    )
 
 
 @register("registry", "mlflow")
 class MlflowRegistry(Registry):
-    def __init__(self, uri: str = "mlflow://sqlite/./mlflow.db", home: str | os.PathLike[str] | None = None, **_: Any) -> None:
+    def __init__(
+        self,
+        uri: str = "mlflow://sqlite/./mlflow.db",
+        home: str | os.PathLike[str] | None = None,
+        **_: Any,
+    ) -> None:
         self.cfg = parse_uri(uri)
         self.home = Path(home or os.environ.get("PECCA_HOME") or ".pecca").resolve()
         self._client: Any = None
@@ -74,28 +89,59 @@ class MlflowRegistry(Registry):
         if name not in self._exp:
             exp = self.client.get_experiment_by_name(name)
             art = self.cfg.get("artifacts")
-            self._exp[name] = exp.experiment_id if exp else self.client.create_experiment(
-                name, artifact_location=f"{art}/{name.replace('/', '_')}" if art else None)
+            self._exp[name] = (
+                exp.experiment_id
+                if exp
+                else self.client.create_experiment(
+                    name, artifact_location=f"{art}/{name.replace('/', '_')}" if art else None
+                )
+            )
         return self._exp[name]
 
     def _runs(self, path_key: str, kind: str) -> list[Any]:
-        return list(self.client.search_runs([self._exp_id(path_key)], filter_string=f"tags.`pecca.kind` = '{kind}'",
-                                            order_by=["attributes.start_time ASC"], max_results=5000))
+        return list(
+            self.client.search_runs(
+                [self._exp_id(path_key)],
+                filter_string=f"tags.`pecca.kind` = '{kind}'",
+                order_by=["attributes.start_time ASC"],
+                max_results=5000,
+            )
+        )
 
     def _uc_model_name(self, path_key: str) -> str:
         return f"{self.cfg['uc']}.{path_key.removeprefix('pecca/').replace('/', '_')}"
 
     # -- models -----------------------------------------------------------------------------
-    def save_model(self, path_key: str, version: str, artefacts_dir: str, metadata: dict[str, Any]) -> str:
+    def save_model(
+        self, path_key: str, version: str, artefacts_dir: str, metadata: dict[str, Any]
+    ) -> str:
         mlflow = _mlflow()
         c = self.client
-        run = c.create_run(self._exp_id(path_key), run_name=version,
-                           tags={"pecca.kind": "version", "pecca.version": version, "pecca.path": path_key})
+        run = c.create_run(
+            self._exp_id(path_key),
+            run_name=version,
+            tags={"pecca.kind": "version", "pecca.version": version, "pecca.path": path_key},
+        )
         rid = run.info.run_id
-        for k in ("candidate", "format", "task_type", "metric_name", "calibration_kind", "calibration_basis"):
+        for k in (
+            "candidate",
+            "format",
+            "task_type",
+            "metric_name",
+            "calibration_kind",
+            "calibration_basis",
+        ):
             if metadata.get(k) is not None:
                 c.log_param(rid, k, metadata[k])
-        for k in ("metric", "metric_std", "llm_metric", "threshold", "expected_fallback_rate", "latency_ms", "ece"):
+        for k in (
+            "metric",
+            "metric_std",
+            "llm_metric",
+            "threshold",
+            "expected_fallback_rate",
+            "latency_ms",
+            "ece",
+        ):
             if isinstance(metadata.get(k), (int, float)):
                 c.log_metric(rid, k, float(metadata[k]))
         c.log_artifacts(rid, artefacts_dir, "model_artefacts")
@@ -103,10 +149,17 @@ class MlflowRegistry(Registry):
         try:  # a pyfunc wrapper so the version can be served by MLflow / Databricks Model Serving
             from pecca.connectors.registry._pyfunc import PeccaPyfunc
 
-            kwargs: dict[str, Any] = {"registered_model_name": self._uc_model_name(path_key)} if self.cfg["uc"] else {}
+            kwargs: dict[str, Any] = (
+                {"registered_model_name": self._uc_model_name(path_key)} if self.cfg["uc"] else {}
+            )
             with mlflow.start_run(run_id=rid):
-                mlflow.pyfunc.log_model(name="pyfunc", python_model=PeccaPyfunc(),
-                                        artifacts={"pecca_model": artefacts_dir}, pip_requirements=["pecca"], **kwargs)
+                mlflow.pyfunc.log_model(
+                    name="pyfunc",
+                    python_model=PeccaPyfunc(),
+                    artifacts={"pecca_model": artefacts_dir},
+                    pip_requirements=["pecca"],
+                    **kwargs,
+                )
         except Exception as e:  # noqa: BLE001 - registry persistence must not depend on pyfunc packaging
             c.set_tag(rid, "pecca.pyfunc_error", str(e)[:250])
         c.set_terminated(rid)
@@ -124,14 +177,21 @@ class MlflowRegistry(Registry):
         if (dst / "config.json").exists():
             return str(dst)
         dst.mkdir(parents=True, exist_ok=True)
-        local = _mlflow().artifacts.download_artifacts(run_id=run.info.run_id, artifact_path="model_artefacts", dst_path=str(dst.parent / f".{version}.dl"))
+        local = _mlflow().artifacts.download_artifacts(
+            run_id=run.info.run_id,
+            artifact_path="model_artefacts",
+            dst_path=str(dst.parent / f".{version}.dl"),
+        )
         import shutil
 
         shutil.copytree(local, dst, dirs_exist_ok=True)
         return str(dst)
 
     def list_versions(self, path_key: str) -> list[dict[str, Any]]:
-        out = [self.client.download_artifacts(r.info.run_id, "metadata.json") for r in self._runs(path_key, "version")]
+        out = [
+            self.client.download_artifacts(r.info.run_id, "metadata.json")
+            for r in self._runs(path_key, "version")
+        ]
         metas = [json.loads(Path(p).read_text()) for p in out]
         return sorted(metas, key=lambda m: int(str(m["version"]).lstrip("v")))
 
@@ -142,7 +202,11 @@ class MlflowRegistry(Registry):
             return str(runs[-1].info.run_id)
         if not create:
             return None
-        return str(self.client.create_run(self._exp_id(path_key), run_name="state", tags={"pecca.kind": "state"}).info.run_id)
+        return str(
+            self.client.create_run(
+                self._exp_id(path_key), run_name="state", tags={"pecca.kind": "state"}
+            ).info.run_id
+        )
 
     def get_state(self, path_key: str) -> dict[str, Any]:
         rid = self._state_run(path_key, create=False)
@@ -166,7 +230,9 @@ class MlflowRegistry(Registry):
             ts = str(r.get("ts") or datetime.now(UTC).isoformat())
             by_day.setdefault(ts[:10], []).append(json.dumps(r, default=str))
         for day, lines in by_day.items():
-            self.client.log_text(rid, "\n".join(lines) + "\n", f"logs/{day}/{uuid.uuid4().hex}.jsonl")
+            self.client.log_text(
+                rid, "\n".join(lines) + "\n", f"logs/{day}/{uuid.uuid4().hex}.jsonl"
+            )
 
     def read_logs(self, path_key: str, since: str) -> pd.DataFrame:
         rid = self._state_run(path_key, create=False)
@@ -181,10 +247,14 @@ class MlflowRegistry(Registry):
                     rows += [json.loads(line) for line in text.splitlines() if line.strip()]
         df = pd.DataFrame(rows)
         if cutoff is not None and not df.empty and "ts" in df:
-            df = df[pd.to_datetime(df["ts"], utc=True, format="ISO8601") >= pd.Timestamp(cutoff)].reset_index(drop=True)
+            df = df[
+                pd.to_datetime(df["ts"], utc=True, format="ISO8601") >= pd.Timestamp(cutoff)
+            ].reset_index(drop=True)
         return df
 
     def list_calls(self, prefix: str) -> list[str]:
         base = self._exp_name(prefix) + "/"
         exps = self.client.search_experiments(filter_string=f"name LIKE '{base}%'")
-        return sorted(e.name.removeprefix(base) for e in exps if "/" not in e.name.removeprefix(base))
+        return sorted(
+            e.name.removeprefix(base) for e in exps if "/" not in e.name.removeprefix(base)
+        )

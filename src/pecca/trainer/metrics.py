@@ -15,7 +15,7 @@ def primary_metric(task_type: str, metric: str | None) -> str:
     return metric or ("macro_f1" if task_type == "classification" else "rmse")
 
 
-def score(metric: str, y_true: list | np.ndarray, y_pred: list | np.ndarray) -> float:
+def score(metric: str, y_true: list[Any] | np.ndarray, y_pred: list[Any] | np.ndarray) -> float:
     if metric == "macro_f1":
         return float(f1_score(y_true, y_pred, average="macro", zero_division=0))
     if metric == "accuracy":
@@ -29,18 +29,25 @@ def better(metric: str, a: float, b: float) -> bool:
     return a > b if HIGHER_IS_BETTER[metric] else a < b
 
 
-def confusion(y_true: list, y_pred: list, labels: list[str], top: int = 50) -> dict[str, Any]:
-    counts = {l: int(sum(1 for t in y_true if t == l)) for l in labels}
-    keep = sorted(labels, key=lambda l: (-counts[l], l))[:top]
+def confusion(
+    y_true: list[Any], y_pred: list[Any], labels: list[str], top: int = 50
+) -> dict[str, Any]:
+    counts = {lab: int(sum(1 for t in y_true if t == lab)) for lab in labels}
+    keep = sorted(labels, key=lambda lab: (-counts[lab], lab))[:top]
     m = _cm(y_true, y_pred, labels=keep)
     return {"labels": keep, "matrix": m.tolist(), "truncated": len(labels) > top}
 
 
-def per_class_report(y_true: list, y_pred: list, labels: list[str]) -> dict[str, Any]:
+def per_class_report(y_true: list[Any], y_pred: list[Any], labels: list[str]) -> dict[str, Any]:
     p, r, f, s = precision_recall_fscore_support(y_true, y_pred, labels=labels, zero_division=0)
     return {
-        l: {"precision": float(p[i]), "recall": float(r[i]), "f1": float(f[i]), "support": int(s[i])}
-        for i, l in enumerate(labels)
+        lab: {
+            "precision": float(p[i]),
+            "recall": float(r[i]),
+            "f1": float(f[i]),
+            "support": int(s[i]),
+        }
+        for i, lab in enumerate(labels)
     }
 
 

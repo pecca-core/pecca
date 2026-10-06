@@ -11,7 +11,9 @@ class SlackNotifier(WebhookNotifier):
     """Slack incoming webhook."""
 
     def __init__(self, webhook: str, channel: str | None = None, **kw: Any) -> None:
-        super().__init__(url=webhook, **{k: v for k, v in kw.items() if k in ("headers", "timeout")})
+        super().__init__(
+            url=webhook, **{k: v for k, v in kw.items() if k in ("headers", "timeout")}
+        )
         self.channel = channel
 
     def _body(self, event: str, payload: dict[str, Any], rendered: str) -> dict[str, Any]:

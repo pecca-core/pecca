@@ -41,8 +41,14 @@ class AirflowScheduler(Scheduler):
 
     def register_job(self, name: str, every: str, command: list[str]) -> None:
         self.dir.mkdir(parents=True, exist_ok=True)
-        (self.dir / f"pecca_{name}.py").write_text(
-            DAG.format(name=name.replace("/", "_"), cron=cron_expr(every), command=" ".join(command)))
+        (self.dir / f"pecca_{name.replace('/', '_')}.py").write_text(
+            DAG.format(
+                name=name.replace("/", "_"), cron=cron_expr(every), command=" ".join(command)
+            )
+        )
 
     def list_jobs(self) -> list[dict[str, Any]]:
-        return [{"name": p.stem.removeprefix("pecca_"), "file": str(p)} for p in sorted(self.dir.glob("pecca_*.py"))]
+        return [
+            {"name": p.stem.removeprefix("pecca_"), "file": str(p)}
+            for p in sorted(self.dir.glob("pecca_*.py"))
+        ]

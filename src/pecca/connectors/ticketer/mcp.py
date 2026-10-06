@@ -23,8 +23,13 @@ class McpTicketer(Ticketer):
     Extra static arguments (e.g. the Jira project) go in ``args: {create: {project: MRM}}``.
     """
 
-    def __init__(self, url: Any = None, tool_map: dict[str, str] | None = None,
-                 args: dict[str, dict[str, Any]] | None = None, **_: Any) -> None:
+    def __init__(
+        self,
+        url: Any = None,
+        tool_map: dict[str, str] | None = None,
+        args: dict[str, dict[str, Any]] | None = None,
+        **_: Any,
+    ) -> None:
         self.remote = McpRemote(url, tool_map, args)
 
     def create(self, title: str, body: str, meta: dict[str, Any]) -> str:

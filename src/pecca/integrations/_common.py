@@ -17,5 +17,7 @@ def import_framework(module: str, pip_name: str) -> Any:
         raise PeccaError(f"install {pip_name}", f"pip install {pip_name}") from e
 
 
-def base_tool(call: str, project: Any, workspace: Any, description: str | None) -> Callable[[str], dict[str, Any]]:
+def base_tool(
+    call: str, project: Any, workspace: Any, description: str | None
+) -> Callable[[str], dict[str, Any]]:
     return as_tool(call, project=project, workspace=workspace, description=description)

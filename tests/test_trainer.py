@@ -14,8 +14,12 @@ from pecca.trainer.tournament import run_tournament
 @pytest.fixture(scope="module")
 def ds():
     df = generate(1200)
-    cols = {"input": {"subject": "email_subject", "body": "email_body"}, "llm_output": "llm_rfi",
-            "human_label": "human_rfi", "call_name": {"literal": "route_rfi"}}
+    cols = {
+        "input": {"subject": "email_subject", "body": "email_body"},
+        "llm_output": "llm_rfi",
+        "human_label": "human_rfi",
+        "call_name": {"literal": "route_rfi"},
+    }
     return Dataset(canonicalize(df, cols), cols, "{subject}\n\n{body}")
 
 
@@ -29,7 +33,9 @@ def test_threshold_meets_target():
     assert correct[served].mean() >= 0.9
     assert abs(fb - (1 - served.mean())) < 1e-9
     # smallest such t: a slightly lower one would break the target (or support floor)
-    lower = conf >= np.sort(conf)[np.searchsorted(np.sort(conf), t) - 1] if t > conf.min() else served
+    lower = (
+        conf >= np.sort(conf)[np.searchsorted(np.sort(conf), t) - 1] if t > conf.min() else served
+    )
     assert correct[lower].mean() <= correct[served].mean() + 1e-9 or lower.sum() >= served.sum()
 
 
@@ -59,7 +65,9 @@ def test_splits_deterministic_and_disjoint():
 
 def test_tournament_end_to_end(ds, tmp_path):
     prof = profile_call(ds, "route_rfi")
-    out = run_tournament("route_rfi", ds, prof, version="v1", workdir=str(tmp_path), target_precision=0.9)
+    out = run_tournament(
+        "route_rfi", ds, prof, version="v1", workdir=str(tmp_path), target_precision=0.9
+    )
     mv = out.version
     assert mv.candidate in {"tfidf_linear", "e5_logreg"}
     assert 0 < mv.metric <= 1 and mv.threshold is not None and mv.latency_ms > 0
@@ -72,7 +80,9 @@ def test_tournament_end_to_end(ds, tmp_path):
 def test_tournament_tie_prefers_lower_latency(ds, tmp_path, monkeypatch):
     from pecca.trainer import tournament as T
 
-    monkeypatch.setattr(T, "_median_latency_ms", lambda c, X: 5.0 if c.name == "tfidf_linear" else 1.0)
+    monkeypatch.setattr(
+        T, "_median_latency_ms", lambda c, X: 5.0 if c.name == "tfidf_linear" else 1.0
+    )
     monkeypatch.setattr(T.M, "score", lambda m, a, b: 0.8)
     prof = profile_call(ds, "route_rfi")
     out = run_tournament("route_rfi", ds, prof, version="v1", workdir=str(tmp_path))

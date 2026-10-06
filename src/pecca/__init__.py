@@ -19,6 +19,18 @@ from pecca.api import (  # noqa: E402
 )
 
 __all__ = [
-    "__version__", "approve", "as_tool", "audit_pack", "connect", "connectors", "evaluate",
-    "predict", "profile", "promote", "register", "replace", "retrain", "train",
+    "__version__",
+    "approve",
+    "as_tool",
+    "audit_pack",
+    "connect",
+    "connectors",
+    "evaluate",
+    "predict",
+    "profile",
+    "promote",
+    "register",
+    "replace",
+    "retrain",
+    "train",
 ]

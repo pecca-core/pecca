@@ -17,9 +17,7 @@ class CallPath:
     call: str
 
     @classmethod
-    def parse(
-        cls, text: str, workspace: str | None = None, project: str | None = None
-    ) -> CallPath:
+    def parse(cls, text: str, workspace: str | None = None, project: str | None = None) -> CallPath:
         parts = [p for p in text.split("/") if p]
         env_ws = os.environ.get("PECCA_WORKSPACE") or DEFAULT
         if len(parts) == 3:

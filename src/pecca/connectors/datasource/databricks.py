@@ -14,8 +14,13 @@ from pecca.core.errors import ConnectorError
 class DatabricksDataSource(SqlDataSource):
     """Databricks SQL warehouse via ``databricks-sql-connector`` (extra: ``pecca[databricks]``)."""
 
-    def __init__(self, server_hostname: str | None = None, http_path: str | None = None,
-                 access_token: str | None = None, **kw: Any) -> None:
+    def __init__(
+        self,
+        server_hostname: str | None = None,
+        http_path: str | None = None,
+        access_token: str | None = None,
+        **kw: Any,
+    ) -> None:
         super().__init__(**kw)
         self.host = server_hostname or os.environ.get("DATABRICKS_HOST", "").replace("https://", "")
         self.http_path = http_path or os.environ.get("DATABRICKS_HTTP_PATH", "")
@@ -23,10 +28,17 @@ class DatabricksDataSource(SqlDataSource):
 
     def _execute(self, sql: str) -> pd.DataFrame:
         try:
-            from databricks import sql as dbsql
+            from databricks import sql as dbsql  # type: ignore[attr-defined]
         except ImportError as e:
-            raise ConnectorError("databricks-sql-connector is not installed", "pip install 'pecca[databricks]'") from e
-        with dbsql.connect(server_hostname=self.host, http_path=self.http_path, access_token=self.token) as conn, conn.cursor() as cur:
+            raise ConnectorError(
+                "databricks-sql-connector is not installed", "pip install 'pecca[databricks]'"
+            ) from e
+        with (
+            dbsql.connect(
+                server_hostname=self.host, http_path=self.http_path, access_token=self.token
+            ) as conn,
+            conn.cursor() as cur,
+        ):
             cur.execute(sql)
             cols = [d[0] for d in cur.description]
             return pd.DataFrame([list(r) for r in cur.fetchall()], columns=cols)

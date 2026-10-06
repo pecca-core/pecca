@@ -103,7 +103,9 @@ def get_predictor(call: Call, version: str | None = None) -> Predictor:
     if v is None:
         vs = call.versions()
         if not vs:
-            raise NotFoundError(f"no trained model for {call.path}", f"run `pecca train {call.path}`")
+            raise NotFoundError(
+                f"no trained model for {call.path}", f"run `pecca train {call.path}`"
+            )
         v = vs[-1].version
     key = (id(call.workspace), call.key, v)
     with _cache_lock:

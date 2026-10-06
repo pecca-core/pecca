@@ -14,7 +14,9 @@ from pecca.core.errors import ConfigError
 from pecca.governance import validate_gates
 
 
-def apply(path: str | Path = "pecca.yaml", secrets: Secrets | None = None) -> tuple[str, dict[str, Any]]:
+def apply(
+    path: str | Path = "pecca.yaml", secrets: Secrets | None = None
+) -> tuple[str, dict[str, Any]]:
     p = Path(path)
     cfg = loader.load_yaml(p)
     resolved = loader.resolve(cfg, p.resolve().parent)
