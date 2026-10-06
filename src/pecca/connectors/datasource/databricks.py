@@ -40,5 +40,5 @@ class DatabricksDataSource(SqlDataSource):
             conn.cursor() as cur,
         ):
             cur.execute(sql)
-            cols = [d[0] for d in cur.description]
-            return pd.DataFrame([list(r) for r in cur.fetchall()], columns=cols)
+            cols = [d[0] for d in cur.description or []]
+            return pd.DataFrame([list(r) for r in cur.fetchall() or []], columns=cols)

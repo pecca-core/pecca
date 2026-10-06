@@ -86,7 +86,9 @@ class SentenceEmbedder:
                 v = np.asarray(v, dtype=np.float32)
                 np.save(cdir / f"{self._key(texts[i])}.npy", v)
                 out[i] = v
-        return np.vstack(out) if out else np.zeros((0, 1), dtype=np.float32)  # type: ignore[arg-type]
+        if not out:
+            return np.zeros((0, 1), dtype=np.float32)
+        return np.vstack([v for v in out if v is not None])
 
 
 _EMBEDDERS: dict[str, Embedder] = {}
