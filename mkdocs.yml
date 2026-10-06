@@ -1,0 +1,79 @@
+site_name: Pecca
+site_description: Replace repetitive LLM calls with small, auditable models.
+site_url: https://pecca-core.github.io/pecca/
+repo_url: https://github.com/pecca-core/pecca
+repo_name: pecca-core/pecca
+edit_uri: edit/main/docs/
+theme:
+  name: material
+  features: [navigation.sections, navigation.top, content.code.copy, content.action.edit, search.suggest]
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle: {icon: material/weather-night, name: Dark mode}
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle: {icon: material/weather-sunny, name: Light mode}
+plugins:
+  - search
+  - mermaid2
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+markdown_extensions:
+  - admonition
+  - tables
+  - attr_list
+  - pymdownx.highlight
+  - pymdownx.snippets:
+      base_path: [.]
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+nav:
+  - Home: index.md
+  - Quickstart: quickstart.md
+  - Concepts:
+      - concepts/workspace-project-call.md
+      - concepts/modes.md
+      - concepts/canonical-schema.md
+      - concepts/profiler.md
+      - concepts/tournament.md
+      - concepts/threshold-and-fallback.md
+  - Case study: case-study/autoresponse-routing.md
+  - Governance:
+      - governance/overview.md
+      - governance/profiles.md
+      - governance/approvals-and-tickets.md
+  - Configuration:
+      - config/pecca-yaml.md
+      - config/secrets.md
+      - config/templates.md
+  - Connectors:
+      - connectors/overview.md
+      - connectors/datasource.md
+      - connectors/registry.md
+      - connectors/notifier.md
+      - connectors/ticketer.md
+      - connectors/scheduler.md
+      - connectors/serving.md
+      - connectors/docs-publisher.md
+      - connectors/identity.md
+      - connectors/writing-a-connector.md
+      - connectors/mcp.md
+  - Integrations:
+      - integrations/agent-frameworks.md
+      - integrations/mlflow-unity-catalog.md
+      - integrations/opentelemetry.md
+  - Extending: extending/custom-candidates.md
+  - CLI reference: cli.md
+  - API reference: api/index.md
+  - FAQ: faq.md
+  - Project:
+      - Contributing: contributing.md
+      - Changelog: changelog.md
+      - Security: security.md
+      - Licence: license.md

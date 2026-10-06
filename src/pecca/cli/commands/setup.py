@@ -30,6 +30,19 @@ projects:
       extends: {profile}
     calls: {{}}
 """
+DEMO_DATASOURCE = (
+    "    datasource:\n"
+    "      type: csv\n"
+    "      path: data/demo/calls.csv\n"
+    "      columns:\n"
+    "        input: {subject: email_subject, body: email_body}\n"
+    "        llm_output: llm_output\n"
+    "        human_label: human_label\n"
+    "        call_name: call_name\n"
+    "        timestamp: timestamp\n"
+    "        language: language\n"
+    '      input_template: "{subject}\\n\\n{body}"\n'
+)
 GITIGNORE_LINES = [".pecca/", ".env"]
 
 
@@ -48,7 +61,14 @@ def init(
     target = Path("pecca.yaml")
     if target.exists() and not force:
         raise PeccaError("pecca.yaml already exists", "use --force to overwrite")
-    target.write_text(YAML.format(project=project, profile=profile))
+    text = YAML.format(project=project, profile=profile)
+    if Path("data/demo/calls.csv").exists():  # `pecca datasets demo` ran first: wire it up
+        text = text.replace(
+            "    # datasource:",
+            DEMO_DATASOURCE.rstrip("\n") + "\n    # (example, commented):\n    # datasource:",
+            1,
+        )
+    target.write_text(text)
     tpl_src = Path(__file__).resolve().parents[2] / "templates"
     tpl_dst = Path("templates")
     tpl_dst.mkdir(exist_ok=True)
@@ -175,7 +195,8 @@ def version() -> None:
 
 def datasets_demo(out: str = typer.Option("./data/demo", "--out", help="Output directory")) -> None:
     """Write the synthetic Northbridge Bank demo dataset."""
-    from pecca.data.synthetic import write_dataset
+    from pecca.data.synthetic import to_long, write_dataset
 
     df = write_dataset(out)
+    to_long(df).to_csv(Path(out) / "calls.csv", index=False)
     console.print(f"{len(df):,} rows → {out}", markup=False)

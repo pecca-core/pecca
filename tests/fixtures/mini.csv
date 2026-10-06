@@ -1,0 +1,2679 @@
+request_id,timestamp,email_subject,email_body,language,domain,rfi,llm_domain,llm_rfi,human_rfi,llm_model,channel
+REQ-002704,2026-07-03T09:44:32,I want to transfer my tax-free savings to you,"Hello support,
+Hope you can assist me. I want to transfer my tax-free savings to you.
+I would appreciate a response as soon as possible.
+Please let me know what information you need from my side.
+This has been going on since 29 Jun and it is affecting my daily life.
+I have attached screenshots of what I am seeing on my phone.
+Please confirm by email once this has been sorted out.
+I am travelling next week so a quick answer would really help.
+The reference on my side is REF-79563, please quote it in your reply.
+Best wishes,
+J. Moreno",en,savings_investments,isa_transfer,savings_investments,isa_transfer,isa_transfer,demo-llm,email
+REQ-000853,2026-07-03T11:27:04,I fell for a scam and paid a fraudster,"Hello support,
+I have a question. I fell for a scam and paid a fraudster.
+I have already tried calling the helpline but could not get through.
+The reference on my side is REF-43824, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+I would appreciate a response as soon as possible.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+This has been going on since 19 Aug and it is affecting my daily life.
+Thanks in advance,
+P. Cruz",en,fraud_security,scam_victim_refund,current_accounts,scam_victim_refund,,demo-llm,email
+REQ-005531,2026-07-03T13:54:20,What is the amount to fully repay my mortgage,"Hello support,
+I need some help. what is the amount to fully repay my mortgage.
+The reference on my side is REF-77527, please quote it in your reply.
+I have attached screenshots of what I am seeing on my phone.
+This has been going on since 07 Jul and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+Thanks in advance,
+T. Dlamini",en,mortgages,mortgage_redemption,mortgages,mortgage_redemption,,demo-llm,email
+REQ-005081,2026-07-03T17:41:26,I need to withdraw $480 from my saver account,"Hello support,
+I have a question. I need to withdraw $480 from my saver account.
+Please let me know what information you need from my side.
+The reference on my side is REF-99110, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+I am travelling next week so a quick answer would really help.
+Best wishes,
+S. Hartley",en,savings_investments,savings_withdrawal_limits,savings_investments,fixed_deposit_maturity,savings_withdrawal_limits,demo-llm,email
+REQ-002849,2026-07-04T06:26:57,What interest does my beacon home cover pay,"Hello,
+Hope you can assist me. what interest does my Beacon Home Cover pay.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+I would appreciate a response as soon as possible.
+My customer number is NB328428 in case you need to look me up.
+The reference on my side is REF-14937, please quote it in your reply.
+I have already tried calling the helpline but could not get through.
+I am travelling next week so a quick answer would really help.
+Thank you,
+K. Okafor",en,savings_investments,savings_interest_query,savings_investments,savings_interest_query,savings_interest_query,demo-llm,email
+REQ-001547,2026-07-04T07:06:04,What are the fees for withdrawing cash abroad,"Dear Northbridge Bank,
+Hope you can assist me. what are the fees for withdrawing cash abroad.
+I have attached screenshots of what I am seeing on my phone.
+My customer number is NB873265 in case you need to look me up.
+The reference on my side is REF-61766, please quote it in your reply.
+I am travelling next week so a quick answer would really help.
+This has been going on since 05 Sep and it is affecting my daily life.
+Best wishes,
+T. Dlamini",en,fees_charges,atm_fee_query,fees_charges,atm_fee_query,,demo-llm,email
+REQ-002394,2026-07-04T07:41:00,Re: I want to transfer my tax-free savings to you,"Magandang araw po,
+Paki-tulungan po ako, I want to transfer my tax-free savings to you.
+Salamat po sa agarang tulong ninyo.
+Ang customer number ko po ay NB513005.
+Pakisagot po agad kung maaari.
+Matagal ko na po itong problema mula 07 Aug.
+Maraming salamat po,
+M. Santos",tl,savings_investments,isa_transfer,savings_investments,isa_transfer,,demo-llm,email
+REQ-003075,2026-07-04T11:23:00,I want to thank the agent who helped me,"Good morning,
+I need some help. I want to thank the agent who helped me.
+I would appreciate a response as soon as possible.
+I am travelling next week so a quick answer would really help.
+This has been going on since 14 Aug and it is affecting my daily life.
+I have attached screenshots of what I am seeing on my phone.
+Thanks in advance,
+P. Cruz",en,complaints_feedback,positive_feedback,complaints_feedback,positive_feedback,,demo-llm,email
+REQ-000825,2026-07-04T14:28:13,What is the status of my loan application,"Hello, I need some help. what is the status of my loan application. This has been going on since 28 Jun and it is affecting my daily life. I am travelling next week so a quick answer would really help. I have been a customer of Northbridge Bank for several years. I have already tried calling the helpline but could not get through. Please confirm by email once this has been sorted out. Please let me know what information you need from my side. The reference on my side is REF-61703, please quote it in your reply. I would appreciate a response as soon as possible. I have attached screenshots of what I am seeing on my phone. Best wishes,",en,personal_loans,loan_application_status,personal_loans,loan_top_up,,demo-llm,email
+REQ-001204,2026-07-05T07:17:32,I need to update my tax residency,"Hello support,
+I have a question. I need to update my tax residency.
+I have been a customer of Northbridge Bank for several years.
+I am travelling next week so a quick answer would really help.
+I have attached screenshots of what I am seeing on my phone.
+Please let me know what information you need from my side.
+Please confirm by email once this has been sorted out.
+Best wishes,
+J. Moreno",en,kyc_compliance,tax_residency_update,kyc_compliance,tax_residency_update,tax_residency_update,demo-llm,email
+REQ-000291,2026-07-05T07:29:12,How long does a mortgage application take,"Hello support,
+I have a question. how long does a mortgage application take.
+I am travelling next week so a quick answer would really help.
+This has been going on since 23 Jun and it is affecting my daily life.
+I have attached screenshots of what I am seeing on my phone.
+The reference on my side is REF-38094, please quote it in your reply.
+I have been a customer of Northbridge Bank for several years.
+Kind regards,
+L. Visser",en,mortgages,mortgage_application,mortgages,mortgage_application,mortgage_application,demo-llm,email
+REQ-002580,2026-07-05T10:01:09,What interest rate applies to my personal loan,"Hi team,
+I need some help. what interest rate applies to my personal loan.
+I am travelling next week so a quick answer would really help.
+My customer number is NB263943 in case you need to look me up.
+Please let me know what information you need from my side.
+This has been going on since 10 Jul and it is affecting my daily life.
+I have already tried calling the helpline but could not get through.
+Best wishes,
+S. Hartley",en,personal_loans,loan_interest_rate_query,personal_loans,loan_interest_rate_query,,demo-llm,email
+REQ-001552,2026-07-05T12:56:09,"The transfer of $3,500 has not arrived","Hello po,
+Gusto ko po sanang itanong: the transfer of $3,500 has not arrived.
+Pakisagot po agad kung maaari.
+Matagal ko na po itong problema mula 05 Jul.
+Ang customer number ko po ay NB532577.
+Salamat po sa agarang tulong ninyo.
+Salamat po,
+T. Dlamini",tl,payments_transfers,transfer_not_received,payments_transfers,transfer_not_received,,demo-llm,email
+REQ-001611,2026-07-06T00:11:42,How much do you charge to send money abroad,"Hola,
+Tengo una consulta: how much do you charge to send money abroad.
+Mi número de cliente es NB622858.
+Esto ocurre desde el 25 Jul y necesito una solución.
+Por favor confirmen por correo cuando esté resuelto.
+Les agradezco una respuesta lo antes posible.
+Saludos cordiales,
+M. Santos",es,payments_transfers,international_transfer_fees,payments_transfers,international_transfer_fees,international_transfer_fees,demo-llm,email
+REQ-004949,2026-07-06T09:34:33,I found a bug in the banking app after the update,"Hello,
+I have a question. I found a bug in the banking app after the update.
+Please confirm by email once this has been sorted out.
+The reference on my side is REF-76294, please quote it in your reply.
+I have already tried calling the helpline but could not get through.
+I am travelling next week so a quick answer would really help.
+My customer number is NB544374 in case you need to look me up.
+This has been going on since 05 Jul and it is affecting my daily life.
+I have attached screenshots of what I am seeing on my phone.
+Best wishes,
+L. Visser",en,digital_banking,app_crash_bug,digital_banking,app_crash_bug,app_crash_bug,demo-llm,email
+REQ-002944,2026-07-06T13:06:15,"I need to withdraw php 18,000 from my saver account","Hello,
+Hope you can assist me. I need to withdraw PHP 18,000 from my saver account.
+I would appreciate a response as soon as possible.
+My customer number is NB238446 in case you need to look me up.
+I am travelling next week so a quick answer would really help.
+This has been going on since 24 Jul and it is affecting my daily life.
+I have attached screenshots of what I am seeing on my phone.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+Thank you,
+K. Okafor",en,savings_investments,savings_withdrawal_limits,savings_investments,savings_withdrawal_limits,savings_withdrawal_limits,demo-llm,email
+REQ-000932,2026-07-06T15:09:51,How do i change the beneficiary on my life cover,"Hi team,
+I am writing about the following: how do I change the beneficiary on my life cover.
+My customer number is NB914842 in case you need to look me up.
+This has been going on since 20 Jun and it is affecting my daily life.
+I would appreciate a response as soon as possible.
+Please confirm by email once this has been sorted out.
+I have attached screenshots of what I am seeing on my phone.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+I have already tried calling the helpline but could not get through.
+Thank you,
+L. Visser",en,insurance,add_beneficiary,insurance,add_beneficiary,,demo-llm,email
+REQ-003757,2026-07-06T18:35:34,"Re: I was scammed into sending r2,750, can i get a refund","Hello,
+I have a question. I was scammed into sending R2,750, can I get a refund.
+I have been a customer of Northbridge Bank for several years.
+I have attached screenshots of what I am seeing on my phone.
+I would appreciate a response as soon as possible.
+My customer number is NB211725 in case you need to look me up.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+Thank you,
+K. Okafor",en,fraud_security,scam_victim_refund,fraud_security,scam_victim_refund,scam_victim_refund,demo-llm,email
+REQ-001733,2026-07-06T21:45:28,Re: My insurance premium payment failed,"Hi team,
+I have a question. my insurance premium payment failed.
+I am travelling next week so a quick answer would really help.
+Please let me know what information you need from my side.
+I have attached screenshots of what I am seeing on my phone.
+Please confirm by email once this has been sorted out.
+This has been going on since 16 Sep and it is affecting my daily life.
+Kind regards,
+A. Rivers",en,insurance,premium_payment_issue,insurance,premium_payment_issue,,demo-llm,email
+REQ-004860,2026-07-07T01:20:28,"Has my claim for r2,750 been approved","Hola,
+Tengo una consulta: has my claim for R2,750 been approved.
+Por favor confirmen por correo cuando esté resuelto.
+Mi número de cliente es NB244669.
+Esto ocurre desde el 26 Sep y necesito una solución.
+Les agradezco una respuesta lo antes posible.
+Saludos cordiales,
+P. Cruz",es,insurance,insurance_claim_status,insurance,insurance_claim_status,insurance_claim_status,demo-llm,email
+REQ-005758,2026-07-07T10:38:16,I was charged a late payment fee but paid on time,"Hello support,
+Hope you can assist me. I was charged a late payment fee but paid on time.
+I am travelling next week so a quick answer would really help.
+I have been a customer of Northbridge Bank for several years.
+I have attached screenshots of what I am seeing on my phone.
+My customer number is NB332621 in case you need to look me up.
+Best wishes,
+L. Visser",en,fees_charges,late_payment_fee_dispute,fees_charges,late_payment_fee_dispute,late_payment_fee_dispute,demo-llm,email
+REQ-002283,2026-07-07T14:15:44,What do i need to apply for a home loan,"Hello,
+I need some help. what do I need to apply for a home loan.
+The reference on my side is REF-25895, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+I have already tried calling the helpline but could not get through.
+Please let me know what information you need from my side.
+Thanks in advance,
+P. Cruz",en,mortgages,mortgage_application,mortgages,mortgage_statement_request,mortgage_application,demo-llm,email
+REQ-005946,2026-07-07T17:43:09,"Please recall my payment of $3,500, wrong recipient","Dear Northbridge Bank,
+Hope you can assist me. please recall my payment of $3,500, wrong recipient.
+I have attached screenshots of what I am seeing on my phone.
+Please let me know what information you need from my side.
+I have already tried calling the helpline but could not get through.
+The reference on my side is REF-20106, please quote it in your reply.
+I have been a customer of Northbridge Bank for several years.
+Please confirm by email once this has been sorted out.
+Kind regards,
+T. Dlamini",en,payments_transfers,wrong_beneficiary_transfer,payments_transfers,wrong_beneficiary_transfer,wrong_beneficiary_transfer,demo-llm,email
+REQ-004713,2026-07-07T19:08:06,I would like to give some positive feedback,"Hi team,
+I have a question. I would like to give some positive feedback.
+This has been going on since 28 Jul and it is affecting my daily life.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+I have been a customer of Northbridge Bank for several years.
+The reference on my side is REF-16155, please quote it in your reply.
+Kind regards,
+L. Visser",en,complaints_feedback,positive_feedback,complaints_feedback,positive_feedback,positive_feedback,demo-llm,email
+REQ-005074,2026-07-07T19:15:47,I want to report a phishing message,"Estimado equipo,
+Necesito ayuda con lo siguiente: I want to report a phishing message.
+Mi número de cliente es NB986835.
+Les agradezco una respuesta lo antes posible.
+Por favor confirmen por correo cuando esté resuelto.
+Esto ocurre desde el 20 Jun y necesito una solución.
+Saludos cordiales,
+L. Visser",es,fraud_security,phishing_report,fraud_security,sanctions_screening_delay,phishing_report,demo-llm,email
+REQ-001695,2026-07-07T19:19:28,Re: What is the status of my complaint,"Hi team,
+I need some help. what is the status of my complaint.
+Please let me know what information you need from my side.
+The reference on my side is REF-76363, please quote it in your reply.
+My customer number is NB291103 in case you need to look me up.
+I have already tried calling the helpline but could not get through.
+This has been going on since 18 Aug and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+I have attached screenshots of what I am seeing on my phone.
+I would appreciate a response as soon as possible.
+Thank you,
+M. Santos",en,complaints_feedback,complaint_status,complaints_feedback,complaint_status,complaint_status,demo-llm,email
+REQ-004898,2026-07-08T06:19:24,"My complaint was not resolved, please escalate it","Hello po,
+Kailangan ko po ng tulong,  my complaint was not resolved, please escalate it.
+Matagal ko na po itong problema mula 09 Sep.
+Pakisagot po agad kung maaari.
+Salamat po sa agarang tulong ninyo.
+Ang customer number ko po ay NB894099.
+Salamat po,
+J. Moreno",tl,complaints_feedback,complaint_escalation,complaints_feedback,account_opening,,demo-llm,email
+REQ-001988,2026-07-08T22:50:34,I want to complain about the service i received,"Buenos días,
+Tengo una consulta: I want to complain about the service I received.
+Esto ocurre desde el 06 Aug y necesito una solución.
+Por favor confirmen por correo cuando esté resuelto.
+Les agradezco una respuesta lo antes posible.
+Mi número de cliente es NB637276.
+Muchas gracias,
+P. Cruz",es,complaints_feedback,service_complaint,complaints_feedback,service_complaint,service_complaint,demo-llm,email
+REQ-002714,2026-07-09T02:29:10,I want to open an investment account,"Dear Northbridge Bank,
+I need some help. I want to open an investment account.
+The reference on my side is REF-10279, please quote it in your reply.
+I have been a customer of Northbridge Bank for several years.
+I am travelling next week so a quick answer would really help.
+I would appreciate a response as soon as possible.
+I have attached screenshots of what I am seeing on my phone.
+I have already tried calling the helpline but could not get through.
+Thanks in advance,
+A. Rivers",en,savings_investments,investment_account_opening,savings_investments,investment_account_opening,investment_account_opening,demo-llm,email
+REQ-003834,2026-07-09T04:30:56,Biometric login stopped working on my phone,"Hello support,
+I am writing about the following: biometric login stopped working on my phone.
+The reference on my side is REF-84618, please quote it in your reply.
+I have already tried calling the helpline but could not get through.
+I have attached screenshots of what I am seeing on my phone.
+I have been a customer of Northbridge Bank for several years.
+I am travelling next week so a quick answer would really help.
+Please let me know what information you need from my side.
+My customer number is NB556520 in case you need to look me up.
+Thank you,
+A. Rivers",en,digital_banking,biometric_setup,digital_banking,biometric_setup,,demo-llm,email
+REQ-004671,2026-07-09T06:06:38,"An atm took php 18,000 in fees on 01 aug","Estimado equipo,
+Les escribo porque an ATM took PHP 18,000 in fees on 01 Aug.
+Esto ocurre desde el 18 Sep y necesito una solución.
+Mi número de cliente es NB488333.
+Les agradezco una respuesta lo antes posible.
+Por favor confirmen por correo cuando esté resuelto.
+Muchas gracias,
+A. Rivers",es,fees_charges,atm_fee_query,fees_charges,atm_fee_query,atm_fee_query,demo-llm,email
+REQ-001848,2026-07-09T14:59:00,My card is damaged and the chip no longer works,"Hello,
+I am writing about the following: my card is damaged and the chip no longer works.
+My customer number is NB477009 in case you need to look me up.
+I am travelling next week so a quick answer would really help.
+I have already tried calling the helpline but could not get through.
+Please let me know what information you need from my side.
+The reference on my side is REF-58169, please quote it in your reply.
+I have attached screenshots of what I am seeing on my phone.
+Best wishes,
+S. Hartley",en,cards,card_replacement,cards,card_replacement,card_replacement,demo-llm,email
+REQ-005679,2026-07-10T02:26:11,Re: Please freeze my account immediately,"Hi team,
+I have a question. please freeze my account immediately.
+I am travelling next week so a quick answer would really help.
+The reference on my side is REF-34493, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+I would appreciate a response as soon as possible.
+Thanks in advance,
+A. Rivers",en,fraud_security,lock_account_request,fraud_security,lock_account_request,,demo-llm,email
+REQ-002051,2026-07-10T03:54:40,"My proof of address was rejected, what is accepted","Hello,
+I have a question. my proof of address was rejected, what is accepted.
+Please let me know what information you need from my side.
+I have attached screenshots of what I am seeing on my phone.
+Please confirm by email once this has been sorted out.
+Thanks in advance,
+T. Dlamini",en,kyc_compliance,proof_of_address_upload,kyc_compliance,proof_of_address_upload,,demo-llm,email
+REQ-005251,2026-07-10T15:56:25,"Has my claim for php 18,000 been approved","Hello,
+I have a question. has my claim for PHP 18,000 been approved.
+I have been a customer of Northbridge Bank for several years.
+This has been going on since 14 Sep and it is affecting my daily life.
+Please let me know what information you need from my side.
+I have attached screenshots of what I am seeing on my phone.
+I have already tried calling the helpline but could not get through.
+Please confirm by email once this has been sorted out.
+I am travelling next week so a quick answer would really help.
+My customer number is NB176353 in case you need to look me up.
+Best wishes,
+T. Dlamini",en,insurance,insurance_claim_status,insurance,insurance_claim_status,,demo-llm,email
+REQ-004060,2026-07-10T23:27:09,Can i skip a loan instalment this month,"Hi team,
+Hope you can assist me. can I skip a loan instalment this month.
+My customer number is NB612878 in case you need to look me up.
+I have been a customer of Northbridge Bank for several years.
+The reference on my side is REF-51406, please quote it in your reply.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+This has been going on since 15 Jun and it is affecting my daily life.
+I have attached screenshots of what I am seeing on my phone.
+Best wishes,
+A. Rivers",en,personal_loans,loan_payment_holiday,personal_loans,loan_payment_holiday,loan_payment_holiday,demo-llm,email
+REQ-003513,2026-07-11T03:07:49,What do i need to apply for a home loan,"Hello support,
+I am writing about the following: what do I need to apply for a home loan.
+I have already tried calling the helpline but could not get through.
+This has been going on since 12 Jul and it is affecting my daily life.
+Best wishes,
+P. Cruz",en,mortgages,mortgage_application,mortgages,mortgage_application,mortgage_application,demo-llm,email
+REQ-002674,2026-07-11T07:33:56,I want to apply for a mortgage,"Magandang araw po,
+Kailangan ko po ng tulong,  I want to apply for a mortgage.
+Salamat po sa agarang tulong ninyo.
+Pakisagot po agad kung maaari.
+Matagal ko na po itong problema mula 04 Jun.
+Ang customer number ko po ay NB167634.
+Salamat po,
+K. Okafor",tl,mortgages,mortgage_application,mortgages,mortgage_application,,demo-llm,email
+REQ-004538,2026-07-11T10:22:26,"I went overdrawn by mistake and got a fee of php 18,000","Good morning,
+I have a question. I went overdrawn by mistake and got a fee of PHP 18,000.
+My customer number is NB573458 in case you need to look me up.
+I am travelling next week so a quick answer would really help.
+The reference on my side is REF-84596, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+Best wishes,
+T. Dlamini",en,fees_charges,overdraft_fee_query,savings_investments,overdraft_fee_query,,demo-llm,email
+REQ-004851,2026-07-11T22:49:45,Where can i download my bank statements,"Hi team,
+I have a question. where can I download my bank statements.
+I have already tried calling the helpline but could not get through.
+Please confirm by email once this has been sorted out.
+I would appreciate a response as soon as possible.
+The reference on my side is REF-16727, please quote it in your reply.
+This has been going on since 08 Aug and it is affecting my daily life.
+Best wishes,
+J. Moreno",en,current_accounts,account_statement,current_accounts,account_opening,,demo-llm,email
+REQ-000245,2026-07-12T00:21:24,I am selling my house and need a redemption figure,"Magandang araw po,
+Paki-tulungan po ako, I am selling my house and need a redemption figure.
+Matagal ko na po itong problema mula 16 Aug.
+Salamat po sa agarang tulong ninyo.
+Ang customer number ko po ay NB728275.
+Pakisagot po agad kung maaari.
+Maraming salamat po,
+M. Santos",tl,mortgages,mortgage_redemption,mortgages,mortgage_redemption,mortgage_redemption,demo-llm,email
+REQ-001525,2026-07-12T04:27:49,Someone used my card without permission,"Hi team,
+I need some help. someone used my card without permission.
+I have attached screenshots of what I am seeing on my phone.
+Please confirm by email once this has been sorted out.
+This has been going on since 29 Jul and it is affecting my daily life.
+I have been a customer of Northbridge Bank for several years.
+My customer number is NB907837 in case you need to look me up.
+Thank you,
+M. Santos",en,fraud_security,unauthorised_transaction,fraud_security,unauthorised_transaction,unauthorised_transaction,demo-llm,email
+REQ-001828,2026-07-12T05:44:50,Re: The person says they have not received my transfer,"Hola,
+Necesito ayuda con lo siguiente: the person says they have not received my transfer.
+Mi número de cliente es NB657365.
+Les agradezco una respuesta lo antes posible.
+Esto ocurre desde el 19 Jun y necesito una solución.
+Por favor confirmen por correo cuando esté resuelto.
+Muchas gracias,
+A. Rivers",es,payments_transfers,transfer_not_received,payments_transfers,transfer_not_received,,demo-llm,email
+REQ-001625,2026-07-12T22:34:39,I want to thank the agent who helped me,"Kumusta po,
+Paki-tulungan po ako, I want to thank the agent who helped me.
+Pakisagot po agad kung maaari.
+Matagal ko na po itong problema mula 29 Jul.
+Ang customer number ko po ay NB191291.
+Salamat po sa agarang tulong ninyo.
+Maraming salamat po,
+P. Cruz",tl,complaints_feedback,positive_feedback,complaints_feedback,positive_feedback,positive_feedback,demo-llm,email
+REQ-003853,2026-07-13T10:40:38,Can i top up my existing loan by r900,"Good morning,
+I am writing about the following: can I top up my existing loan by R900.
+Please confirm by email once this has been sorted out.
+My customer number is NB575248 in case you need to look me up.
+Thank you,
+K. Okafor",en,personal_loans,loan_top_up,personal_loans,account_details_update,,demo-llm,email
+REQ-002711,2026-07-13T10:56:24,Re: Please start a tax-free account transfer of $480,"Dear Northbridge Bank,
+I have a question. please start a tax-free account transfer of $480.
+This has been going on since 31 Jul and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+My customer number is NB840961 in case you need to look me up.
+Please confirm by email once this has been sorted out.
+I have attached screenshots of what I am seeing on my phone.
+Please let me know what information you need from my side.
+The reference on my side is REF-34030, please quote it in your reply.
+I have been a customer of Northbridge Bank for several years.
+Kind regards,
+M. Santos",en,savings_investments,isa_transfer,savings_investments,isa_transfer,isa_transfer,demo-llm,email
+REQ-002128,2026-07-13T15:06:58,Re: You asked about where my money came from,"Hello,
+Hope you can assist me. you asked about where my money came from.
+I would appreciate a response as soon as possible.
+I am travelling next week so a quick answer would really help.
+Please let me know what information you need from my side.
+I have already tried calling the helpline but could not get through.
+This has been going on since 28 Sep and it is affecting my daily life.
+Please confirm by email once this has been sorted out.
+Thanks in advance,
+J. Moreno",en,kyc_compliance,source_of_funds_query,complaints_feedback,source_of_funds_query,,demo-llm,email
+REQ-005493,2026-07-13T22:10:51,Re: I received a suspicious email pretending to be the bank,"Magandang araw po,
+Paki-tulungan po ako, I received a suspicious email pretending to be the bank.
+Matagal ko na po itong problema mula 21 Sep.
+Ang customer number ko po ay NB983592.
+Salamat po sa agarang tulong ninyo.
+Pakisagot po agad kung maaari.
+Salamat po,
+A. Rivers",tl,fraud_security,phishing_report,fraud_security,phishing_report,,demo-llm,email
+REQ-003659,2026-07-14T11:47:26,Is there a penalty for overpaying my home loan,"Good morning,
+I need some help. is there a penalty for overpaying my home loan.
+I have already tried calling the helpline but could not get through.
+I have been a customer of Northbridge Bank for several years.
+This has been going on since 03 Jun and it is affecting my daily life.
+The reference on my side is REF-43072, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+Please let me know what information you need from my side.
+My customer number is NB213869 in case you need to look me up.
+Best wishes,
+T. Dlamini",en,mortgages,mortgage_overpayment,mortgages,mortgage_overpayment,mortgage_overpayment,demo-llm,email
+REQ-000013,2026-07-14T12:00:42,I lost my job and need to pause my loan payments,"Good morning,
+Hope you can assist me. I lost my job and need to pause my loan payments.
+The reference on my side is REF-93606, please quote it in your reply.
+I am travelling next week so a quick answer would really help.
+This has been going on since 04 Aug and it is affecting my daily life.
+I have attached screenshots of what I am seeing on my phone.
+I have been a customer of Northbridge Bank for several years.
+Thanks in advance,
+J. Moreno",en,personal_loans,loan_payment_holiday,personal_loans,loan_payment_holiday,,demo-llm,email
+REQ-001032,2026-07-14T17:12:36,Can i repay my personal loan in full before the term ends,"Hello support,
+I have a question. can I repay my personal loan in full before the term ends.
+I would appreciate a response as soon as possible.
+I am travelling next week so a quick answer would really help.
+Please let me know what information you need from my side.
+I have attached screenshots of what I am seeing on my phone.
+Thanks in advance,
+K. Okafor",en,personal_loans,loan_early_settlement,personal_loans,loan_early_settlement,,demo-llm,email
+REQ-003468,2026-07-14T21:03:26,I need a statement for the last three months,"Good morning,
+I have a question. I need a statement for the last three months.
+This has been going on since 29 Aug and it is affecting my daily life.
+Please let me know what information you need from my side.
+The reference on my side is REF-71821, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+Thanks in advance,
+A. Rivers",en,current_accounts,account_statement,current_accounts,account_statement,,demo-llm,email
+REQ-001657,2026-07-14T21:14:50,Please update my phone number on file,"Good morning,
+Hope you can assist me. please update my phone number on file.
+Please confirm by email once this has been sorted out.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+I have been a customer of Northbridge Bank for several years.
+Kind regards,
+T. Dlamini",en,current_accounts,account_details_update,current_accounts,account_statement,account_details_update,demo-llm,email
+REQ-005129,2026-07-14T23:05:20,I lost my debit card ending ****9015,"Hi team,
+I have a question. I lost my debit card ending ****9015.
+Please let me know what information you need from my side.
+I have attached screenshots of what I am seeing on my phone.
+My customer number is NB872431 in case you need to look me up.
+I would appreciate a response as soon as possible.
+This has been going on since 26 Jul and it is affecting my daily life.
+I have been a customer of Northbridge Bank for several years.
+I have already tried calling the helpline but could not get through.
+Best wishes,
+J. Moreno",en,cards,card_lost_stolen,cards,mortgage_redemption,card_lost_stolen,demo-llm,email
+REQ-001383,2026-07-15T15:30:36,Why did my premium go up at renewal,"Hi team,
+Hope you can assist me. why did my premium go up at renewal.
+Please let me know what information you need from my side.
+The reference on my side is REF-14603, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+Best wishes,
+P. Cruz",en,insurance,policy_renewal_quote,insurance,policy_renewal_quote,policy_renewal_quote,demo-llm,email
+REQ-004025,2026-07-15T18:55:08,I got a fake text asking for my login details,"Magandang araw po,
+Gusto ko po sanang itanong: I got a fake text asking for my login details.
+Salamat po sa agarang tulong ninyo.
+Matagal ko na po itong problema mula 17 Jul.
+Ang customer number ko po ay NB787329.
+Pakisagot po agad kung maaari.
+Salamat po,
+T. Dlamini",tl,fraud_security,phishing_report,fraud_security,phishing_report,phishing_report,demo-llm,email
+REQ-002023,2026-07-15T20:04:15,Re: I need a statement for the last three months,"Estimado equipo,
+Necesito ayuda con lo siguiente: I need a statement for the last three months.
+Por favor confirmen por correo cuando esté resuelto.
+Mi número de cliente es NB652619.
+Les agradezco una respuesta lo antes posible.
+Esto ocurre desde el 08 Sep y necesito una solución.
+Saludos cordiales,
+S. Hartley",es,current_accounts,account_statement,current_accounts,account_statement,,demo-llm,email
+REQ-005147,2026-07-16T01:59:29,How long does a mortgage application take,"Hello support,
+I need some help. how long does a mortgage application take.
+I have already tried calling the helpline but could not get through.
+I would appreciate a response as soon as possible.
+Please let me know what information you need from my side.
+I have attached screenshots of what I am seeing on my phone.
+Please confirm by email once this has been sorted out.
+Thank you,
+J. Moreno",en,mortgages,mortgage_application,mortgages,mortgage_overpayment,,demo-llm,email
+REQ-003276,2026-07-16T08:16:13,Re: Why was my card refused at the till on 08 jul,"Hello,
+I have a question. why was my card refused at the till on 08 Jul.
+My customer number is NB877901 in case you need to look me up.
+The reference on my side is REF-32214, please quote it in your reply.
+Kind regards,
+A. Rivers",en,cards,card_declined,cards,card_declined,,demo-llm,email
+REQ-002279,2026-07-16T12:37:51,Why is my transfer under review for sanctions checks,"Hi team,
+I need some help. why is my transfer under review for sanctions checks.
+My customer number is NB394182 in case you need to look me up.
+This has been going on since 23 Jun and it is affecting my daily life.
+I have been a customer of Northbridge Bank for several years.
+Please let me know what information you need from my side.
+Please confirm by email once this has been sorted out.
+The reference on my side is REF-23008, please quote it in your reply.
+I would appreciate a response as soon as possible.
+I am travelling next week so a quick answer would really help.
+Thanks in advance,
+A. Rivers",en,kyc_compliance,sanctions_screening_delay,kyc_compliance,sanctions_screening_delay,,demo-llm,email
+REQ-001769,2026-07-16T22:01:10,Block all access to my account right now,"Dear Northbridge Bank, I am writing about the following: block all access to my account right now. I have already tried calling the helpline but could not get through. Please confirm by email once this has been sorted out. I have attached screenshots of what I am seeing on my phone. The reference on my side is REF-22630, please quote it in your reply. My customer number is NB807680 in case you need to look me up. Please let me know what information you need from my side. I would appreciate a response as soon as possible. I have been a customer of Northbridge Bank for several years. I am travelling next week so a quick answer would really help.",en,fraud_security,lock_account_request,fraud_security,lock_account_request,lock_account_request,demo-llm,email
+REQ-005835,2026-07-16T23:11:02,I want to add a beneficiary to my policy,"Goeiedag,
+Ek het 'n vraag: I want to add a beneficiary to my policy.
+Dit gebeur al sedert 08 Jul en ek benodig hulp.
+My kliëntnommer is NB603590.
+Bevestig asseblief per e-pos sodra dit opgelos is.
+Ek sal 'n vinnige antwoord waardeer.
+Dankie,
+J. Moreno",af,insurance,add_beneficiary,insurance,add_beneficiary,,demo-llm,email
+REQ-000713,2026-07-17T03:59:14,Re: Can i skip a loan instalment this month,"Hello,
+Hope you can assist me. can I skip a loan instalment this month.
+I am travelling next week so a quick answer would really help.
+My customer number is NB295510 in case you need to look me up.
+Please confirm by email once this has been sorted out.
+I would appreciate a response as soon as possible.
+I have already tried calling the helpline but could not get through.
+Please let me know what information you need from my side.
+Thank you,
+J. Moreno",en,personal_loans,loan_payment_holiday,personal_loans,loan_payment_holiday,,demo-llm,email
+REQ-000068,2026-07-17T09:19:48,Please update my phone number on file,"Hi team,
+I have a question. please update my phone number on file.
+My customer number is NB144748 in case you need to look me up.
+I would appreciate a response as soon as possible.
+Please confirm by email once this has been sorted out.
+I am travelling next week so a quick answer would really help.
+This has been going on since 02 Aug and it is affecting my daily life.
+Best wishes,
+J. Moreno",en,current_accounts,account_details_update,current_accounts,account_details_update,,demo-llm,email
+REQ-001708,2026-07-17T18:38:22,I need a statement for the last three months,"Hello support,
+I need some help. I need a statement for the last three months.
+I would appreciate a response as soon as possible.
+Please let me know what information you need from my side.
+Please confirm by email once this has been sorted out.
+My customer number is NB704817 in case you need to look me up.
+I have attached screenshots of what I am seeing on my phone.
+Kind regards,
+L. Visser",en,current_accounts,account_statement,personal_loans,account_statement,,demo-llm,email
+REQ-002462,2026-07-17T18:52:05,Explain the overdraft charges on my account,"Hola,
+Les escribo porque explain the overdraft charges on my account.
+Por favor confirmen por correo cuando esté resuelto.
+Mi número de cliente es NB144059.
+Les agradezco una respuesta lo antes posible.
+Esto ocurre desde el 27 Jul y necesito una solución.
+Muchas gracias,
+T. Dlamini",es,fees_charges,overdraft_fee_query,fees_charges,overdraft_fee_query,,demo-llm,email
+REQ-001899,2026-07-17T19:46:36,Re: Explain the overdraft charges on my account,"Estimado equipo,
+Les escribo porque explain the overdraft charges on my account.
+Por favor confirmen por correo cuando esté resuelto.
+Esto ocurre desde el 28 Sep y necesito una solución.
+Mi número de cliente es NB870173.
+Les agradezco una respuesta lo antes posible.
+Saludos cordiales,
+S. Hartley",es,fees_charges,overdraft_fee_query,fees_charges,overdraft_fee_query,,demo-llm,email
+REQ-005369,2026-07-17T20:01:17,I went overdrawn by mistake and got a fee of eur 640,"Hi team,
+Hope you can assist me. I went overdrawn by mistake and got a fee of EUR 640.
+I would appreciate a response as soon as possible.
+I have attached screenshots of what I am seeing on my phone.
+I am travelling next week so a quick answer would really help.
+The reference on my side is REF-19229, please quote it in your reply.
+Best wishes,
+P. Cruz",en,fees_charges,overdraft_fee_query,cards,fee_reversal_request,overdraft_fee_query,demo-llm,email
+REQ-004945,2026-07-17T21:37:10,Re: How can i avoid the monthly fee on my beacon home cover,"Kumusta po,
+Kailangan ko po ng tulong,  how can I avoid the monthly fee on my Beacon Home Cover.
+Ang customer number ko po ay NB417991.
+Matagal ko na po itong problema mula 19 Jun.
+Pakisagot po agad kung maaari.
+Salamat po sa agarang tulong ninyo.
+Salamat po,
+K. Okafor",tl,fees_charges,monthly_fee_explanation,fees_charges,monthly_fee_explanation,,demo-llm,email
+REQ-000380,2026-07-18T14:24:41,Re: Why was i charged an overdraft fee,"Estimado equipo,
+Les escribo porque why was I charged an overdraft fee.
+Esto ocurre desde el 30 Jul y necesito una solución.
+Les agradezco una respuesta lo antes posible.
+Mi número de cliente es NB121507.
+Por favor confirmen por correo cuando esté resuelto.
+Saludos cordiales,
+K. Okafor",es,fees_charges,overdraft_fee_query,fees_charges,overdraft_fee_query,overdraft_fee_query,demo-llm,email
+REQ-001727,2026-07-18T14:31:55,Please unlock my inactive account,"Beste span,
+Ek het hulp nodig met die volgende: please unlock my inactive account.
+Ek sal 'n vinnige antwoord waardeer.
+Bevestig asseblief per e-pos sodra dit opgelos is.
+Dit gebeur al sedert 05 Aug en ek benodig hulp.
+My kliëntnommer is NB622049.
+Dankie,
+P. Cruz",af,current_accounts,dormant_account_reactivation,personal_loans,card_limit_change,,demo-llm,email
+REQ-005307,2026-07-19T23:21:10,I want to change how i pay my insurance premium,"Hello support,
+I am writing about the following: I want to change how I pay my insurance premium.
+I would appreciate a response as soon as possible.
+Please let me know what information you need from my side.
+I have already tried calling the helpline but could not get through.
+This has been going on since 23 Jun and it is affecting my daily life.
+My customer number is NB295163 in case you need to look me up.
+Thank you,
+P. Cruz",en,insurance,premium_payment_issue,insurance,insurance_claim_status,premium_payment_issue,demo-llm,email
+REQ-002872,2026-07-19T23:44:21,Please set up a share dealing account for me,"Hello,
+Hope you can assist me. please set up a share dealing account for me.
+My customer number is NB133978 in case you need to look me up.
+The reference on my side is REF-96861, please quote it in your reply.
+This has been going on since 04 Aug and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+Please confirm by email once this has been sorted out.
+I have already tried calling the helpline but could not get through.
+I have attached screenshots of what I am seeing on my phone.
+I would appreciate a response as soon as possible.
+Thank you,
+P. Cruz",en,savings_investments,investment_account_opening,savings_investments,investment_account_opening,,demo-llm,email
+REQ-004030,2026-07-20T04:00:58,How do i shut down my account permanently,"Hello support,
+I have a question. how do I shut down my account permanently.
+I have already tried calling the helpline but could not get through.
+I am travelling next week so a quick answer would really help.
+The reference on my side is REF-68234, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+This has been going on since 16 Jun and it is affecting my daily life.
+I have attached screenshots of what I am seeing on my phone.
+My customer number is NB314237 in case you need to look me up.
+Kind regards,
+L. Visser",en,current_accounts,account_closure,current_accounts,account_closure,,demo-llm,email
+REQ-003924,2026-07-20T05:33:09,Why was i charged for using an atm,"Estimado equipo,
+Les escribo porque why was I charged for using an ATM.
+Por favor confirmen por correo cuando esté resuelto.
+Les agradezco una respuesta lo antes posible.
+Esto ocurre desde el 06 Sep y necesito una solución.
+Mi número de cliente es NB843687.
+Muchas gracias,
+L. Visser",es,fees_charges,atm_fee_query,fees_charges,atm_fee_query,atm_fee_query,demo-llm,email
+REQ-001136,2026-07-20T08:48:17,I went overdrawn by mistake and got a fee of eur 640,"Dear Northbridge Bank,
+I am writing about the following: I went overdrawn by mistake and got a fee of EUR 640.
+Please let me know what information you need from my side.
+I would appreciate a response as soon as possible.
+My customer number is NB124437 in case you need to look me up.
+I have already tried calling the helpline but could not get through.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+I am travelling next week so a quick answer would really help.
+Best wishes,
+K. Okafor",en,fees_charges,overdraft_fee_query,fees_charges,overdraft_fee_query,,demo-llm,email
+REQ-001960,2026-07-20T09:42:38,What interest rate applies to my personal loan,"Good morning,
+I am writing about the following: what interest rate applies to my personal loan.
+I have already tried calling the helpline but could not get through.
+I have attached screenshots of what I am seeing on my phone.
+This has been going on since 06 Aug and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+I would appreciate a response as soon as possible.
+My customer number is NB629455 in case you need to look me up.
+Please confirm by email once this has been sorted out.
+Thank you,
+P. Cruz",en,personal_loans,loan_interest_rate_query,personal_loans,loan_interest_rate_query,loan_interest_rate_query,demo-llm,email
+REQ-004471,2026-07-20T11:54:05,Re: I want a recurring payment every month on the 1st,"Hola,
+Tengo una consulta: I want a recurring payment every month on the 1st.
+Esto ocurre desde el 04 Jul y necesito una solución.
+Por favor confirmen por correo cuando esté resuelto.
+Les agradezco una respuesta lo antes posible.
+Mi número de cliente es NB906907.
+Saludos cordiales,
+T. Dlamini",es,payments_transfers,standing_order_setup,payments_transfers,standing_order_setup,,demo-llm,email
+REQ-000078,2026-07-21T05:00:27,I want a recurring payment every month on the 1st,"Dear Northbridge Bank,
+Hope you can assist me. I want a recurring payment every month on the 1st.
+I have already tried calling the helpline but could not get through.
+I have been a customer of Northbridge Bank for several years.
+Thank you,
+L. Visser",en,payments_transfers,standing_order_setup,payments_transfers,loan_payment_holiday,,demo-llm,email
+REQ-001067,2026-07-21T08:38:44,I am unable to sign in to online banking,"Hello support,
+I am writing about the following: I am unable to sign in to online banking.
+I have been a customer of Northbridge Bank for several years.
+I have attached screenshots of what I am seeing on my phone.
+I have already tried calling the helpline but could not get through.
+I am travelling next week so a quick answer would really help.
+My customer number is NB253114 in case you need to look me up.
+I would appreciate a response as soon as possible.
+Please confirm by email once this has been sorted out.
+The reference on my side is REF-50023, please quote it in your reply.
+Thanks in advance,
+L. Visser",en,digital_banking,app_login_issue,cards,app_login_issue,app_login_issue,demo-llm,email
+REQ-005333,2026-07-22T05:26:07,"Re: I went overdrawn by mistake and got a fee of php 18,000","Estimado equipo,
+Tengo una consulta: I went overdrawn by mistake and got a fee of PHP 18,000.
+Mi número de cliente es NB681419.
+Les agradezco una respuesta lo antes posible.
+Esto ocurre desde el 29 Jun y necesito una solución.
+Por favor confirmen por correo cuando esté resuelto.
+Muchas gracias,
+K. Okafor",es,fees_charges,overdraft_fee_query,fees_charges,overdraft_fee_query,overdraft_fee_query,demo-llm,email
+REQ-004624,2026-07-22T12:58:04,"Please create a monthly standing order of php 5,000","Good morning,
+I have a question. please create a monthly standing order of PHP 5,000.
+This has been going on since 11 Aug and it is affecting my daily life.
+The reference on my side is REF-28916, please quote it in your reply.
+I have attached screenshots of what I am seeing on my phone.
+Please confirm by email once this has been sorted out.
+I am travelling next week so a quick answer would really help.
+I have already tried calling the helpline but could not get through.
+I have been a customer of Northbridge Bank for several years.
+Best wishes,
+L. Visser",en,payments_transfers,standing_order_setup,payments_transfers,standing_order_setup,,demo-llm,email
+REQ-004719,2026-07-23T00:40:00,Why is my transfer under review for sanctions checks,"Hi team,
+I need some help. why is my transfer under review for sanctions checks.
+This has been going on since 24 Aug and it is affecting my daily life.
+I would appreciate a response as soon as possible.
+I am travelling next week so a quick answer would really help.
+The reference on my side is REF-80053, please quote it in your reply.
+I have been a customer of Northbridge Bank for several years.
+I have attached screenshots of what I am seeing on my phone.
+My customer number is NB126759 in case you need to look me up.
+Best wishes,
+L. Visser",en,kyc_compliance,sanctions_screening_delay,kyc_compliance,sanctions_screening_delay,,demo-llm,email
+REQ-001659,2026-07-23T14:11:55,Explain the overdraft charges on my account,"Hello support,
+I need some help. explain the overdraft charges on my account.
+This has been going on since 08 Jul and it is affecting my daily life.
+The reference on my side is REF-86364, please quote it in your reply.
+I have attached screenshots of what I am seeing on my phone.
+Kind regards,
+K. Okafor",en,fees_charges,overdraft_fee_query,fees_charges,overdraft_fee_query,overdraft_fee_query,demo-llm,email
+REQ-003991,2026-07-23T18:04:31,Re: There is a transaction on my account i did not make,"Hi team,
+I have a question. there is a transaction on my account I did not make.
+I am travelling next week so a quick answer would really help.
+Please let me know what information you need from my side.
+This has been going on since 15 Aug and it is affecting my daily life.
+Thanks in advance,
+P. Cruz",en,fraud_security,unauthorised_transaction,fees_charges,unauthorised_transaction,,demo-llm,email
+REQ-005657,2026-07-24T08:19:38,How do i set up fingerprint login,"Hello,
+I need some help. how do I set up fingerprint login.
+This has been going on since 24 Jun and it is affecting my daily life.
+I have attached screenshots of what I am seeing on my phone.
+I have already tried calling the helpline but could not get through.
+Please let me know what information you need from my side.
+Best wishes,
+S. Hartley",en,digital_banking,biometric_setup,digital_banking,biometric_setup,biometric_setup,demo-llm,email
+REQ-001043,2026-07-24T15:15:22,I want to close my current account,"Hi team,
+I need some help. I want to close my current account.
+I am travelling next week so a quick answer would really help.
+Please confirm by email once this has been sorted out.
+I would appreciate a response as soon as possible.
+This has been going on since 13 Sep and it is affecting my daily life.
+Please let me know what information you need from my side.
+I have been a customer of Northbridge Bank for several years.
+Thank you,
+S. Hartley",en,current_accounts,account_closure,current_accounts,account_closure,,demo-llm,email
+REQ-000937,2026-07-24T15:45:36,Has my loan of r900 been approved yet,"Hello support,
+I am writing about the following: has my loan of R900 been approved yet.
+This has been going on since 27 Aug and it is affecting my daily life.
+My customer number is NB122436 in case you need to look me up.
+I have already tried calling the helpline but could not get through.
+Please confirm by email once this has been sorted out.
+The reference on my side is REF-51972, please quote it in your reply.
+I have attached screenshots of what I am seeing on my phone.
+Thank you,
+M. Santos",en,personal_loans,loan_application_status,personal_loans,loan_application_status,loan_application_status,demo-llm,email
+REQ-005331,2026-07-24T23:12:28,"My insurance renews on 24 sep, what is the new price","Buenos días,
+Tengo una consulta: my insurance renews on 24 Sep, what is the new price.
+Esto ocurre desde el 05 Sep y necesito una solución.
+Por favor confirmen por correo cuando esté resuelto.
+Mi número de cliente es NB429468.
+Les agradezco una respuesta lo antes posible.
+Muchas gracias,
+L. Visser",es,insurance,policy_renewal_quote,insurance,policy_renewal_quote,,demo-llm,email
+REQ-004585,2026-07-25T00:04:59,"Please send me a new card, the old one is worn out","Hello,
+Hope you can assist me. please send me a new card, the old one is worn out.
+I have already tried calling the helpline but could not get through.
+My customer number is NB500351 in case you need to look me up.
+Please let me know what information you need from my side.
+Thanks in advance,
+S. Hartley",en,cards,card_replacement,cards,card_replacement,,demo-llm,email
+REQ-003408,2026-07-25T06:12:45,Re: I would like to give some positive feedback,"Hello,
+Hope you can assist me. I would like to give some positive feedback.
+I have been a customer of Northbridge Bank for several years.
+I am travelling next week so a quick answer would really help.
+I would appreciate a response as soon as possible.
+Best wishes,
+M. Santos",en,complaints_feedback,positive_feedback,complaints_feedback,positive_feedback,,demo-llm,email
+REQ-001051,2026-07-26T01:38:14,Re: I want to change my daily card spending limit,"Dear Northbridge Bank,
+I need some help. I want to change my daily card spending limit.
+I have attached screenshots of what I am seeing on my phone.
+I am travelling next week so a quick answer would really help.
+I have already tried calling the helpline but could not get through.
+The reference on my side is REF-83434, please quote it in your reply.
+I have been a customer of Northbridge Bank for several years.
+Best wishes,
+L. Visser",en,cards,card_limit_change,fees_charges,card_limit_change,,demo-llm,email
+REQ-003115,2026-07-26T02:19:03,I want to open an investment account,"Dear Northbridge Bank,
+I have a question. I want to open an investment account.
+I would appreciate a response as soon as possible.
+I have attached screenshots of what I am seeing on my phone.
+I am travelling next week so a quick answer would really help.
+This has been going on since 11 Jul and it is affecting my daily life.
+Thank you,
+S. Hartley",en,savings_investments,investment_account_opening,savings_investments,investment_account_opening,,demo-llm,email
+REQ-003781,2026-07-26T07:36:57,Please update my phone number on file,"Dear Northbridge Bank,
+I have a question. please update my phone number on file.
+The reference on my side is REF-10932, please quote it in your reply.
+I have already tried calling the helpline but could not get through.
+I am travelling next week so a quick answer would really help.
+I would appreciate a response as soon as possible.
+Please let me know what information you need from my side.
+My customer number is NB546641 in case you need to look me up.
+Kind regards,
+L. Visser",en,current_accounts,account_details_update,current_accounts,account_details_update,account_details_update,demo-llm,email
+REQ-002466,2026-07-26T12:52:06,Re: Please change my tax status after moving countries,"Buenos días,
+Les escribo porque please change my tax status after moving countries.
+Por favor confirmen por correo cuando esté resuelto.
+Mi número de cliente es NB970363.
+Esto ocurre desde el 11 Sep y necesito una solución.
+Les agradezco una respuesta lo antes posible.
+Saludos cordiales,
+L. Visser",es,kyc_compliance,tax_residency_update,kyc_compliance,policy_renewal_quote,,demo-llm,email
+REQ-003787,2026-07-26T14:24:45,What are the fees for an international transfer,"Beste span,
+Ek skryf oor die volgende: what are the fees for an international transfer.
+Bevestig asseblief per e-pos sodra dit opgelos is.
+My kliëntnommer is NB447278.
+Ek sal 'n vinnige antwoord waardeer.
+Dit gebeur al sedert 23 Jun en ek benodig hulp.
+Vriendelike groete,
+L. Visser",af,payments_transfers,international_transfer_fees,payments_transfers,international_transfer_fees,,demo-llm,email
+REQ-002588,2026-07-27T21:07:06,I want to transfer my tax-free savings to you,"Hi team,
+I need some help. I want to transfer my tax-free savings to you.
+I am travelling next week so a quick answer would really help.
+I have been a customer of Northbridge Bank for several years.
+Please confirm by email once this has been sorted out.
+Please let me know what information you need from my side.
+My customer number is NB454788 in case you need to look me up.
+I have attached screenshots of what I am seeing on my phone.
+I have already tried calling the helpline but could not get through.
+Best wishes,
+P. Cruz",en,savings_investments,isa_transfer,savings_investments,isa_transfer,isa_transfer,demo-llm,email
+REQ-002929,2026-07-27T22:31:54,What interest does my northbridge everyday account pay,"Dear Northbridge Bank,
+Hope you can assist me. what interest does my Northbridge Everyday Account pay.
+Please confirm by email once this has been sorted out.
+Please let me know what information you need from my side.
+This has been going on since 15 Aug and it is affecting my daily life.
+I have been a customer of Northbridge Bank for several years.
+I am travelling next week so a quick answer would really help.
+I have attached screenshots of what I am seeing on my phone.
+Thank you,
+M. Santos",en,savings_investments,savings_interest_query,savings_investments,savings_interest_query,,demo-llm,email
+REQ-004227,2026-07-28T14:25:07,I uploaded my passport but the verification is not complete,"Hello,
+I need some help. I uploaded my passport but the verification is not complete.
+This has been going on since 09 Jul and it is affecting my daily life.
+Please confirm by email once this has been sorted out.
+I have already tried calling the helpline but could not get through.
+I have attached screenshots of what I am seeing on my phone.
+Please let me know what information you need from my side.
+Thanks in advance,
+P. Cruz",en,kyc_compliance,id_verification_pending,kyc_compliance,id_verification_pending,,demo-llm,email
+REQ-003145,2026-07-28T15:37:49,Please name my spouse as beneficiary,"Dear Northbridge Bank,
+I need some help. please name my spouse as beneficiary.
+I have attached screenshots of what I am seeing on my phone.
+I would appreciate a response as soon as possible.
+I am travelling next week so a quick answer would really help.
+I have been a customer of Northbridge Bank for several years.
+This has been going on since 28 Jul and it is affecting my daily life.
+The reference on my side is REF-37280, please quote it in your reply.
+Thanks in advance,
+S. Hartley",en,insurance,add_beneficiary,insurance,add_beneficiary,,demo-llm,email
+REQ-001823,2026-07-28T16:02:25,Please unlock my inactive account,"Estimado equipo,
+Les escribo porque please unlock my inactive account.
+Esto ocurre desde el 16 Sep y necesito una solución.
+Por favor confirmen por correo cuando esté resuelto.
+Mi número de cliente es NB377239.
+Les agradezco una respuesta lo antes posible.
+Saludos cordiales,
+M. Santos",es,current_accounts,dormant_account_reactivation,current_accounts,dormant_account_reactivation,,demo-llm,email
+REQ-000450,2026-07-28T16:58:12,"I applied for a personal loan on 30 aug, any update","Hello,
+I have a question. I applied for a personal loan on 30 Aug, any update.
+I have been a customer of Northbridge Bank for several years.
+I would appreciate a response as soon as possible.
+The reference on my side is REF-66419, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+I am travelling next week so a quick answer would really help.
+Thanks in advance,
+M. Santos",en,personal_loans,loan_application_status,personal_loans,loan_application_status,loan_application_status,demo-llm,email
+REQ-001670,2026-07-29T02:42:30,"Please create a monthly standing order of $3,500","Good morning,
+I have a question. please create a monthly standing order of $3,500.
+I have already tried calling the helpline but could not get through.
+This has been going on since 09 Sep and it is affecting my daily life.
+The reference on my side is REF-85074, please quote it in your reply.
+Kind regards,
+K. Okafor",en,payments_transfers,standing_order_setup,payments_transfers,international_transfer_fees,standing_order_setup,demo-llm,email
+REQ-001349,2026-07-29T05:58:10,Why do you need proof of my source of funds,"Hello,
+Hope you can assist me. why do you need proof of my source of funds.
+I have attached screenshots of what I am seeing on my phone.
+Please let me know what information you need from my side.
+This has been going on since 31 Aug and it is affecting my daily life.
+The reference on my side is REF-44619, please quote it in your reply.
+I have already tried calling the helpline but could not get through.
+I have been a customer of Northbridge Bank for several years.
+I would appreciate a response as soon as possible.
+Kind regards,
+J. Moreno",en,kyc_compliance,source_of_funds_query,kyc_compliance,source_of_funds_query,,demo-llm,email
+REQ-002366,2026-07-29T08:49:30,Please send my annual mortgage statement,"Hello,
+I need some help. please send my annual mortgage statement.
+Please let me know what information you need from my side.
+I have already tried calling the helpline but could not get through.
+I have been a customer of Northbridge Bank for several years.
+The reference on my side is REF-21450, please quote it in your reply.
+This has been going on since 29 Aug and it is affecting my daily life.
+Please confirm by email once this has been sorted out.
+I would appreciate a response as soon as possible.
+I am travelling next week so a quick answer would really help.
+Thanks in advance,
+L. Visser",en,mortgages,mortgage_statement_request,mortgages,mortgage_statement_request,,demo-llm,email
+REQ-001312,2026-07-30T01:06:03,I lost my job and need to pause my loan payments,"Good morning,
+I need some help. I lost my job and need to pause my loan payments.
+I have attached screenshots of what I am seeing on my phone.
+I have been a customer of Northbridge Bank for several years.
+I would appreciate a response as soon as possible.
+The reference on my side is REF-77381, please quote it in your reply.
+Thank you,
+A. Rivers",en,personal_loans,loan_payment_holiday,personal_loans,loan_payment_holiday,loan_payment_holiday,demo-llm,email
+REQ-002150,2026-07-30T19:57:09,How can i avoid the monthly fee on my northbridge everyday a,"Hi team,
+I have a question. how can I avoid the monthly fee on my Northbridge Everyday Account.
+I am travelling next week so a quick answer would really help.
+This has been going on since 03 Sep and it is affecting my daily life.
+The reference on my side is REF-71219, please quote it in your reply.
+I would appreciate a response as soon as possible.
+I have attached screenshots of what I am seeing on my phone.
+Thank you,
+J. Moreno",en,fees_charges,monthly_fee_explanation,fees_charges,monthly_fee_explanation,monthly_fee_explanation,demo-llm,email
+REQ-004346,2026-07-31T02:53:14,"Re: I was scammed into sending $120, can i get a refund","Hi team,
+I need some help. I was scammed into sending $120, can I get a refund.
+The reference on my side is REF-73622, please quote it in your reply.
+I have attached screenshots of what I am seeing on my phone.
+Please confirm by email once this has been sorted out.
+I have already tried calling the helpline but could not get through.
+Please let me know what information you need from my side.
+Thanks in advance,
+P. Cruz",en,fraud_security,scam_victim_refund,fraud_security,scam_victim_refund,,demo-llm,email
+REQ-002724,2026-07-31T06:08:45,My account was hacked and details were changed,"Hi team,
+I need some help. my account was hacked and details were changed.
+I would appreciate a response as soon as possible.
+The reference on my side is REF-89540, please quote it in your reply.
+My customer number is NB704784 in case you need to look me up.
+I have already tried calling the helpline but could not get through.
+I am travelling next week so a quick answer would really help.
+Thank you,
+A. Rivers",en,fraud_security,account_takeover,fraud_security,account_takeover,account_takeover,demo-llm,email
+REQ-005210,2026-07-31T06:40:16,The app crashes every time i open it,"Goeiedag,
+Ek het hulp nodig met die volgende: the app crashes every time I open it.
+Dit gebeur al sedert 03 Jun en ek benodig hulp.
+Bevestig asseblief per e-pos sodra dit opgelos is.
+Ek sal 'n vinnige antwoord waardeer.
+My kliëntnommer is NB773558.
+Vriendelike groete,
+K. Okafor",af,digital_banking,app_crash_bug,digital_banking,app_crash_bug,,demo-llm,email
+REQ-003662,2026-08-01T13:37:30,The password reset link does not work,"Good morning,
+I need some help. the password reset link does not work.
+I have attached screenshots of what I am seeing on my phone.
+I have already tried calling the helpline but could not get through.
+The reference on my side is REF-76419, please quote it in your reply.
+Thank you,
+K. Okafor",en,digital_banking,password_reset,digital_banking,password_reset,password_reset,demo-llm,email
+REQ-005636,2026-08-02T11:53:26,What is the payoff amount to close my loan,"Hello,
+Hope you can assist me. what is the payoff amount to close my loan.
+I would appreciate a response as soon as possible.
+Please confirm by email once this has been sorted out.
+I am travelling next week so a quick answer would really help.
+This has been going on since 14 Jun and it is affecting my daily life.
+I have attached screenshots of what I am seeing on my phone.
+The reference on my side is REF-89792, please quote it in your reply.
+Thank you,
+K. Okafor",en,personal_loans,loan_early_settlement,personal_loans,loan_early_settlement,,demo-llm,email
+REQ-003309,2026-08-03T04:51:33,My payment is held for compliance screening,"Estimado equipo,
+Tengo una consulta: my payment is held for compliance screening.
+Les agradezco una respuesta lo antes posible.
+Por favor confirmen por correo cuando esté resuelto.
+Mi número de cliente es NB943854.
+Esto ocurre desde el 29 Jul y necesito una solución.
+Muchas gracias,
+J. Moreno",es,kyc_compliance,sanctions_screening_delay,kyc_compliance,sanctions_screening_delay,sanctions_screening_delay,demo-llm,email
+REQ-000552,2026-08-03T06:40:44,Re: Where do i upload my proof of address,"Hello po,
+Gusto ko po sanang itanong: where do I upload my proof of address.
+Salamat po sa agarang tulong ninyo.
+Matagal ko na po itong problema mula 25 Jul.
+Pakisagot po agad kung maaari.
+Ang customer number ko po ay NB605234.
+Maraming salamat po,
+T. Dlamini",tl,kyc_compliance,proof_of_address_upload,kyc_compliance,proof_of_address_upload,proof_of_address_upload,demo-llm,email
+REQ-003795,2026-08-03T08:03:08,I need a mortgage balance certificate,"Buenos días,
+Tengo una consulta: I need a mortgage balance certificate.
+Les agradezco una respuesta lo antes posible.
+Por favor confirmen por correo cuando esté resuelto.
+Mi número de cliente es NB167571.
+Esto ocurre desde el 15 Jul y necesito una solución.
+Saludos cordiales,
+M. Santos",es,mortgages,mortgage_statement_request,mortgages,mortgage_statement_request,mortgage_statement_request,demo-llm,email
+REQ-001128,2026-08-03T19:28:15,Re: My otp is not coming through to my phone,"Buenos días,
+Necesito ayuda con lo siguiente: my OTP is not coming through to my phone.
+Mi número de cliente es NB219261.
+Por favor confirmen por correo cuando esté resuelto.
+Les agradezco una respuesta lo antes posible.
+Esto ocurre desde el 24 Jun y necesito una solución.
+Saludos cordiales,
+L. Visser",es,digital_banking,otp_not_received,digital_banking,otp_not_received,,demo-llm,email
+REQ-001025,2026-08-03T19:39:43,How do i set up a standing order,"Hello,
+Hope you can assist me. how do I set up a standing order.
+I have already tried calling the helpline but could not get through.
+This has been going on since 26 Sep and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+I have attached screenshots of what I am seeing on my phone.
+The reference on my side is REF-21402, please quote it in your reply.
+Please let me know what information you need from my side.
+I would appreciate a response as soon as possible.
+I have been a customer of Northbridge Bank for several years.
+Best wishes,
+L. Visser",en,payments_transfers,standing_order_setup,payments_transfers,standing_order_setup,standing_order_setup,demo-llm,email
+REQ-005501,2026-08-03T22:35:56,Re: Please freeze my account immediately,"Goeiedag,
+Ek het 'n vraag: please freeze my account immediately.
+My kliëntnommer is NB331068.
+Ek sal 'n vinnige antwoord waardeer.
+Bevestig asseblief per e-pos sodra dit opgelos is.
+Dit gebeur al sedert 09 Jul en ek benodig hulp.
+This has been going on since 24 Aug and it is affecting my daily life.
+Vriendelike groete,
+S. Hartley",af,fraud_security,lock_account_request,fraud_security,lock_account_request,lock_account_request,demo-llm,email
+REQ-004513,2026-08-04T02:50:05,Why is my id check taking so long,"Dear Northbridge Bank,
+Hope you can assist me. why is my ID check taking so long.
+I have already tried calling the helpline but could not get through.
+Please let me know what information you need from my side.
+I would appreciate a response as soon as possible.
+I have been a customer of Northbridge Bank for several years.
+Please confirm by email once this has been sorted out.
+The reference on my side is REF-90975, please quote it in your reply.
+Best wishes,
+K. Okafor",en,kyc_compliance,id_verification_pending,kyc_compliance,id_verification_pending,,demo-llm,email
+REQ-003510,2026-08-04T15:39:51,Please investigate a scam payment i made on 18 jun,"Hello,
+Hope you can assist me. please investigate a scam payment I made on 18 Jun.
+I would appreciate a response as soon as possible.
+The reference on my side is REF-50242, please quote it in your reply.
+I am travelling next week so a quick answer would really help.
+Kind regards,
+S. Hartley",en,fraud_security,scam_victim_refund,fraud_security,scam_victim_refund,,demo-llm,email
+REQ-005056,2026-08-04T19:50:12,"Re: Please create a monthly standing order of php 18,000","Hello support,
+I am writing about the following: please create a monthly standing order of PHP 18,000.
+Please let me know what information you need from my side.
+This has been going on since 10 Jul and it is affecting my daily life.
+I would appreciate a response as soon as possible.
+My customer number is NB917289 in case you need to look me up.
+The reference on my side is REF-39870, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+I am travelling next week so a quick answer would really help.
+Best wishes,
+A. Rivers",en,payments_transfers,standing_order_setup,payments_transfers,standing_order_setup,standing_order_setup,demo-llm,email
+REQ-003116,2026-08-04T20:47:41,"Re: My insurance renews on 22 jun, what is the new price","Good morning,
+Hope you can assist me. my insurance renews on 22 Jun, what is the new price.
+This has been going on since 24 Sep and it is affecting my daily life.
+I have attached screenshots of what I am seeing on my phone.
+I have already tried calling the helpline but could not get through.
+Thank you,
+J. Moreno",en,insurance,policy_renewal_quote,insurance,policy_renewal_quote,policy_renewal_quote,demo-llm,email
+REQ-004313,2026-08-05T05:22:54,Re: Can i skip a loan instalment this month,"Dear Northbridge Bank,
+I am writing about the following: can I skip a loan instalment this month.
+I have attached screenshots of what I am seeing on my phone.
+This has been going on since 25 Jul and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+I have already tried calling the helpline but could not get through.
+Thanks in advance,
+K. Okafor",en,personal_loans,loan_payment_holiday,personal_loans,loan_payment_holiday,loan_payment_holiday,demo-llm,email
+REQ-005154,2026-08-05T10:28:01,Can i skip a loan instalment this month,"Estimado equipo,
+Tengo una consulta: can I skip a loan instalment this month.
+Por favor confirmen por correo cuando esté resuelto.
+Les agradezco una respuesta lo antes posible.
+Mi número de cliente es NB950457.
+Esto ocurre desde el 02 Jun y necesito una solución.
+Muchas gracias,
+L. Visser",es,personal_loans,loan_payment_holiday,personal_loans,loan_payment_holiday,,demo-llm,email
+REQ-000446,2026-08-05T16:13:33,What is the amount to fully repay my mortgage,"Hello support,
+I have a question. what is the amount to fully repay my mortgage.
+I would appreciate a response as soon as possible.
+I have attached screenshots of what I am seeing on my phone.
+I have already tried calling the helpline but could not get through.
+This has been going on since 15 Aug and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+I have been a customer of Northbridge Bank for several years.
+Please let me know what information you need from my side.
+Thanks in advance,
+M. Santos",en,mortgages,mortgage_redemption,mortgages,mortgage_redemption,,demo-llm,email
+REQ-000908,2026-08-05T16:50:24,Re: I need to update my tax residency,"Hello po,
+Paki-tulungan po ako, I need to update my tax residency.
+Salamat po sa agarang tulong ninyo.
+Matagal ko na po itong problema mula 19 Sep.
+Pakisagot po agad kung maaari.
+Ang customer number ko po ay NB389163.
+This has been going on since 23 Sep and it is affecting my daily life.
+Salamat po,
+L. Visser",tl,kyc_compliance,tax_residency_update,kyc_compliance,tax_residency_update,tax_residency_update,demo-llm,email
+REQ-003679,2026-08-06T05:12:54,Re: What exchange rate applies to overseas payments,"Hello support,
+I need some help. what exchange rate applies to overseas payments.
+Please let me know what information you need from my side.
+My customer number is NB675558 in case you need to look me up.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+Thank you,
+K. Okafor",en,payments_transfers,international_transfer_fees,payments_transfers,international_transfer_fees,international_transfer_fees,demo-llm,email
+REQ-001841,2026-08-06T12:33:33,Re: What is the status of my complaint,"Kumusta po,
+Paki-tulungan po ako, what is the status of my complaint.
+Salamat po sa agarang tulong ninyo.
+Pakisagot po agad kung maaari.
+Matagal ko na po itong problema mula 26 Jul.
+Ang customer number ko po ay NB758037.
+This has been going on since 12 Aug and it is affecting my daily life.
+Maraming salamat po,
+L. Visser",tl,complaints_feedback,complaint_status,fees_charges,otp_not_received,complaint_status,demo-llm,email
+REQ-005550,2026-08-06T22:09:25,Why is my transfer under review for sanctions checks,"Good morning,
+I have a question. why is my transfer under review for sanctions checks.
+The reference on my side is REF-15506, please quote it in your reply.
+My customer number is NB336212 in case you need to look me up.
+I have been a customer of Northbridge Bank for several years.
+Please let me know what information you need from my side.
+Thank you,
+P. Cruz",en,kyc_compliance,sanctions_screening_delay,kyc_compliance,sanctions_screening_delay,,demo-llm,email
+REQ-005297,2026-08-07T10:07:58,Can i get a statement of my home loan interest,"Hello support,
+I need some help. can I get a statement of my home loan interest.
+I would appreciate a response as soon as possible.
+Please let me know what information you need from my side.
+Please confirm by email once this has been sorted out.
+I have already tried calling the helpline but could not get through.
+My customer number is NB582860 in case you need to look me up.
+This has been going on since 22 Aug and it is affecting my daily life.
+The reference on my side is REF-16585, please quote it in your reply.
+Thanks in advance,
+T. Dlamini",en,mortgages,mortgage_statement_request,mortgages,app_login_issue,mortgage_statement_request,demo-llm,email
+REQ-002875,2026-08-07T14:06:38,Re: The new card i received will not activate,"Good morning,
+I have a question. the new card I received will not activate.
+Please let me know what information you need from my side.
+I have attached screenshots of what I am seeing on my phone.
+I am travelling next week so a quick answer would really help.
+My customer number is NB198013 in case you need to look me up.
+I have already tried calling the helpline but could not get through.
+Please confirm by email once this has been sorted out.
+This has been going on since 18 Sep and it is affecting my daily life.
+Kind regards,
+T. Dlamini",en,cards,card_activation,cards,card_activation,card_activation,demo-llm,email
+REQ-005998,2026-08-07T15:12:27,I cannot activate the card ending ****7465,"Estimado equipo,
+Tengo una consulta: I cannot activate the card ending ****7465.
+Esto ocurre desde el 16 Aug y necesito una solución.
+Por favor confirmen por correo cuando esté resuelto.
+Mi número de cliente es NB293249.
+Les agradezco una respuesta lo antes posible.
+Muchas gracias,
+P. Cruz",es,cards,card_activation,cards,card_activation,card_activation,demo-llm,email
+REQ-004273,2026-08-08T18:03:58,I fell for a scam and paid a fraudster,"Good morning,
+Hope you can assist me. I fell for a scam and paid a fraudster.
+My customer number is NB530313 in case you need to look me up.
+I have attached screenshots of what I am seeing on my phone.
+The reference on my side is REF-14696, please quote it in your reply.
+I have been a customer of Northbridge Bank for several years.
+I would appreciate a response as soon as possible.
+Thanks in advance,
+J. Moreno",en,fraud_security,scam_victim_refund,fraud_security,scam_victim_refund,scam_victim_refund,demo-llm,email
+REQ-005127,2026-08-09T04:49:44,I found a bug in the banking app after the update,"Hi team,
+Hope you can assist me. I found a bug in the banking app after the update.
+I would appreciate a response as soon as possible.
+I have been a customer of Northbridge Bank for several years.
+My customer number is NB765128 in case you need to look me up.
+I have attached screenshots of what I am seeing on my phone.
+I am travelling next week so a quick answer would really help.
+Please let me know what information you need from my side.
+I have already tried calling the helpline but could not get through.
+Thank you,
+A. Rivers",en,digital_banking,app_crash_bug,digital_banking,app_crash_bug,,demo-llm,email
+REQ-000469,2026-08-09T06:11:20,"Can i overpay my mortgage by $1,200","Good morning,
+I need some help. can I overpay my mortgage by $1,200.
+I am travelling next week so a quick answer would really help.
+My customer number is NB253924 in case you need to look me up.
+The reference on my side is REF-96682, please quote it in your reply.
+This has been going on since 12 Jun and it is affecting my daily life.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+Please let me know what information you need from my side.
+Best wishes,
+K. Okafor",en,mortgages,mortgage_overpayment,mortgages,mortgage_overpayment,,demo-llm,email
+REQ-001894,2026-08-09T10:41:11,Re: I lost my job and need to pause my loan payments,"Hello,
+I am writing about the following: I lost my job and need to pause my loan payments.
+I have been a customer of Northbridge Bank for several years.
+I have attached screenshots of what I am seeing on my phone.
+My customer number is NB285893 in case you need to look me up.
+Best wishes,
+L. Visser",en,personal_loans,loan_payment_holiday,personal_loans,loan_payment_holiday,loan_payment_holiday,demo-llm,email
+REQ-003861,2026-08-10T13:50:05,Why is my loan rate higher than advertised,"Hi team,
+I need some help. why is my loan rate higher than advertised.
+Please let me know what information you need from my side.
+I have been a customer of Northbridge Bank for several years.
+This has been going on since 05 Jun and it is affecting my daily life.
+Thanks in advance,
+A. Rivers",en,personal_loans,loan_interest_rate_query,personal_loans,loan_interest_rate_query,loan_interest_rate_query,demo-llm,email
+REQ-002489,2026-08-10T19:27:36,I want to change how i pay my insurance premium,"Hi team,
+Hope you can assist me. I want to change how I pay my insurance premium.
+I am travelling next week so a quick answer would really help.
+I have attached screenshots of what I am seeing on my phone.
+This has been going on since 12 Aug and it is affecting my daily life.
+Please let me know what information you need from my side.
+I would appreciate a response as soon as possible.
+The reference on my side is REF-74771, please quote it in your reply.
+Best wishes,
+M. Santos",en,insurance,premium_payment_issue,insurance,premium_payment_issue,premium_payment_issue,demo-llm,email
+REQ-005390,2026-08-11T06:02:16,I cannot activate the card ending ****1091,"Hello po,
+Kailangan ko po ng tulong,  I cannot activate the card ending ****1091.
+Matagal ko na po itong problema mula 02 Jun.
+Pakisagot po agad kung maaari.
+Ang customer number ko po ay NB638480.
+Salamat po sa agarang tulong ninyo.
+Maraming salamat po,
+K. Okafor",tl,cards,card_activation,cards,card_activation,,demo-llm,email
+REQ-001453,2026-08-11T07:26:58,I want to change how i pay my insurance premium,"Buenos días,
+Tengo una consulta: I want to change how I pay my insurance premium.
+Mi número de cliente es NB593580.
+Esto ocurre desde el 03 Sep y necesito una solución.
+Por favor confirmen por correo cuando esté resuelto.
+Les agradezco una respuesta lo antes posible.
+Muchas gracias,
+P. Cruz",es,insurance,premium_payment_issue,insurance,premium_payment_issue,,demo-llm,email
+REQ-000962,2026-08-11T16:48:16,"My fixed rate ends soon, what are my options","Hello,
+I am writing about the following: my fixed rate ends soon, what are my options.
+Please let me know what information you need from my side.
+I have been a customer of Northbridge Bank for several years.
+I have attached screenshots of what I am seeing on my phone.
+I am travelling next week so a quick answer would really help.
+I have already tried calling the helpline but could not get through.
+My customer number is NB171053 in case you need to look me up.
+The reference on my side is REF-98993, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+Thanks in advance,
+T. Dlamini",en,mortgages,mortgage_rate_fixing,mortgages,mortgage_rate_fixing,,demo-llm,email
+REQ-003288,2026-08-11T20:02:50,"Please recall my payment of $250, wrong recipient","Good morning,
+Hope you can assist me. please recall my payment of $250, wrong recipient.
+My customer number is NB744087 in case you need to look me up.
+I have been a customer of Northbridge Bank for several years.
+Please let me know what information you need from my side.
+Best wishes,
+S. Hartley",en,payments_transfers,wrong_beneficiary_transfer,payments_transfers,standing_order_setup,,demo-llm,email
+REQ-004110,2026-08-12T01:50:53,"Please start a tax-free account transfer of php 18,000","Hello support,
+I need some help. please start a tax-free account transfer of PHP 18,000.
+I have already tried calling the helpline but could not get through.
+I have been a customer of Northbridge Bank for several years.
+I am travelling next week so a quick answer would really help.
+Thanks in advance,
+A. Rivers",en,savings_investments,isa_transfer,savings_investments,isa_transfer,,demo-llm,email
+REQ-002464,2026-08-12T02:21:08,I am not receiving the one time passcode,"Estimado equipo,
+Les escribo porque I am not receiving the one time passcode.
+Por favor confirmen por correo cuando esté resuelto.
+Les agradezco una respuesta lo antes posible.
+Esto ocurre desde el 04 Sep y necesito una solución.
+Mi número de cliente es NB538441.
+Saludos cordiales,
+K. Okafor",es,digital_banking,otp_not_received,digital_banking,otp_not_received,otp_not_received,demo-llm,email
+REQ-005320,2026-08-12T08:23:04,My insurance premium payment failed,"Hello support,
+I am writing about the following: my insurance premium payment failed.
+I have attached screenshots of what I am seeing on my phone.
+I am travelling next week so a quick answer would really help.
+Please confirm by email once this has been sorted out.
+I would appreciate a response as soon as possible.
+Kind regards,
+L. Visser",en,insurance,premium_payment_issue,insurance,insurance_claim_status,premium_payment_issue,demo-llm,email
+REQ-002792,2026-08-12T17:24:20,I submitted a claim on 24 jul and need an update,"Hi team,
+I have a question. I submitted a claim on 24 Jul and need an update.
+I am travelling next week so a quick answer would really help.
+This has been going on since 27 Aug and it is affecting my daily life.
+My customer number is NB431442 in case you need to look me up.
+I would appreciate a response as soon as possible.
+Please confirm by email once this has been sorted out.
+Thank you,
+S. Hartley",en,insurance,insurance_claim_status,insurance,insurance_claim_status,insurance_claim_status,demo-llm,email
+REQ-001133,2026-08-12T18:36:47,I lost my debit card ending ****5051,"Good morning,
+Hope you can assist me. I lost my debit card ending ****5051.
+Please let me know what information you need from my side.
+I have attached screenshots of what I am seeing on my phone.
+The reference on my side is REF-35284, please quote it in your reply.
+I would appreciate a response as soon as possible.
+Thank you,
+M. Santos",en,cards,card_lost_stolen,cards,card_lost_stolen,card_lost_stolen,demo-llm,email
+REQ-005452,2026-08-13T00:24:14,My identity verification is still pending,"Good morning,
+I need some help. my identity verification is still pending.
+My customer number is NB400331 in case you need to look me up.
+This has been going on since 31 Aug and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+Please let me know what information you need from my side.
+I would appreciate a response as soon as possible.
+I have been a customer of Northbridge Bank for several years.
+The reference on my side is REF-84853, please quote it in your reply.
+Thanks in advance,
+M. Santos",en,kyc_compliance,id_verification_pending,kyc_compliance,id_verification_pending,id_verification_pending,demo-llm,email
+REQ-004779,2026-08-13T03:01:14,Has my loan of $250 been approved yet,"Hello support,
+Hope you can assist me. has my loan of $250 been approved yet.
+My customer number is NB963597 in case you need to look me up.
+Please confirm by email once this has been sorted out.
+I have attached screenshots of what I am seeing on my phone.
+Thanks in advance,
+J. Moreno",en,personal_loans,loan_application_status,personal_loans,loan_application_status,,demo-llm,email
+REQ-004254,2026-08-13T20:51:44,Re: I am unhappy with how my request was handled,"Dear Northbridge Bank,
+Hope you can assist me. I am unhappy with how my request was handled.
+I have attached screenshots of what I am seeing on my phone.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+I have been a customer of Northbridge Bank for several years.
+I would appreciate a response as soon as possible.
+My customer number is NB439185 in case you need to look me up.
+The reference on my side is REF-73728, please quote it in your reply.
+This has been going on since 11 Aug and it is affecting my daily life.
+Thank you,
+S. Hartley",en,complaints_feedback,service_complaint,complaints_feedback,complaint_escalation,,demo-llm,email
+REQ-003055,2026-08-14T02:00:48,What documents do i need to open a new current account,"Hello,
+I have a question. what documents do I need to open a new current account.
+I have been a customer of Northbridge Bank for several years.
+Please confirm by email once this has been sorted out.
+My customer number is NB299544 in case you need to look me up.
+I have already tried calling the helpline but could not get through.
+Please let me know what information you need from my side.
+I have attached screenshots of what I am seeing on my phone.
+Best wishes,
+K. Okafor",en,current_accounts,account_opening,current_accounts,account_opening,account_opening,demo-llm,email
+REQ-002206,2026-08-14T06:41:56,Re: How do i activate my new card,"Hi team,
+I have a question. how do I activate my new card.
+I have been a customer of Northbridge Bank for several years.
+This has been going on since 26 Jun and it is affecting my daily life.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+Kind regards,
+S. Hartley",en,cards,card_activation,cards,card_activation,card_activation,demo-llm,email
+REQ-003673,2026-08-14T07:44:20,I need a replacement card,"Kumusta po,
+Paki-tulungan po ako, I need a replacement card.
+Salamat po sa agarang tulong ninyo.
+Matagal ko na po itong problema mula 24 Aug.
+Pakisagot po agad kung maaari.
+Ang customer number ko po ay NB252542.
+This has been going on since 22 Jun and it is affecting my daily life.
+Salamat po,
+M. Santos",tl,cards,card_replacement,cards,card_replacement,,demo-llm,email
+REQ-002668,2026-08-15T09:37:59,I would like to open a lighthouse plus,"Hi team,
+I need some help. I would like to open a Lighthouse Plus.
+I have attached screenshots of what I am seeing on my phone.
+I am travelling next week so a quick answer would really help.
+I would appreciate a response as soon as possible.
+Please confirm by email once this has been sorted out.
+The reference on my side is REF-33546, please quote it in your reply.
+I have been a customer of Northbridge Bank for several years.
+I have already tried calling the helpline but could not get through.
+Please let me know what information you need from my side.
+Best wishes,
+K. Okafor",en,current_accounts,account_opening,current_accounts,account_opening,,demo-llm,email
+REQ-005778,2026-08-15T09:38:30,Please remove the late fee of eur 640,"Magandang araw po,
+Gusto ko po sanang itanong: please remove the late fee of EUR 640.
+Matagal ko na po itong problema mula 02 Jun.
+Pakisagot po agad kung maaari.
+Salamat po sa agarang tulong ninyo.
+Ang customer number ko po ay NB603634.
+Maraming salamat po,
+S. Hartley",tl,fees_charges,late_payment_fee_dispute,fees_charges,monthly_fee_explanation,,demo-llm,email
+REQ-004384,2026-08-15T12:49:37,Why was i charged for using an atm,"Magandang araw po,
+Kailangan ko po ng tulong,  why was I charged for using an ATM.
+Salamat po sa agarang tulong ninyo.
+Ang customer number ko po ay NB208721.
+Matagal ko na po itong problema mula 12 Aug.
+Pakisagot po agad kung maaari.
+Salamat po,
+L. Visser",tl,fees_charges,atm_fee_query,fees_charges,atm_fee_query,atm_fee_query,demo-llm,email
+REQ-002852,2026-08-15T15:56:21,How do i activate my new card,"Good morning,
+Hope you can assist me. how do I activate my new card.
+I have been a customer of Northbridge Bank for several years.
+This has been going on since 01 Sep and it is affecting my daily life.
+I would appreciate a response as soon as possible.
+The reference on my side is REF-10412, please quote it in your reply.
+I have already tried calling the helpline but could not get through.
+I have attached screenshots of what I am seeing on my phone.
+I am travelling next week so a quick answer would really help.
+Please let me know what information you need from my side.
+Thank you,
+S. Hartley",en,cards,card_activation,mortgages,card_activation,,demo-llm,email
+REQ-005372,2026-08-16T07:56:19,I want to change my daily card spending limit,"Hello support,
+Hope you can assist me. I want to change my daily card spending limit.
+I would appreciate a response as soon as possible.
+I have attached screenshots of what I am seeing on my phone.
+Please let me know what information you need from my side.
+The reference on my side is REF-43216, please quote it in your reply.
+I have been a customer of Northbridge Bank for several years.
+I have already tried calling the helpline but could not get through.
+My customer number is NB214202 in case you need to look me up.
+Best wishes,
+T. Dlamini",en,cards,card_limit_change,cards,card_limit_change,,demo-llm,email
+REQ-001740,2026-08-17T04:49:35,"Please create a monthly standing order of php 18,000","Hi team,
+I need some help. please create a monthly standing order of PHP 18,000.
+I am travelling next week so a quick answer would really help.
+This has been going on since 18 Jul and it is affecting my daily life.
+I have been a customer of Northbridge Bank for several years.
+I would appreciate a response as soon as possible.
+Please confirm by email once this has been sorted out.
+Best wishes,
+P. Cruz",en,payments_transfers,standing_order_setup,payments_transfers,standing_order_setup,standing_order_setup,demo-llm,email
+REQ-003360,2026-08-17T06:38:40,"My fixed deposit matures on 31 aug, what happens next","Hi team,
+I need some help. my fixed deposit matures on 31 Aug, what happens next.
+I have attached screenshots of what I am seeing on my phone.
+This has been going on since 19 Sep and it is affecting my daily life.
+My customer number is NB432669 in case you need to look me up.
+Please confirm by email once this has been sorted out.
+Please let me know what information you need from my side.
+Kind regards,
+P. Cruz",en,savings_investments,fixed_deposit_maturity,savings_investments,fixed_deposit_maturity,,demo-llm,email
+REQ-001370,2026-08-17T12:14:04,"I applied for a personal loan on 24 aug, any update","Good morning,
+Hope you can assist me. I applied for a personal loan on 24 Aug, any update.
+This has been going on since 23 Sep and it is affecting my daily life.
+I have already tried calling the helpline but could not get through.
+I have been a customer of Northbridge Bank for several years.
+The reference on my side is REF-65780, please quote it in your reply.
+Thank you,
+A. Rivers",en,personal_loans,loan_application_status,personal_loans,loan_application_status,loan_application_status,demo-llm,email
+REQ-004727,2026-08-17T12:30:15,I think a stranger has taken over my online account,"Dear Northbridge Bank,
+I have a question. I think a stranger has taken over my online account.
+I have been a customer of Northbridge Bank for several years.
+Please confirm by email once this has been sorted out.
+I have already tried calling the helpline but could not get through.
+My customer number is NB818508 in case you need to look me up.
+Kind regards,
+K. Okafor",en,fraud_security,account_takeover,fraud_security,account_takeover,,demo-llm,email
+REQ-001402,2026-08-17T19:21:52,"Re: The transfer of r2,750 has not arrived","Hi team,
+I am writing about the following: the transfer of R2,750 has not arrived.
+My customer number is NB508678 in case you need to look me up.
+I have been a customer of Northbridge Bank for several years.
+The reference on my side is REF-11030, please quote it in your reply.
+I would appreciate a response as soon as possible.
+Please confirm by email once this has been sorted out.
+Thank you,
+L. Visser",en,payments_transfers,transfer_not_received,savings_investments,transfer_not_received,transfer_not_received,demo-llm,email
+REQ-000383,2026-08-18T06:57:32,I uploaded my passport but the verification is not complete,"Hello,
+I have a question. I uploaded my passport but the verification is not complete.
+The reference on my side is REF-31951, please quote it in your reply.
+This has been going on since 12 Aug and it is affecting my daily life.
+I would appreciate a response as soon as possible.
+I have attached screenshots of what I am seeing on my phone.
+My customer number is NB942746 in case you need to look me up.
+Please let me know what information you need from my side.
+Kind regards,
+T. Dlamini",en,kyc_compliance,id_verification_pending,digital_banking,id_verification_pending,id_verification_pending,demo-llm,email
+REQ-004269,2026-08-18T08:10:28,Can i get a renewal quote for my policy,"Beste span,
+Ek het 'n vraag: can I get a renewal quote for my policy.
+Ek sal 'n vinnige antwoord waardeer.
+Dit gebeur al sedert 09 Jul en ek benodig hulp.
+Bevestig asseblief per e-pos sodra dit opgelos is.
+My kliëntnommer is NB242462.
+Vriendelike groete,
+J. Moreno",af,insurance,policy_renewal_quote,insurance,policy_renewal_quote,,demo-llm,email
+REQ-005089,2026-08-18T13:06:49,I would like to give some positive feedback,"Hello support,
+I need some help. I would like to give some positive feedback.
+The reference on my side is REF-97947, please quote it in your reply.
+Please let me know what information you need from my side.
+My customer number is NB757788 in case you need to look me up.
+I have been a customer of Northbridge Bank for several years.
+Thanks in advance,
+K. Okafor",en,complaints_feedback,positive_feedback,complaints_feedback,positive_feedback,positive_feedback,demo-llm,email
+REQ-005479,2026-08-18T21:56:18,You asked about where my money came from,"Hi team,
+I have a question. you asked about where my money came from.
+Please let me know what information you need from my side.
+I have been a customer of Northbridge Bank for several years.
+Please confirm by email once this has been sorted out.
+This has been going on since 23 Jul and it is affecting my daily life.
+Thank you,
+K. Okafor",en,kyc_compliance,source_of_funds_query,kyc_compliance,source_of_funds_query,,demo-llm,email
+REQ-002783,2026-08-19T02:54:11,How do i renew my term deposit,"Hello support,
+I am writing about the following: how do I renew my term deposit.
+The reference on my side is REF-25979, please quote it in your reply.
+I have been a customer of Northbridge Bank for several years.
+I have already tried calling the helpline but could not get through.
+This has been going on since 16 Sep and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+Please let me know what information you need from my side.
+I would appreciate a response as soon as possible.
+I have attached screenshots of what I am seeing on my phone.
+Best wishes,
+S. Hartley",en,savings_investments,fixed_deposit_maturity,savings_investments,fixed_deposit_maturity,,demo-llm,email
+REQ-004607,2026-08-19T03:19:40,Re: The sms verification code never arrives,"Hi team,
+I have a question. the SMS verification code never arrives.
+My customer number is NB601740 in case you need to look me up.
+The reference on my side is REF-53872, please quote it in your reply.
+This has been going on since 22 Jul and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+Kind regards,
+A. Rivers",en,digital_banking,otp_not_received,digital_banking,otp_not_received,,demo-llm,email
+REQ-004720,2026-08-19T09:41:43,I want to change my daily card spending limit,"Good morning,
+Hope you can assist me. I want to change my daily card spending limit.
+Please let me know what information you need from my side.
+My customer number is NB445059 in case you need to look me up.
+This has been going on since 14 Jul and it is affecting my daily life.
+The reference on my side is REF-63988, please quote it in your reply.
+I have attached screenshots of what I am seeing on my phone.
+Thanks in advance,
+T. Dlamini",en,cards,card_limit_change,cards,card_limit_change,card_limit_change,demo-llm,email
+REQ-000696,2026-08-19T10:28:16,The sms verification code never arrives,"Dear Northbridge Bank,
+Hope you can assist me. the SMS verification code never arrives.
+I have been a customer of Northbridge Bank for several years.
+I would appreciate a response as soon as possible.
+Please let me know what information you need from my side.
+I have already tried calling the helpline but could not get through.
+This has been going on since 06 Aug and it is affecting my daily life.
+Thanks in advance,
+S. Hartley",en,digital_banking,otp_not_received,digital_banking,password_reset,otp_not_received,demo-llm,email
+REQ-002821,2026-08-19T13:16:21,How do i submit a new self certification form,"Good morning,
+I have a question. how do I submit a new self certification form.
+My customer number is NB953659 in case you need to look me up.
+I have been a customer of Northbridge Bank for several years.
+I have already tried calling the helpline but could not get through.
+Please confirm by email once this has been sorted out.
+I am travelling next week so a quick answer would really help.
+Kind regards,
+A. Rivers",en,kyc_compliance,tax_residency_update,kyc_compliance,tax_residency_update,tax_residency_update,demo-llm,email
+REQ-002971,2026-08-19T16:25:10,How do i activate my new card,"Hello po,
+Paki-tulungan po ako, how do I activate my new card.
+Matagal ko na po itong problema mula 18 Aug.
+Pakisagot po agad kung maaari.
+Ang customer number ko po ay NB301519.
+Salamat po sa agarang tulong ninyo.
+This has been going on since 06 Aug and it is affecting my daily life.
+Maraming salamat po,
+T. Dlamini",tl,cards,card_activation,cards,card_activation,,demo-llm,email
+REQ-003391,2026-08-19T23:21:13,Why is my transfer under review for sanctions checks,"Hello support,
+I need some help. why is my transfer under review for sanctions checks.
+Please let me know what information you need from my side.
+The reference on my side is REF-64911, please quote it in your reply.
+I am travelling next week so a quick answer would really help.
+I would appreciate a response as soon as possible.
+Thank you,
+J. Moreno",en,kyc_compliance,sanctions_screening_delay,kyc_compliance,sanctions_screening_delay,,demo-llm,email
+REQ-000679,2026-08-20T01:46:07,Escalate my complaint to the ombudsman,"Goeiedag,
+Ek het 'n vraag: escalate my complaint to the ombudsman.
+Bevestig asseblief per e-pos sodra dit opgelos is.
+My kliëntnommer is NB148299.
+Dit gebeur al sedert 17 Aug en ek benodig hulp.
+Ek sal 'n vinnige antwoord waardeer.
+This has been going on since 10 Aug and it is affecting my daily life.
+Dankie,
+T. Dlamini",af,complaints_feedback,complaint_escalation,complaints_feedback,complaint_escalation,,demo-llm,email
+REQ-003777,2026-08-20T04:13:05,"Please send me a new card, the old one is worn out","Hello,
+I am writing about the following: please send me a new card, the old one is worn out.
+This has been going on since 18 Aug and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+My customer number is NB582288 in case you need to look me up.
+The reference on my side is REF-22240, please quote it in your reply.
+I have been a customer of Northbridge Bank for several years.
+Please confirm by email once this has been sorted out.
+I have already tried calling the helpline but could not get through.
+Best wishes,
+J. Moreno",en,cards,card_replacement,cards,mortgage_application,,demo-llm,email
+REQ-001335,2026-08-21T00:26:22,Re: Is there a limit on withdrawing from my northbridge everyday,"Hello support,
+I need some help. is there a limit on withdrawing from my Northbridge Everyday Account.
+My customer number is NB569281 in case you need to look me up.
+I am travelling next week so a quick answer would really help.
+I have been a customer of Northbridge Bank for several years.
+The reference on my side is REF-51115, please quote it in your reply.
+I would appreciate a response as soon as possible.
+This has been going on since 18 Jul and it is affecting my daily life.
+Please confirm by email once this has been sorted out.
+Best wishes,
+J. Moreno",en,savings_investments,savings_withdrawal_limits,savings_investments,positive_feedback,savings_withdrawal_limits,demo-llm,email
+REQ-000956,2026-08-21T01:01:31,I want to enable face recognition in the app,"Dear Northbridge Bank,
+I am writing about the following: I want to enable face recognition in the app.
+I am travelling next week so a quick answer would really help.
+I have been a customer of Northbridge Bank for several years.
+I have already tried calling the helpline but could not get through.
+Please let me know what information you need from my side.
+This has been going on since 20 Sep and it is affecting my daily life.
+The reference on my side is REF-92436, please quote it in your reply.
+Kind regards,
+M. Santos",en,digital_banking,biometric_setup,personal_loans,biometric_setup,,demo-llm,email
+REQ-005266,2026-08-21T09:56:58,Re: What rates can i get when my deal expires on 02 jun,"Dear Northbridge Bank,
+I need some help. what rates can I get when my deal expires on 02 Jun.
+The reference on my side is REF-26098, please quote it in your reply.
+Please let me know what information you need from my side.
+I have been a customer of Northbridge Bank for several years.
+I am travelling next week so a quick answer would really help.
+My customer number is NB982029 in case you need to look me up.
+I have attached screenshots of what I am seeing on my phone.
+Please confirm by email once this has been sorted out.
+I would appreciate a response as soon as possible.
+Best wishes,
+L. Visser",en,mortgages,mortgage_rate_fixing,mortgages,mortgage_rate_fixing,,demo-llm,email
+REQ-004155,2026-08-21T13:21:36,You asked about where my money came from,"Good morning,
+Hope you can assist me. you asked about where my money came from.
+I have attached screenshots of what I am seeing on my phone.
+The reference on my side is REF-34611, please quote it in your reply.
+I have been a customer of Northbridge Bank for several years.
+Thanks in advance,
+M. Santos",en,kyc_compliance,source_of_funds_query,kyc_compliance,source_of_funds_query,,demo-llm,email
+REQ-001189,2026-08-21T18:26:33,I am unhappy with how my request was handled,"Dear Northbridge Bank,
+Hope you can assist me. I am unhappy with how my request was handled.
+The reference on my side is REF-40612, please quote it in your reply.
+I would appreciate a response as soon as possible.
+Please let me know what information you need from my side.
+This has been going on since 23 Sep and it is affecting my daily life.
+I have already tried calling the helpline but could not get through.
+Best wishes,
+P. Cruz",en,complaints_feedback,service_complaint,fraud_security,service_complaint,service_complaint,demo-llm,email
+REQ-000603,2026-08-21T20:24:41,What are the fees for an international transfer,"Hello support,
+Hope you can assist me. what are the fees for an international transfer.
+My customer number is NB429664 in case you need to look me up.
+Please let me know what information you need from my side.
+Please confirm by email once this has been sorted out.
+I am travelling next week so a quick answer would really help.
+The reference on my side is REF-20308, please quote it in your reply.
+This has been going on since 24 Jun and it is affecting my daily life.
+Kind regards,
+T. Dlamini",en,payments_transfers,international_transfer_fees,payments_transfers,international_transfer_fees,international_transfer_fees,demo-llm,email
+REQ-004164,2026-08-21T22:45:05,My account was hacked and details were changed,"Good morning,
+Hope you can assist me. my account was hacked and details were changed.
+I would appreciate a response as soon as possible.
+I have already tried calling the helpline but could not get through.
+I have been a customer of Northbridge Bank for several years.
+The reference on my side is REF-37539, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+Best wishes,
+T. Dlamini",en,fraud_security,account_takeover,fraud_security,account_takeover,,demo-llm,email
+REQ-002452,2026-08-22T19:10:18,Re: What is the payoff amount to close my loan,"Dear Northbridge Bank,
+Hope you can assist me. what is the payoff amount to close my loan.
+I am travelling next week so a quick answer would really help.
+My customer number is NB764982 in case you need to look me up.
+This has been going on since 07 Jul and it is affecting my daily life.
+I have been a customer of Northbridge Bank for several years.
+Please let me know what information you need from my side.
+I have attached screenshots of what I am seeing on my phone.
+I have already tried calling the helpline but could not get through.
+Thank you,
+S. Hartley",en,personal_loans,loan_early_settlement,insurance,loan_early_settlement,,demo-llm,email
+REQ-005481,2026-08-23T01:03:35,Has my claim for eur 640 been approved,"Hi team,
+I need some help. has my claim for EUR 640 been approved.
+Please confirm by email once this has been sorted out.
+This has been going on since 06 Sep and it is affecting my daily life.
+I have been a customer of Northbridge Bank for several years.
+Thanks in advance,
+L. Visser",en,insurance,insurance_claim_status,insurance,insurance_claim_status,,demo-llm,email
+REQ-005659,2026-08-24T11:14:05,What do i need to apply for a home loan,"Dear Northbridge Bank,
+I have a question. what do I need to apply for a home loan.
+My customer number is NB990458 in case you need to look me up.
+I would appreciate a response as soon as possible.
+The reference on my side is REF-65163, please quote it in your reply.
+I am travelling next week so a quick answer would really help.
+Kind regards,
+P. Cruz",en,mortgages,mortgage_application,mortgages,mortgage_application,,demo-llm,email
+REQ-002317,2026-08-25T07:36:54,Re: I got a fake text asking for my login details,"Hello,
+Hope you can assist me. I got a fake text asking for my login details.
+This has been going on since 21 Aug and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+I have already tried calling the helpline but could not get through.
+Thank you,
+M. Santos",en,fraud_security,phishing_report,fraud_security,phishing_report,phishing_report,demo-llm,email
+REQ-001589,2026-08-26T02:23:06,Where can i download my bank statements,"Hello,
+Hope you can assist me. where can I download my bank statements.
+My customer number is NB669135 in case you need to look me up.
+I would appreciate a response as soon as possible.
+I am travelling next week so a quick answer would really help.
+Please let me know what information you need from my side.
+I have been a customer of Northbridge Bank for several years.
+I have attached screenshots of what I am seeing on my phone.
+Kind regards,
+L. Visser",en,current_accounts,account_statement,current_accounts,unauthorised_transaction,,demo-llm,email
+REQ-004626,2026-08-26T10:53:55,"My fixed deposit matures on 17 jun, what happens next","Hello,
+I have a question. my fixed deposit matures on 17 Jun, what happens next.
+I have attached screenshots of what I am seeing on my phone.
+I would appreciate a response as soon as possible.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+The reference on my side is REF-90283, please quote it in your reply.
+I am travelling next week so a quick answer would really help.
+Best wishes,
+T. Dlamini",en,savings_investments,fixed_deposit_maturity,savings_investments,fixed_deposit_maturity,,demo-llm,email
+REQ-003649,2026-08-26T18:13:04,Re: Someone used my card without permission,"Dear Northbridge Bank,
+Hope you can assist me. someone used my card without permission.
+I am travelling next week so a quick answer would really help.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+I have attached screenshots of what I am seeing on my phone.
+My customer number is NB379754 in case you need to look me up.
+This has been going on since 11 Sep and it is affecting my daily life.
+I would appreciate a response as soon as possible.
+Thanks in advance,
+S. Hartley",en,fraud_security,unauthorised_transaction,fraud_security,unauthorised_transaction,,demo-llm,email
+REQ-004756,2026-08-26T23:41:58,Is there a limit on withdrawing from my keystone card,"Hello support,
+I need some help. is there a limit on withdrawing from my Keystone Card.
+I have already tried calling the helpline but could not get through.
+I am travelling next week so a quick answer would really help.
+Please let me know what information you need from my side.
+My customer number is NB874773 in case you need to look me up.
+I would appreciate a response as soon as possible.
+Please confirm by email once this has been sorted out.
+I have attached screenshots of what I am seeing on my phone.
+I have been a customer of Northbridge Bank for several years.
+Thank you,
+J. Moreno",en,savings_investments,savings_withdrawal_limits,savings_investments,savings_withdrawal_limits,,demo-llm,email
+REQ-004582,2026-08-27T02:00:49,I forgot my password and need to reset it,"Estimado equipo,
+Tengo una consulta: I forgot my password and need to reset it.
+Mi número de cliente es NB594407.
+Esto ocurre desde el 22 Aug y necesito una solución.
+Les agradezco una respuesta lo antes posible.
+Por favor confirmen por correo cuando esté resuelto.
+Saludos cordiales,
+S. Hartley",es,digital_banking,password_reset,digital_banking,password_reset,password_reset,demo-llm,email
+REQ-001429,2026-08-27T04:38:08,Re: The payment with card ending ****2600 was declined,"Hi team,
+I have a question. the payment with card ending ****2600 was declined.
+I have been a customer of Northbridge Bank for several years.
+I have already tried calling the helpline but could not get through.
+I have attached screenshots of what I am seeing on my phone.
+The reference on my side is REF-14240, please quote it in your reply.
+This has been going on since 27 Jun and it is affecting my daily life.
+My customer number is NB883303 in case you need to look me up.
+I would appreciate a response as soon as possible.
+I am travelling next week so a quick answer would really help.
+Kind regards,
+A. Rivers",en,cards,card_declined,cards,card_declined,,demo-llm,email
+REQ-004311,2026-08-27T06:33:40,Why was my card refused at the till on 14 sep,"Kumusta po,
+Kailangan ko po ng tulong,  why was my card refused at the till on 14 Sep.
+Matagal ko na po itong problema mula 17 Jun.
+Ang customer number ko po ay NB313549.
+Pakisagot po agad kung maaari.
+Salamat po sa agarang tulong ninyo.
+Salamat po,
+J. Moreno",tl,cards,card_declined,cards,card_declined,card_declined,demo-llm,email
+REQ-001822,2026-08-27T12:25:55,I want to change how i pay my insurance premium,"Dear Northbridge Bank,
+I need some help. I want to change how I pay my insurance premium.
+My customer number is NB732572 in case you need to look me up.
+The reference on my side is REF-70335, please quote it in your reply.
+I have attached screenshots of what I am seeing on my phone.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+I am travelling next week so a quick answer would really help.
+This has been going on since 18 Sep and it is affecting my daily life.
+I would appreciate a response as soon as possible.
+Thank you,
+M. Santos",en,insurance,premium_payment_issue,insurance,premium_payment_issue,,demo-llm,email
+REQ-001742,2026-08-27T18:29:42,Re: Please raise my card limit to r900,"Hello po,
+Gusto ko po sanang itanong: please raise my card limit to R900.
+Ang customer number ko po ay NB906796.
+Salamat po sa agarang tulong ninyo.
+Pakisagot po agad kung maaari.
+Matagal ko na po itong problema mula 16 Jun.
+Salamat po,
+K. Okafor",tl,cards,card_limit_change,cards,card_limit_change,card_limit_change,demo-llm,email
+REQ-004314,2026-08-27T19:04:38,How many withdrawals can i make from my savings,"Dear Northbridge Bank,
+I am writing about the following: how many withdrawals can I make from my savings.
+I have been a customer of Northbridge Bank for several years.
+I have already tried calling the helpline but could not get through.
+I have attached screenshots of what I am seeing on my phone.
+Please confirm by email once this has been sorted out.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+I would appreciate a response as soon as possible.
+The reference on my side is REF-88591, please quote it in your reply.
+Thanks in advance,
+M. Santos",en,savings_investments,savings_withdrawal_limits,savings_investments,savings_withdrawal_limits,,demo-llm,email
+REQ-002848,2026-08-27T23:23:34,"I was scammed into sending $120, can i get a refund","Dear Northbridge Bank,
+I have a question. I was scammed into sending $120, can I get a refund.
+I have already tried calling the helpline but could not get through.
+I would appreciate a response as soon as possible.
+My customer number is NB413500 in case you need to look me up.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+The reference on my side is REF-80360, please quote it in your reply.
+Please let me know what information you need from my side.
+Thanks in advance,
+T. Dlamini",en,fraud_security,scam_victim_refund,cards,scam_victim_refund,scam_victim_refund,demo-llm,email
+REQ-002079,2026-08-28T08:59:47,Is a loan top up possible for me,"Hello,
+I have a question. is a loan top up possible for me.
+I would appreciate a response as soon as possible.
+I have already tried calling the helpline but could not get through.
+I have been a customer of Northbridge Bank for several years.
+Please let me know what information you need from my side.
+My customer number is NB255776 in case you need to look me up.
+Kind regards,
+J. Moreno",en,personal_loans,loan_top_up,personal_loans,loan_top_up,loan_top_up,demo-llm,email
+REQ-003815,2026-08-28T09:38:39,"My complaint was not resolved, please escalate it","Hello,
+I need some help. my complaint was not resolved, please escalate it.
+Please let me know what information you need from my side.
+Please confirm by email once this has been sorted out.
+This has been going on since 24 Sep and it is affecting my daily life.
+I have attached screenshots of what I am seeing on my phone.
+I would appreciate a response as soon as possible.
+Thanks in advance,
+S. Hartley",en,complaints_feedback,complaint_escalation,complaints_feedback,complaint_escalation,,demo-llm,email
+REQ-001190,2026-08-28T12:54:11,Someone changed my password and locked me out,"Kumusta po,
+Kailangan ko po ng tulong,  someone changed my password and locked me out.
+Salamat po sa agarang tulong ninyo.
+Matagal ko na po itong problema mula 04 Jul.
+Pakisagot po agad kung maaari.
+Ang customer number ko po ay NB720268.
+Maraming salamat po,
+P. Cruz",tl,fraud_security,account_takeover,fraud_security,scam_victim_refund,account_takeover,demo-llm,email
+REQ-000045,2026-08-28T16:53:33,I am unhappy with how my request was handled,"Hola,
+Tengo una consulta: I am unhappy with how my request was handled.
+Les agradezco una respuesta lo antes posible.
+Esto ocurre desde el 21 Aug y necesito una solución.
+Por favor confirmen por correo cuando esté resuelto.
+Mi número de cliente es NB332022.
+Muchas gracias,
+L. Visser",es,complaints_feedback,service_complaint,complaints_feedback,service_complaint,service_complaint,demo-llm,email
+REQ-003043,2026-08-29T07:38:55,Re: Explain the overdraft charges on my account,"Kumusta po,
+Gusto ko po sanang itanong: explain the overdraft charges on my account.
+Salamat po sa agarang tulong ninyo.
+Matagal ko na po itong problema mula 09 Aug.
+Pakisagot po agad kung maaari.
+Ang customer number ko po ay NB886541.
+Maraming salamat po,
+L. Visser",tl,fees_charges,overdraft_fee_query,complaints_feedback,overdraft_fee_query,,demo-llm,email
+REQ-002507,2026-08-29T16:55:50,How many withdrawals can i make from my savings,"Hello support,
+I have a question. how many withdrawals can I make from my savings.
+My customer number is NB495921 in case you need to look me up.
+I have already tried calling the helpline but could not get through.
+I am travelling next week so a quick answer would really help.
+Thanks in advance,
+L. Visser",en,savings_investments,savings_withdrawal_limits,savings_investments,savings_withdrawal_limits,,demo-llm,email
+REQ-002384,2026-08-29T20:25:06,A direct debit of $120 was taken in error,"Buenos días,
+Tengo una consulta: a direct debit of $120 was taken in error.
+Mi número de cliente es NB700806.
+Por favor confirmen por correo cuando esté resuelto.
+Les agradezco una respuesta lo antes posible.
+Esto ocurre desde el 12 Jun y necesito una solución.
+Muchas gracias,
+P. Cruz",es,payments_transfers,direct_debit_dispute,payments_transfers,direct_debit_dispute,direct_debit_dispute,demo-llm,email
+REQ-002477,2026-08-30T06:40:17,Why is my loan rate higher than advertised,"Kumusta po,
+Paki-tulungan po ako, why is my loan rate higher than advertised.
+Ang customer number ko po ay NB325968.
+Salamat po sa agarang tulong ninyo.
+Matagal ko na po itong problema mula 12 Jul.
+Pakisagot po agad kung maaari.
+Salamat po,
+J. Moreno",tl,personal_loans,loan_interest_rate_query,personal_loans,loan_interest_rate_query,loan_top_up,demo-llm,email
+REQ-004371,2026-08-30T08:06:45,I was charged my premium twice this month,"Hello, I am writing about the following: I was charged my premium twice this month. I have attached screenshots of what I am seeing on my phone. I am travelling next week so a quick answer would really help. Please confirm by email once this has been sorted out. I have already tried calling the helpline but could not get through. Please let me know what information you need from my side. My customer number is NB690825 in case you need to look me up. I have been a customer of Northbridge Bank for several years. I would appreciate a response as soon as possible. This has been going on since 17 Jul and it is affecting my daily life.",en,insurance,premium_payment_issue,insurance,add_beneficiary,premium_payment_issue,demo-llm,email
+REQ-003700,2026-08-30T20:04:08,How do i set up fingerprint login,"Kumusta po,
+Paki-tulungan po ako, how do I set up fingerprint login.
+Matagal ko na po itong problema mula 17 Aug.
+Ang customer number ko po ay NB651642.
+Salamat po sa agarang tulong ninyo.
+Pakisagot po agad kung maaari.
+This has been going on since 02 Jul and it is affecting my daily life.
+Salamat po,
+K. Okafor",tl,digital_banking,biometric_setup,digital_banking,biometric_setup,,demo-llm,email
+REQ-000382,2026-08-31T00:43:45,How do i submit a new self certification form,"Good morning,
+Hope you can assist me. how do I submit a new self certification form.
+The reference on my side is REF-31247, please quote it in your reply.
+Please let me know what information you need from my side.
+Kind regards,
+J. Moreno",en,kyc_compliance,tax_residency_update,kyc_compliance,tax_residency_update,tax_residency_update,demo-llm,email
+REQ-000884,2026-08-31T06:48:12,Can you lower my monthly card limit to $120,"Beste span,
+Ek skryf oor die volgende: can you lower my monthly card limit to $120.
+Bevestig asseblief per e-pos sodra dit opgelos is.
+Dit gebeur al sedert 29 Sep en ek benodig hulp.
+Ek sal 'n vinnige antwoord waardeer.
+My kliëntnommer is NB935507.
+Vriendelike groete,
+L. Visser",af,cards,card_limit_change,cards,card_limit_change,,demo-llm,email
+REQ-004821,2026-08-31T10:00:58,I want to change how i pay my insurance premium,"Hallo,
+Ek skryf oor die volgende: I want to change how I pay my insurance premium.
+Ek sal 'n vinnige antwoord waardeer.
+Dit gebeur al sedert 02 Aug en ek benodig hulp.
+Bevestig asseblief per e-pos sodra dit opgelos is.
+My kliëntnommer is NB328594.
+Dankie,
+K. Okafor",af,insurance,premium_payment_issue,insurance,premium_payment_issue,,demo-llm,email
+REQ-001163,2026-08-31T12:15:07,Where can i download my bank statements,"Goeiedag,
+Ek het 'n vraag: where can I download my bank statements.
+Bevestig asseblief per e-pos sodra dit opgelos is.
+Ek sal 'n vinnige antwoord waardeer.
+Dit gebeur al sedert 28 Jul en ek benodig hulp.
+My kliëntnommer is NB615326.
+Dankie,
+J. Moreno",af,current_accounts,account_statement,current_accounts,account_statement,account_statement,demo-llm,email
+REQ-001725,2026-08-31T17:36:02,Explain the overdraft charges on my account,"Good morning,
+I need some help. explain the overdraft charges on my account.
+I have been a customer of Northbridge Bank for several years.
+Please let me know what information you need from my side.
+The reference on my side is REF-31161, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+Kind regards,
+S. Hartley",en,fees_charges,overdraft_fee_query,fees_charges,overdraft_fee_query,overdraft_fee_query,demo-llm,email
+REQ-000892,2026-08-31T19:43:43,I want to apply for a mortgage,"Dear Northbridge Bank,
+I need some help. I want to apply for a mortgage.
+This has been going on since 27 Aug and it is affecting my daily life.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+Please confirm by email once this has been sorted out.
+My customer number is NB209275 in case you need to look me up.
+I would appreciate a response as soon as possible.
+Best wishes,
+M. Santos",en,mortgages,mortgage_application,mortgages,mortgage_redemption,mortgage_application,demo-llm,email
+REQ-003688,2026-09-01T00:52:00,I want to enable face recognition in the app,"Hello support, Hope you can assist me. I want to enable face recognition in the app. I would appreciate a response as soon as possible. Please let me know what information you need from my side. Please confirm by email once this has been sorted out. The reference on my side is REF-25241, please quote it in your reply. I have already tried calling the helpline but could not get through. I have attached screenshots of what I am seeing on my phone. My customer number is NB870575 in case you need to look me up. I am travelling next week so a quick answer would really help. This has been going on since 11 Jun and it is affecting",en,digital_banking,biometric_setup,digital_banking,password_reset,,demo-llm,email
+REQ-002995,2026-09-01T08:33:20,You asked about where my money came from,"Hello,
+I need some help. you asked about where my money came from.
+This has been going on since 11 Aug and it is affecting my daily life.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+My customer number is NB444527 in case you need to look me up.
+Kind regards,
+J. Moreno",en,kyc_compliance,source_of_funds_query,insurance,source_of_funds_query,,demo-llm,email
+REQ-005417,2026-09-01T13:20:14,Re: I want a recurring payment every month on the 1st,"Hello,
+I need some help. I want a recurring payment every month on the 1st.
+I am travelling next week so a quick answer would really help.
+I have already tried calling the helpline but could not get through.
+Please confirm by email once this has been sorted out.
+This has been going on since 25 Aug and it is affecting my daily life.
+Please let me know what information you need from my side.
+Kind regards,
+M. Santos",en,payments_transfers,standing_order_setup,payments_transfers,mortgage_overpayment,,demo-llm,email
+REQ-001462,2026-09-02T14:06:58,How do i submit a new self certification form,"Hello,
+I am writing about the following: how do I submit a new self certification form.
+Please let me know what information you need from my side.
+I would appreciate a response as soon as possible.
+My customer number is NB346832 in case you need to look me up.
+I have already tried calling the helpline but could not get through.
+The reference on my side is REF-74360, please quote it in your reply.
+I am travelling next week so a quick answer would really help.
+I have attached screenshots of what I am seeing on my phone.
+I have been a customer of Northbridge Bank for several years.
+Kind regards,
+J. Moreno",en,kyc_compliance,tax_residency_update,kyc_compliance,atm_fee_query,tax_residency_update,demo-llm,email
+REQ-000948,2026-09-02T15:44:41,I need to update my tax residency,"Beste span,
+Ek het 'n vraag: I need to update my tax residency.
+Bevestig asseblief per e-pos sodra dit opgelos is.
+My kliëntnommer is NB288859.
+Dit gebeur al sedert 14 Jul en ek benodig hulp.
+Ek sal 'n vinnige antwoord waardeer.
+Vriendelike groete,
+S. Hartley",af,kyc_compliance,tax_residency_update,fees_charges,tax_residency_update,,demo-llm,email
+REQ-004553,2026-09-02T15:49:49,Please remove the late fee of $120,"Magandang araw po,
+Kailangan ko po ng tulong,  please remove the late fee of $120.
+Salamat po sa agarang tulong ninyo.
+Pakisagot po agad kung maaari.
+Ang customer number ko po ay NB898555.
+Matagal ko na po itong problema mula 15 Jul.
+Salamat po,
+K. Okafor",tl,fees_charges,late_payment_fee_dispute,fees_charges,late_payment_fee_dispute,late_payment_fee_dispute,demo-llm,email
+REQ-000408,2026-09-03T08:49:17,Re: The payment with card ending ****3484 was declined,"Hello support,
+I have a question. the payment with card ending ****3484 was declined.
+My customer number is NB451508 in case you need to look me up.
+Please let me know what information you need from my side.
+This has been going on since 17 Aug and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+Kind regards,
+T. Dlamini",en,cards,card_declined,cards,account_closure,card_declined,demo-llm,email
+REQ-005782,2026-09-03T18:33:00,Re: My card is damaged and the chip no longer works,"Hello support,
+I have a question. my card is damaged and the chip no longer works.
+The reference on my side is REF-46855, please quote it in your reply.
+This has been going on since 28 Aug and it is affecting my daily life.
+I would appreciate a response as soon as possible.
+Kind regards,
+M. Santos",en,cards,card_replacement,current_accounts,card_declined,,demo-llm,email
+REQ-003382,2026-09-03T19:27:39,I do not recognise this direct debit,"Hi team,
+I need some help. I do not recognise this direct debit.
+I have attached screenshots of what I am seeing on my phone.
+I am travelling next week so a quick answer would really help.
+My customer number is NB407612 in case you need to look me up.
+I would appreciate a response as soon as possible.
+Please let me know what information you need from my side.
+Thanks in advance,
+J. Moreno",en,payments_transfers,direct_debit_dispute,payments_transfers,direct_debit_dispute,,demo-llm,email
+REQ-004763,2026-09-04T05:50:55,Please issue a redemption statement for 14 aug,"Hello,
+I am writing about the following: please issue a redemption statement for 14 Aug.
+The reference on my side is REF-65807, please quote it in your reply.
+This has been going on since 25 Sep and it is affecting my daily life.
+I have already tried calling the helpline but could not get through.
+Please let me know what information you need from my side.
+Please confirm by email once this has been sorted out.
+My customer number is NB726449 in case you need to look me up.
+I would appreciate a response as soon as possible.
+I have attached screenshots of what I am seeing on my phone.
+Kind regards,
+L. Visser",en,mortgages,mortgage_redemption,mortgages,mortgage_redemption,,demo-llm,email
+REQ-000105,2026-09-04T18:45:42,I am unhappy with how my request was handled,"Good morning,
+Hope you can assist me. I am unhappy with how my request was handled.
+My customer number is NB295472 in case you need to look me up.
+I am travelling next week so a quick answer would really help.
+The reference on my side is REF-30578, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+I would appreciate a response as soon as possible.
+I have attached screenshots of what I am seeing on my phone.
+Kind regards,
+K. Okafor",en,complaints_feedback,service_complaint,complaints_feedback,investment_account_opening,,demo-llm,email
+REQ-000394,2026-09-05T01:53:27,Re: My otp is not coming through to my phone,"Goeiedag,
+Ek het 'n vraag: my OTP is not coming through to my phone.
+Bevestig asseblief per e-pos sodra dit opgelos is.
+My kliëntnommer is NB516095.
+Dit gebeur al sedert 25 Aug en ek benodig hulp.
+Ek sal 'n vinnige antwoord waardeer.
+Vriendelike groete,
+T. Dlamini",af,digital_banking,otp_not_received,digital_banking,loan_early_settlement,otp_not_received,demo-llm,email
+REQ-000575,2026-09-05T08:28:43,Someone changed my password and locked me out,"Magandang araw po,
+Kailangan ko po ng tulong,  someone changed my password and locked me out.
+Salamat po sa agarang tulong ninyo.
+Ang customer number ko po ay NB922380.
+Matagal ko na po itong problema mula 19 Sep.
+Pakisagot po agad kung maaari.
+Salamat po,
+M. Santos",tl,fraud_security,account_takeover,fraud_security,account_takeover,account_takeover,demo-llm,email
+REQ-003118,2026-09-05T18:47:23,I want to complain about my local branch,"Kumusta po,
+Kailangan ko po ng tulong,  I want to complain about my local branch.
+Pakisagot po agad kung maaari.
+Salamat po sa agarang tulong ninyo.
+Ang customer number ko po ay NB712941.
+Matagal ko na po itong problema mula 05 Jul.
+Maraming salamat po,
+J. Moreno",tl,complaints_feedback,branch_complaint,complaints_feedback,branch_complaint,branch_complaint,demo-llm,email
+REQ-005030,2026-09-06T00:45:52,I am selling my house and need a redemption figure,"Hello,
+I need some help. I am selling my house and need a redemption figure.
+I would appreciate a response as soon as possible.
+I have attached screenshots of what I am seeing on my phone.
+This has been going on since 08 Sep and it is affecting my daily life.
+I have already tried calling the helpline but could not get through.
+The reference on my side is REF-63311, please quote it in your reply.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+Best wishes,
+T. Dlamini",en,mortgages,mortgage_redemption,mortgages,mortgage_redemption,mortgage_redemption,demo-llm,email
+REQ-000147,2026-09-07T03:34:21,Re: Please send my account statement for 04 aug,"Hallo,
+Ek skryf oor die volgende: please send my account statement for 04 Aug.
+My kliëntnommer is NB289430.
+Bevestig asseblief per e-pos sodra dit opgelos is.
+Ek sal 'n vinnige antwoord waardeer.
+Dit gebeur al sedert 07 Aug en ek benodig hulp.
+Dankie,
+K. Okafor",af,current_accounts,account_statement,current_accounts,account_statement,account_statement,demo-llm,email
+REQ-002253,2026-09-07T11:34:19,What do i need to apply for a home loan,"Hi team,
+I have a question. what do I need to apply for a home loan.
+My customer number is NB313778 in case you need to look me up.
+I would appreciate a response as soon as possible.
+I have attached screenshots of what I am seeing on my phone.
+I am travelling next week so a quick answer would really help.
+Please confirm by email once this has been sorted out.
+The reference on my side is REF-91362, please quote it in your reply.
+Thank you,
+K. Okafor",en,mortgages,mortgage_application,mortgages,mortgage_application,mortgage_application,demo-llm,email
+REQ-000915,2026-09-07T15:50:54,How can i avoid the monthly fee on my beacon home cover,"Hello,
+I have a question. how can I avoid the monthly fee on my Beacon Home Cover.
+I have already tried calling the helpline but could not get through.
+The reference on my side is REF-77672, please quote it in your reply.
+Please confirm by email once this has been sorted out.
+I have attached screenshots of what I am seeing on my phone.
+My customer number is NB113072 in case you need to look me up.
+I am travelling next week so a quick answer would really help.
+Kind regards,
+K. Okafor",en,fees_charges,monthly_fee_explanation,fees_charges,monthly_fee_explanation,monthly_fee_explanation,demo-llm,email
+REQ-002166,2026-09-08T10:25:26,Please reverse the fee charged on 31 jul,"Hi team,
+I have a question. please reverse the fee charged on 31 Jul.
+I have attached screenshots of what I am seeing on my phone.
+The reference on my side is REF-33142, please quote it in your reply.
+This has been going on since 09 Jun and it is affecting my daily life.
+My customer number is NB854534 in case you need to look me up.
+Please confirm by email once this has been sorted out.
+Kind regards,
+M. Santos",en,fees_charges,fee_reversal_request,fees_charges,fee_reversal_request,fee_reversal_request,demo-llm,email
+REQ-002562,2026-09-09T06:50:24,I want to complain about my local branch,"Hi team,
+I have a question. I want to complain about my local branch.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+My customer number is NB744214 in case you need to look me up.
+The reference on my side is REF-43995, please quote it in your reply.
+I would appreciate a response as soon as possible.
+Thanks in advance,
+S. Hartley",en,complaints_feedback,branch_complaint,complaints_feedback,loan_early_settlement,,demo-llm,email
+REQ-005671,2026-09-09T13:46:52,I would like to give some positive feedback,"Good morning,
+I am writing about the following: I would like to give some positive feedback.
+My customer number is NB164449 in case you need to look me up.
+I have already tried calling the helpline but could not get through.
+This has been going on since 29 Jun and it is affecting my daily life.
+Best wishes,
+P. Cruz",en,complaints_feedback,positive_feedback,complaints_feedback,positive_feedback,positive_feedback,demo-llm,email
+REQ-003654,2026-09-10T10:20:22,Re: The sms verification code never arrives,"Hi team,
+Hope you can assist me. the SMS verification code never arrives.
+My customer number is NB897990 in case you need to look me up.
+Please confirm by email once this has been sorted out.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+The reference on my side is REF-44829, please quote it in your reply.
+This has been going on since 02 Jun and it is affecting my daily life.
+I have already tried calling the helpline but could not get through.
+Kind regards,
+S. Hartley",en,digital_banking,otp_not_received,digital_banking,otp_not_received,otp_not_received,demo-llm,email
+REQ-003915,2026-09-10T11:49:02,Re: I forgot my password and need to reset it,"Magandang araw po,
+Kailangan ko po ng tulong,  I forgot my password and need to reset it.
+Salamat po sa agarang tulong ninyo.
+Pakisagot po agad kung maaari.
+Matagal ko na po itong problema mula 15 Aug.
+Ang customer number ko po ay NB299136.
+Maraming salamat po,
+A. Rivers",tl,digital_banking,password_reset,digital_banking,password_reset,password_reset,demo-llm,email
+REQ-002688,2026-09-10T17:06:38,What is the status of my insurance claim,"Good morning,
+I am writing about the following: what is the status of my insurance claim.
+I have already tried calling the helpline but could not get through.
+I am travelling next week so a quick answer would really help.
+I would appreciate a response as soon as possible.
+The reference on my side is REF-98308, please quote it in your reply.
+I have attached screenshots of what I am seeing on my phone.
+Please confirm by email once this has been sorted out.
+My customer number is NB453775 in case you need to look me up.
+Thanks in advance,
+L. Visser",en,insurance,insurance_claim_status,insurance,add_beneficiary,insurance_claim_status,demo-llm,email
+REQ-005572,2026-09-10T19:57:55,You asked about where my money came from,"Buenos días,
+Les escribo porque you asked about where my money came from.
+Mi número de cliente es NB506893.
+Esto ocurre desde el 09 Jun y necesito una solución.
+Les agradezco una respuesta lo antes posible.
+Por favor confirmen por correo cuando esté resuelto.
+Saludos cordiales,
+T. Dlamini",es,kyc_compliance,source_of_funds_query,kyc_compliance,source_of_funds_query,,demo-llm,email
+REQ-004445,2026-09-11T02:41:02,How much do you charge to send money abroad,"Kumusta po,
+Gusto ko po sanang itanong: how much do you charge to send money abroad.
+Ang customer number ko po ay NB542450.
+Salamat po sa agarang tulong ninyo.
+Matagal ko na po itong problema mula 09 Jul.
+Pakisagot po agad kung maaari.
+Salamat po,
+T. Dlamini",tl,payments_transfers,international_transfer_fees,payments_transfers,international_transfer_fees,international_transfer_fees,demo-llm,email
+REQ-005315,2026-09-11T03:19:39,What is the status of my complaint,"Magandang araw po,
+Kailangan ko po ng tulong,  what is the status of my complaint.
+Ang customer number ko po ay NB129156.
+Matagal ko na po itong problema mula 28 Jul.
+Pakisagot po agad kung maaari.
+Salamat po sa agarang tulong ninyo.
+Salamat po,
+L. Visser",tl,complaints_feedback,complaint_status,complaints_feedback,complaint_status,,demo-llm,email
+REQ-001311,2026-09-11T19:15:26,Re: I changed my address and need to update my details,"Hello support,
+I am writing about the following: I changed my address and need to update my details.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+Please let me know what information you need from my side.
+My customer number is NB256200 in case you need to look me up.
+I am travelling next week so a quick answer would really help.
+I have already tried calling the helpline but could not get through.
+This has been going on since 25 Jul and it is affecting my daily life.
+Kind regards,
+A. Rivers",en,current_accounts,account_details_update,current_accounts,account_details_update,,demo-llm,email
+REQ-005358,2026-09-11T21:35:32,"My fixed rate ends soon, what are my options","Hello support,
+I am writing about the following: my fixed rate ends soon, what are my options.
+I have already tried calling the helpline but could not get through.
+This has been going on since 16 Jul and it is affecting my daily life.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+I would appreciate a response as soon as possible.
+I am travelling next week so a quick answer would really help.
+Thanks in advance,
+J. Moreno",en,mortgages,mortgage_rate_fixing,mortgages,mortgage_rate_fixing,mortgage_rate_fixing,demo-llm,email
+REQ-005119,2026-09-12T03:10:48,The transfer of $250 has not arrived,"Good morning,
+I am writing about the following: the transfer of $250 has not arrived.
+I have already tried calling the helpline but could not get through.
+This has been going on since 28 Aug and it is affecting my daily life.
+The reference on my side is REF-16035, please quote it in your reply.
+I am travelling next week so a quick answer would really help.
+Please let me know what information you need from my side.
+Please confirm by email once this has been sorted out.
+Thank you,
+K. Okafor",en,payments_transfers,transfer_not_received,mortgages,transfer_not_received,transfer_not_received,demo-llm,email
+REQ-005809,2026-09-12T06:29:42,"Re: Please send me a new card, the old one is worn out","Good morning,
+I am writing about the following: please send me a new card, the old one is worn out.
+I have been a customer of Northbridge Bank for several years.
+I would appreciate a response as soon as possible.
+This has been going on since 24 Sep and it is affecting my daily life.
+My customer number is NB356634 in case you need to look me up.
+Thanks in advance,
+A. Rivers",en,cards,card_replacement,cards,card_replacement,card_replacement,demo-llm,email
+REQ-001918,2026-09-12T11:03:54,I would like to give some positive feedback,"Hello support,
+I am writing about the following: I would like to give some positive feedback.
+I have attached screenshots of what I am seeing on my phone.
+Please confirm by email once this has been sorted out.
+This has been going on since 24 Sep and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+The reference on my side is REF-48412, please quote it in your reply.
+Please let me know what information you need from my side.
+My customer number is NB991679 in case you need to look me up.
+Thank you,
+K. Okafor",en,complaints_feedback,positive_feedback,complaints_feedback,positive_feedback,positive_feedback,demo-llm,email
+REQ-004771,2026-09-12T22:49:04,Can i get an update on my open complaint,"Hola,
+Tengo una consulta: can I get an update on my open complaint.
+Mi número de cliente es NB683816.
+Esto ocurre desde el 04 Sep y necesito una solución.
+Por favor confirmen por correo cuando esté resuelto.
+Les agradezco una respuesta lo antes posible.
+Saludos cordiales,
+T. Dlamini",es,complaints_feedback,complaint_status,complaints_feedback,complaint_status,complaint_status,demo-llm,email
+REQ-001858,2026-09-13T13:28:06,I forgot my password and need to reset it,"Estimado equipo,
+Les escribo porque I forgot my password and need to reset it.
+Esto ocurre desde el 07 Sep y necesito una solución.
+Les agradezco una respuesta lo antes posible.
+Mi número de cliente es NB638734.
+Por favor confirmen por correo cuando esté resuelto.
+Saludos cordiales,
+L. Visser",es,digital_banking,password_reset,digital_banking,password_reset,password_reset,demo-llm,email
+REQ-004185,2026-09-13T15:39:18,I filed a complaint on 05 jun and have heard nothing,"Good morning,
+I have a question. I filed a complaint on 05 Jun and have heard nothing.
+Please confirm by email once this has been sorted out.
+This has been going on since 05 Sep and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+The reference on my side is REF-22470, please quote it in your reply.
+Thank you,
+M. Santos",en,complaints_feedback,complaint_status,complaints_feedback,loan_payment_holiday,complaint_status,demo-llm,email
+REQ-005416,2026-09-13T18:06:55,I cannot activate the card ending ****3637,"Good morning,
+I am writing about the following: I cannot activate the card ending ****3637.
+I am travelling next week so a quick answer would really help.
+I would appreciate a response as soon as possible.
+I have been a customer of Northbridge Bank for several years.
+I have already tried calling the helpline but could not get through.
+My customer number is NB282227 in case you need to look me up.
+Please let me know what information you need from my side.
+I have attached screenshots of what I am seeing on my phone.
+Best wishes,
+T. Dlamini",en,cards,card_activation,mortgages,card_activation,card_activation,demo-llm,email
+REQ-001638,2026-09-14T03:33:45,How do i activate my new card,"Dear Northbridge Bank,
+I am writing about the following: how do I activate my new card.
+Please confirm by email once this has been sorted out.
+My customer number is NB430623 in case you need to look me up.
+I would appreciate a response as soon as possible.
+I have already tried calling the helpline but could not get through.
+I have attached screenshots of what I am seeing on my phone.
+The reference on my side is REF-47955, please quote it in your reply.
+I am travelling next week so a quick answer would really help.
+Kind regards,
+S. Hartley",en,cards,card_activation,cards,card_activation,,demo-llm,email
+REQ-001534,2026-09-14T11:21:03,How can i open an account online,"Magandang araw po,
+Paki-tulungan po ako, how can I open an account online.
+Matagal ko na po itong problema mula 08 Aug.
+Ang customer number ko po ay NB796739.
+Pakisagot po agad kung maaari.
+Salamat po sa agarang tulong ninyo.
+Maraming salamat po,
+S. Hartley",tl,current_accounts,account_opening,current_accounts,account_opening,,demo-llm,email
+REQ-002894,2026-09-14T18:25:28,"My surname changed, how do i update my account","Dear Northbridge Bank,
+I have a question. my surname changed, how do I update my account.
+I would appreciate a response as soon as possible.
+Please let me know what information you need from my side.
+Please confirm by email once this has been sorted out.
+My customer number is NB708419 in case you need to look me up.
+Best wishes,
+A. Rivers",en,current_accounts,account_details_update,current_accounts,account_details_update,account_details_update,demo-llm,email
+REQ-004048,2026-09-14T19:11:13,Why was i charged for using an atm,"Good morning,
+I need some help. why was I charged for using an ATM.
+I am travelling next week so a quick answer would really help.
+My customer number is NB154734 in case you need to look me up.
+I have already tried calling the helpline but could not get through.
+Please let me know what information you need from my side.
+I have attached screenshots of what I am seeing on my phone.
+Thank you,
+P. Cruz",en,fees_charges,atm_fee_query,fraud_security,monthly_fee_explanation,,demo-llm,email
+REQ-004615,2026-09-15T02:03:52,I cannot log in to the mobile app,"Kumusta po,
+Kailangan ko po ng tulong,  I cannot log in to the mobile app.
+Ang customer number ko po ay NB789937.
+Pakisagot po agad kung maaari.
+Salamat po sa agarang tulong ninyo.
+Matagal ko na po itong problema mula 22 Sep.
+Maraming salamat po,
+A. Rivers",tl,digital_banking,app_login_issue,digital_banking,app_login_issue,,demo-llm,email
+REQ-002090,2026-09-15T13:29:15,The mobile app freezes on the payments screen,"Hello support,
+I need some help. the mobile app freezes on the payments screen.
+I am travelling next week so a quick answer would really help.
+I have attached screenshots of what I am seeing on my phone.
+This has been going on since 06 Aug and it is affecting my daily life.
+Kind regards,
+T. Dlamini",en,digital_banking,app_crash_bug,digital_banking,app_crash_bug,,demo-llm,email
+REQ-001524,2026-09-15T17:44:06,Re: I have not used my account for years and want to reactivate,"Magandang araw po,
+Paki-tulungan po ako, I have not used my account for years and want to reactivate.
+Pakisagot po agad kung maaari.
+Ang customer number ko po ay NB446920.
+Matagal ko na po itong problema mula 05 Sep.
+Salamat po sa agarang tulong ninyo.
+Maraming salamat po,
+A. Rivers",tl,current_accounts,dormant_account_reactivation,current_accounts,dormant_account_reactivation,dormant_account_reactivation,demo-llm,email
+REQ-002280,2026-09-15T18:40:53,How do i set up a standing order,"Goeiedag,
+Ek skryf oor die volgende: how do I set up a standing order.
+Bevestig asseblief per e-pos sodra dit opgelos is.
+Dit gebeur al sedert 15 Sep en ek benodig hulp.
+My kliëntnommer is NB736367.
+Ek sal 'n vinnige antwoord waardeer.
+Vriendelike groete,
+M. Santos",af,payments_transfers,standing_order_setup,payments_transfers,standing_order_setup,,demo-llm,email
+REQ-000925,2026-09-15T21:25:24,"My wallet with the card ****8076 is missing, please block it","Estimado equipo,
+Les escribo porque my wallet with the card ****8076 is missing, please block it.
+Por favor confirmen por correo cuando esté resuelto.
+Mi número de cliente es NB805249.
+Esto ocurre desde el 17 Aug y necesito una solución.
+Les agradezco una respuesta lo antes posible.
+Muchas gracias,
+M. Santos",es,cards,card_lost_stolen,savings_investments,card_lost_stolen,card_declined,demo-llm,email
+REQ-000441,2026-09-16T16:06:33,I want to withdraw my fixed deposit at maturity,"Kumusta po,
+Kailangan ko po ng tulong,  I want to withdraw my fixed deposit at maturity.
+Ang customer number ko po ay NB589327.
+Matagal ko na po itong problema mula 10 Jun.
+Pakisagot po agad kung maaari.
+Salamat po sa agarang tulong ninyo.
+Salamat po,
+A. Rivers",tl,savings_investments,fixed_deposit_maturity,savings_investments,fixed_deposit_maturity,,demo-llm,email
+REQ-001969,2026-09-18T00:22:45,Please name my spouse as beneficiary,"Hello,
+I have a question. please name my spouse as beneficiary.
+I have been a customer of Northbridge Bank for several years.
+I have already tried calling the helpline but could not get through.
+I am travelling next week so a quick answer would really help.
+My customer number is NB609724 in case you need to look me up.
+I would appreciate a response as soon as possible.
+Kind regards,
+P. Cruz",en,insurance,add_beneficiary,insurance,policy_renewal_quote,,demo-llm,email
+REQ-005557,2026-09-18T01:48:18,I lost my debit card ending ****3261,"Hello support,
+I need some help. I lost my debit card ending ****3261.
+I have already tried calling the helpline but could not get through.
+I am travelling next week so a quick answer would really help.
+I would appreciate a response as soon as possible.
+My customer number is NB157078 in case you need to look me up.
+Please let me know what information you need from my side.
+Best wishes,
+K. Okafor",en,cards,card_lost_stolen,cards,card_declined,card_lost_stolen,demo-llm,email
+REQ-000180,2026-09-18T10:21:06,Where can i download my bank statements,"Hello,
+I am writing about the following: where can I download my bank statements.
+I am travelling next week so a quick answer would really help.
+I have attached screenshots of what I am seeing on my phone.
+Please let me know what information you need from my side.
+I have already tried calling the helpline but could not get through.
+Please confirm by email once this has been sorted out.
+I would appreciate a response as soon as possible.
+The reference on my side is REF-10220, please quote it in your reply.
+My customer number is NB988268 in case you need to look me up.
+Best wishes,
+K. Okafor",en,current_accounts,account_statement,current_accounts,account_statement,account_statement,demo-llm,email
+REQ-005190,2026-09-18T18:00:46,I got a fake text asking for my login details,"Dear Northbridge Bank,
+Hope you can assist me. I got a fake text asking for my login details.
+I have been a customer of Northbridge Bank for several years.
+I have attached screenshots of what I am seeing on my phone.
+Please let me know what information you need from my side.
+My customer number is NB451291 in case you need to look me up.
+Thanks in advance,
+A. Rivers",en,fraud_security,phishing_report,fraud_security,unauthorised_transaction,,demo-llm,email
+REQ-002953,2026-09-18T22:18:34,The branch staff gave me wrong information,"Hello,
+I am writing about the following: the branch staff gave me wrong information.
+I would appreciate a response as soon as possible.
+This has been going on since 25 Jun and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+Best wishes,
+S. Hartley",en,complaints_feedback,branch_complaint,complaints_feedback,complaint_status,branch_complaint,demo-llm,email
+REQ-004114,2026-09-19T09:25:54,My card keeps getting declined at shops,"Dear Northbridge Bank,
+I have a question. my card keeps getting declined at shops.
+I am travelling next week so a quick answer would really help.
+I have attached screenshots of what I am seeing on my phone.
+Please let me know what information you need from my side.
+This has been going on since 13 Jul and it is affecting my daily life.
+My customer number is NB949190 in case you need to look me up.
+Thanks in advance,
+L. Visser",en,cards,card_declined,cards,card_declined,card_declined,demo-llm,email
+REQ-003615,2026-09-19T23:43:07,I lost my debit card ending ****1834,"Good morning,
+I have a question. I lost my debit card ending ****1834.
+This has been going on since 21 Sep and it is affecting my daily life.
+I would appreciate a response as soon as possible.
+My customer number is NB398980 in case you need to look me up.
+I have been a customer of Northbridge Bank for several years.
+Kind regards,
+P. Cruz",en,cards,card_lost_stolen,cards,card_lost_stolen,card_lost_stolen,demo-llm,email
+REQ-000525,2026-09-20T07:59:47,"Re: My account is dormant, how do i reactivate it","Kumusta po,
+Paki-tulungan po ako, my account is dormant, how do I reactivate it.
+Pakisagot po agad kung maaari.
+Matagal ko na po itong problema mula 11 Jul.
+Salamat po sa agarang tulong ninyo.
+Ang customer number ko po ay NB808721.
+Salamat po,
+L. Visser",tl,current_accounts,dormant_account_reactivation,current_accounts,dormant_account_reactivation,dormant_account_reactivation,demo-llm,email
+REQ-003306,2026-09-20T13:29:21,Is there a penalty for overpaying my home loan,"Hello support,
+I need some help. is there a penalty for overpaying my home loan.
+The reference on my side is REF-34965, please quote it in your reply.
+I would appreciate a response as soon as possible.
+Please let me know what information you need from my side.
+I have attached screenshots of what I am seeing on my phone.
+Please confirm by email once this has been sorted out.
+My customer number is NB463604 in case you need to look me up.
+I have already tried calling the helpline but could not get through.
+This has been going on since 15 Jul and it is affecting my daily life.
+Thanks in advance,
+L. Visser",en,mortgages,mortgage_overpayment,mortgages,mortgage_overpayment,mortgage_overpayment,demo-llm,email
+REQ-003375,2026-09-20T15:40:42,Please cancel my northbridge everyday account cover,"Hello support,
+I am writing about the following: please cancel my Northbridge Everyday Account cover.
+This has been going on since 12 Aug and it is affecting my daily life.
+I have been a customer of Northbridge Bank for several years.
+My customer number is NB813448 in case you need to look me up.
+Thank you,
+T. Dlamini",en,insurance,policy_cancellation,savings_investments,premium_payment_issue,,demo-llm,email
+REQ-005739,2026-09-20T19:52:36,Re: I want to change my daily card spending limit,"Good morning,
+I need some help. I want to change my daily card spending limit.
+Please let me know what information you need from my side.
+My customer number is NB595020 in case you need to look me up.
+I have already tried calling the helpline but could not get through.
+Thanks in advance,
+L. Visser",en,cards,card_limit_change,cards,card_limit_change,,demo-llm,email
+REQ-003864,2026-09-20T22:44:10,Why do you need proof of my source of funds,"Good morning,
+I am writing about the following: why do you need proof of my source of funds.
+My customer number is NB771076 in case you need to look me up.
+Please let me know what information you need from my side.
+I would appreciate a response as soon as possible.
+I have attached screenshots of what I am seeing on my phone.
+I am travelling next week so a quick answer would really help.
+This has been going on since 04 Sep and it is affecting my daily life.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+Kind regards,
+J. Moreno",en,kyc_compliance,source_of_funds_query,kyc_compliance,source_of_funds_query,,demo-llm,email
+REQ-003854,2026-09-21T01:54:19,I cannot log in to the mobile app,"Hello,
+I am writing about the following: I cannot log in to the mobile app.
+Please confirm by email once this has been sorted out.
+I have already tried calling the helpline but could not get through.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+Best wishes,
+P. Cruz",en,digital_banking,app_login_issue,digital_banking,account_takeover,,demo-llm,email
+REQ-004476,2026-09-21T07:06:35,Can i skip a loan instalment this month,"Good morning,
+Hope you can assist me. can I skip a loan instalment this month.
+I would appreciate a response as soon as possible.
+I have been a customer of Northbridge Bank for several years.
+Please confirm by email once this has been sorted out.
+I am travelling next week so a quick answer would really help.
+Please let me know what information you need from my side.
+I have already tried calling the helpline but could not get through.
+Best wishes,
+M. Santos",en,personal_loans,loan_payment_holiday,personal_loans,loan_payment_holiday,loan_payment_holiday,demo-llm,email
+REQ-004367,2026-09-21T10:16:04,Re: What is the amount to fully repay my mortgage,"Magandang araw po,
+Gusto ko po sanang itanong: what is the amount to fully repay my mortgage.
+Salamat po sa agarang tulong ninyo.
+Ang customer number ko po ay NB372537.
+Matagal ko na po itong problema mula 25 Jun.
+Pakisagot po agad kung maaari.
+Salamat po,
+L. Visser",tl,mortgages,mortgage_redemption,mortgages,mortgage_redemption,mortgage_redemption,demo-llm,email
+REQ-004935,2026-09-21T12:35:16,What do i need to apply for a home loan,"Hello,
+I need some help. what do I need to apply for a home loan.
+My customer number is NB141566 in case you need to look me up.
+Please let me know what information you need from my side.
+I have already tried calling the helpline but could not get through.
+This has been going on since 01 Sep and it is affecting my daily life.
+I am travelling next week so a quick answer would really help.
+I would appreciate a response as soon as possible.
+Kind regards,
+J. Moreno",en,mortgages,mortgage_application,mortgages,mortgage_application,,demo-llm,email
+REQ-003827,2026-09-22T15:45:29,I changed my address and need to update my details,"Dear Northbridge Bank,
+I have a question. I changed my address and need to update my details.
+Please confirm by email once this has been sorted out.
+I would appreciate a response as soon as possible.
+I have attached screenshots of what I am seeing on my phone.
+This has been going on since 23 Jul and it is affecting my daily life.
+I have already tried calling the helpline but could not get through.
+I am travelling next week so a quick answer would really help.
+Thanks in advance,
+K. Okafor",en,current_accounts,account_details_update,current_accounts,account_details_update,,demo-llm,email
+REQ-004932,2026-09-22T19:11:35,Re: My otp is not coming through to my phone,"Good morning,
+I need some help. my OTP is not coming through to my phone.
+I am travelling next week so a quick answer would really help.
+Please confirm by email once this has been sorted out.
+I have been a customer of Northbridge Bank for several years.
+The reference on my side is REF-15428, please quote it in your reply.
+I have already tried calling the helpline but could not get through.
+This has been going on since 27 Sep and it is affecting my daily life.
+Please let me know what information you need from my side.
+I would appreciate a response as soon as possible.
+Thanks in advance,
+A. Rivers",en,digital_banking,otp_not_received,digital_banking,otp_not_received,,demo-llm,email
+REQ-000025,2026-09-22T23:47:27,Re: How long does a mortgage application take,"Hi team,
+I have a question. how long does a mortgage application take.
+The reference on my side is REF-33028, please quote it in your reply.
+I have attached screenshots of what I am seeing on my phone.
+I would appreciate a response as soon as possible.
+Please let me know what information you need from my side.
+I have been a customer of Northbridge Bank for several years.
+My customer number is NB440544 in case you need to look me up.
+Best wishes,
+K. Okafor",en,mortgages,mortgage_application,mortgages,mortgage_redemption,mortgage_application,demo-llm,email
+REQ-003693,2026-09-23T00:09:27,"My account is dormant, how do i reactivate it","Hello support,
+I have a question. my account is dormant, how do I reactivate it.
+Please let me know what information you need from my side.
+Please confirm by email once this has been sorted out.
+I am travelling next week so a quick answer would really help.
+I have already tried calling the helpline but could not get through.
+I have been a customer of Northbridge Bank for several years.
+I would appreciate a response as soon as possible.
+My customer number is NB451333 in case you need to look me up.
+The reference on my side is REF-49107, please quote it in your reply.
+Kind regards,
+M. Santos",en,current_accounts,dormant_account_reactivation,current_accounts,dormant_account_reactivation,,demo-llm,email
+REQ-002275,2026-09-23T08:38:40,Re: I want to thank the agent who helped me,"Buenos días,
+Les escribo porque I want to thank the agent who helped me.
+Les agradezco una respuesta lo antes posible.
+Esto ocurre desde el 12 Jun y necesito una solución.
+Mi número de cliente es NB313833.
+Por favor confirmen por correo cuando esté resuelto.
+Saludos cordiales,
+L. Visser",es,complaints_feedback,positive_feedback,complaints_feedback,positive_feedback,positive_feedback,demo-llm,email
+REQ-000425,2026-09-24T05:27:20,Re: Please send my account statement for 10 aug,"Hi team,
+I have a question. please send my account statement for 10 Aug.
+I have been a customer of Northbridge Bank for several years.
+I have attached screenshots of what I am seeing on my phone.
+I am travelling next week so a quick answer would really help.
+I would appreciate a response as soon as possible.
+Please let me know what information you need from my side.
+I have already tried calling the helpline but could not get through.
+This has been going on since 28 Sep and it is affecting my daily life.
+Kind regards,
+S. Hartley",en,current_accounts,account_statement,current_accounts,account_statement,,demo-llm,email
+REQ-005577,2026-09-24T05:57:44,Why do you need proof of my source of funds,"Hello support,
+I need some help. why do you need proof of my source of funds.
+I am travelling next week so a quick answer would really help.
+I have already tried calling the helpline but could not get through.
+Please confirm by email once this has been sorted out.
+I have attached screenshots of what I am seeing on my phone.
+This has been going on since 22 Jul and it is affecting my daily life.
+My customer number is NB165086 in case you need to look me up.
+I would appreciate a response as soon as possible.
+Best wishes,
+A. Rivers",en,kyc_compliance,source_of_funds_query,payments_transfers,source_of_funds_query,source_of_funds_query,demo-llm,email
+REQ-004090,2026-09-24T06:03:35,Is a loan top up possible for me,"Hello po,
+Kailangan ko po ng tulong,  is a loan top up possible for me.
+Matagal ko na po itong problema mula 10 Jul.
+Salamat po sa agarang tulong ninyo.
+Pakisagot po agad kung maaari.
+Ang customer number ko po ay NB936518.
+Maraming salamat po,
+K. Okafor",tl,personal_loans,loan_top_up,personal_loans,loan_top_up,loan_top_up,demo-llm,email
+REQ-005886,2026-09-24T08:53:12,Please freeze my account immediately,"Hi team,
+I need some help. please freeze my account immediately.
+I am travelling next week so a quick answer would really help.
+Please let me know what information you need from my side.
+I would appreciate a response as soon as possible.
+Please confirm by email once this has been sorted out.
+I have attached screenshots of what I am seeing on my phone.
+I have been a customer of Northbridge Bank for several years.
+Thank you,
+T. Dlamini",en,fraud_security,lock_account_request,payments_transfers,phishing_report,lock_account_request,demo-llm,email
+REQ-004557,2026-09-24T11:28:55,Re: I want to cancel my insurance policy,"Estimado equipo,
+Tengo una consulta: I want to cancel my insurance policy.
+Les agradezco una respuesta lo antes posible.
+Mi número de cliente es NB627511.
+Por favor confirmen por correo cuando esté resuelto.
+Esto ocurre desde el 19 Aug y necesito una solución.
+Muchas gracias,
+K. Okafor",es,insurance,policy_cancellation,insurance,policy_cancellation,,demo-llm,email
+REQ-005262,2026-09-25T12:30:18,Please cancel my northbridge everyday account cover,"Hello support,
+I need some help. please cancel my Northbridge Everyday Account cover.
+The reference on my side is REF-19966, please quote it in your reply.
+I have already tried calling the helpline but could not get through.
+I have attached screenshots of what I am seeing on my phone.
+Please let me know what information you need from my side.
+This has been going on since 21 Jul and it is affecting my daily life.
+Thanks in advance,
+S. Hartley",en,insurance,policy_cancellation,insurance,policy_cancellation,policy_cancellation,demo-llm,email
+REQ-000854,2026-09-25T18:35:00,Why is my id check taking so long,"Hello,
+I need some help. why is my ID check taking so long.
+Please let me know what information you need from my side.
+Please confirm by email once this has been sorted out.
+My customer number is NB166743 in case you need to look me up.
+I have been a customer of Northbridge Bank for several years.
+Best wishes,
+A. Rivers",en,kyc_compliance,id_verification_pending,kyc_compliance,id_verification_pending,id_verification_pending,demo-llm,email
+REQ-004856,2026-09-26T00:18:12,Re: My otp is not coming through to my phone,"Good morning,
+Hope you can assist me. my OTP is not coming through to my phone.
+My customer number is NB574939 in case you need to look me up.
+I have attached screenshots of what I am seeing on my phone.
+I would appreciate a response as soon as possible.
+Kind regards,
+A. Rivers",en,digital_banking,otp_not_received,digital_banking,otp_not_received,otp_not_received,demo-llm,email
+REQ-000998,2026-09-26T06:03:31,How do i start investing with the bank,"Dear Northbridge Bank,
+I am writing about the following: how do I start investing with the bank.
+I have attached screenshots of what I am seeing on my phone.
+I have already tried calling the helpline but could not get through.
+Please confirm by email once this has been sorted out.
+I am travelling next week so a quick answer would really help.
+My customer number is NB335312 in case you need to look me up.
+I would appreciate a response as soon as possible.
+Kind regards,
+P. Cruz",en,savings_investments,investment_account_opening,savings_investments,fixed_deposit_maturity,investment_account_opening,demo-llm,email
+REQ-003799,2026-09-26T10:24:20,Re: I want a recurring payment every month on the 1st,"Dear Northbridge Bank,
+Hope you can assist me. I want a recurring payment every month on the 1st.
+Please let me know what information you need from my side.
+The reference on my side is REF-95395, please quote it in your reply.
+I have been a customer of Northbridge Bank for several years.
+Kind regards,
+A. Rivers",en,payments_transfers,standing_order_setup,payments_transfers,standing_order_setup,,demo-llm,email
+REQ-000767,2026-09-27T08:28:18,Please freeze my account immediately,"Hello,
+I am writing about the following: please freeze my account immediately.
+This has been going on since 02 Sep and it is affecting my daily life.
+Please confirm by email once this has been sorted out.
+I have attached screenshots of what I am seeing on my phone.
+I have been a customer of Northbridge Bank for several years.
+The reference on my side is REF-20157, please quote it in your reply.
+Thank you,
+P. Cruz",en,fraud_security,lock_account_request,fraud_security,lock_account_request,,demo-llm,email
+REQ-003590,2026-09-27T20:56:18,Where can i download my bank statements,"Dear Northbridge Bank,
+I have a question. where can I download my bank statements.
+I have already tried calling the helpline but could not get through.
+The reference on my side is REF-83806, please quote it in your reply.
+I have attached screenshots of what I am seeing on my phone.
+I would appreciate a response as soon as possible.
+Best wishes,
+M. Santos",en,current_accounts,account_statement,current_accounts,account_statement,,demo-llm,email
+REQ-005072,2026-09-28T05:40:02,Can i repay my personal loan in full before the term ends,"Kumusta po,
+Kailangan ko po ng tulong,  can I repay my personal loan in full before the term ends.
+Pakisagot po agad kung maaari.
+Matagal ko na po itong problema mula 12 Aug.
+Ang customer number ko po ay NB899854.
+Salamat po sa agarang tulong ninyo.
+Maraming salamat po,
+M. Santos",tl,personal_loans,loan_early_settlement,personal_loans,loan_application_status,,demo-llm,email
+REQ-001156,2026-09-28T11:12:17,Why was i charged an overdraft fee,"Kumusta po,
+Paki-tulungan po ako, why was I charged an overdraft fee.
+Matagal ko na po itong problema mula 04 Jun.
+Salamat po sa agarang tulong ninyo.
+Ang customer number ko po ay NB554751.
+Pakisagot po agad kung maaari.
+This has been going on since 25 Sep and it is affecting my daily life.
+Maraming salamat po,
+P. Cruz",tl,fees_charges,overdraft_fee_query,fees_charges,overdraft_fee_query,overdraft_fee_query,demo-llm,email
+REQ-002951,2026-09-29T05:59:54,Can i repay my personal loan in full before the term ends,"Hello,
+Hope you can assist me. can I repay my personal loan in full before the term ends.
+This has been going on since 27 Sep and it is affecting my daily life.
+Please confirm by email once this has been sorted out.
+My customer number is NB258277 in case you need to look me up.
+I would appreciate a response as soon as possible.
+I have already tried calling the helpline but could not get through.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+The reference on my side is REF-84753, please quote it in your reply.
+Thanks in advance,
+L. Visser",en,personal_loans,loan_early_settlement,personal_loans,loan_early_settlement,,demo-llm,email
+REQ-002199,2026-09-29T11:14:39,I need a replacement card,"Hi team,
+I need some help. I need a replacement card.
+The reference on my side is REF-57801, please quote it in your reply.
+Please let me know what information you need from my side.
+I am travelling next week so a quick answer would really help.
+I have already tried calling the helpline but could not get through.
+Thanks in advance,
+T. Dlamini",en,cards,card_replacement,complaints_feedback,card_replacement,card_replacement,demo-llm,email
+REQ-000080,2026-09-29T11:55:00,I see a charge of $480 on 01 jul that is not mine,"Good morning,
+I am writing about the following: I see a charge of $480 on 01 Jul that is not mine.
+Please confirm by email once this has been sorted out.
+This has been going on since 04 Sep and it is affecting my daily life.
+I have already tried calling the helpline but could not get through.
+My customer number is NB476105 in case you need to look me up.
+I would appreciate a response as soon as possible.
+I have been a customer of Northbridge Bank for several years.
+Please let me know what information you need from my side.
+The reference on my side is REF-42943, please quote it in your reply.
+Kind regards,
+P. Cruz",en,fraud_security,unauthorised_transaction,fraud_security,unauthorised_transaction,unauthorised_transaction,demo-llm,email
+REQ-005957,2026-09-30T04:57:21,I changed my address and need to update my details,"Hello,
+I need some help. I changed my address and need to update my details.
+Please let me know what information you need from my side.
+My customer number is NB331640 in case you need to look me up.
+I have already tried calling the helpline but could not get through.
+I have been a customer of Northbridge Bank for several years.
+Please confirm by email once this has been sorted out.
+The reference on my side is REF-18036, please quote it in your reply.
+This has been going on since 24 Jul and it is affecting my daily life.
+Best wishes,
+K. Okafor",en,current_accounts,account_details_update,current_accounts,account_details_update,,demo-llm,email
+REQ-005321,2026-09-30T20:43:49,How do i shut down my account permanently,"Hi team,
+Hope you can assist me. how do I shut down my account permanently.
+My customer number is NB150144 in case you need to look me up.
+I have attached screenshots of what I am seeing on my phone.
+This has been going on since 03 Jul and it is affecting my daily life.
+Thank you,
+P. Cruz",en,current_accounts,account_closure,current_accounts,account_closure,account_closure,demo-llm,email

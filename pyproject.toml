@@ -103,6 +103,12 @@ mypy_path = "src"
 ignore_missing_imports = true
 files = ["src"]
 
+# These modules wrap optional third-party packages that may or may not be installed.
+[[tool.mypy.overrides]]
+module = ["pecca.connectors.registry._pyfunc", "pecca.connectors.datasource.databricks"]
+disallow_subclassing_any = false
+warn_unused_ignores = false
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"

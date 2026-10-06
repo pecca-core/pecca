@@ -69,7 +69,7 @@ def test_init_creates_files_and_refuses_overwrite(tmp_path):
     assert res.exit_code == 1 and "unknown governance profile" in res.output
 
 
-def test_full_flow_and_status_format(project):
+def test_full_flow_and_status_format(project, monkeypatch):
     assert "6,000 rows" in run("connect").output
     prof = run("profile").output
     assert "route_rfi" in prof and "60 labels" in prof and "✔" in prof
@@ -106,6 +106,9 @@ def test_full_flow_and_status_format(project):
     assert "no logs" in run("logs", "default/default/route_rfi").output
     out = run("audit", "default/default/route_rfi", "--out", "json").output
     assert json.loads(out)["model"]["version"] == "v2"
+    monkeypatch.setenv("PECCA_ALLOW_FORCE", "1")
+    forced = run("promote", "default/default/route_rfi", "--mode", "live", "--force")
+    assert "live since now  (forced)" in forced.output and "blocked" not in forced.output
     assert (
         run(
             "approve",

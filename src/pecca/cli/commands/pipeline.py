@@ -75,6 +75,11 @@ def train(
     path: str = typer.Argument(...),
     metric: str = typer.Option(None, "--metric"),
     latency_budget_ms: float = typer.Option(None, "--latency-budget-ms"),
+    candidates: str = typer.Option(
+        None,
+        "--candidates",
+        help="Comma-separated override, e.g. tfidf_linear,e5_logreg (skips slow xlmr_finetune on CPU)",
+    ),
 ) -> None:
     """Run the tournament and print the leaderboard."""
     c = context.get_call(path)
@@ -83,6 +88,7 @@ def train(
         path,
         metric=metric,
         latency_budget_ms=latency_budget_ms,
+        candidates=[c.strip() for c in candidates.split(",")] if candidates else None,
         progress=lambda m: console.print(m, markup=False),
     )
     t = Table(show_header=True, header_style="bold")
@@ -127,7 +133,7 @@ def promote(
 ) -> None:
     """Governance-gated mode change. Prints the Decision."""
     dec = pecca.promote(path, mode, force=force)
-    if dec.allowed:
+    if dec.allowed or dec.forced:
         since = "now" if mode in ("shadow", "live") else ""
         console.print(
             f"{mode} since {since}".strip() + ("  (forced)" if dec.forced else ""), markup=False

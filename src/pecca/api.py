@@ -25,7 +25,7 @@ from pecca.data.labels import join_labels
 from pecca.evaluation import evaluate_call
 from pecca.profiler import ProfileReport, profile_dataset
 from pecca.runtime.decorator import replace as replace  # noqa: PLC0414
-from pecca.runtime.predictor import get_predictor
+from pecca.runtime.predictor import Bundle, get_predictor
 from pecca.templates_util import render
 from pecca.trainer.tournament import run_tournament
 
@@ -376,6 +376,11 @@ def audit_pack(
     project: PR = None,
 ) -> str:
     return _audit.export(_call(call, workspace, project), version, out, path)
+
+
+def load(path: str) -> Bundle:
+    """Load a saved model directory (e.g. downloaded from Hugging Face) for local prediction."""
+    return Bundle(path, "local")
 
 
 # ---- agent tools --------------------------------------------------------------------------

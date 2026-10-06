@@ -82,7 +82,7 @@ def select_candidates(
         names = ["tfidf_ridge", "e5_ridge"] if text else ["ridge", "lightgbm_reg"]
     else:
         names = []
-    gpu = has_accelerator() if has_gpu is None else has_gpu
+    gpu_known = has_gpu
     out: list[str] = []
     for nm in names:
         cls = _REGISTRY[nm]
@@ -94,7 +94,12 @@ def select_candidates(
             continue
         if nm == "xlmr_finetune" and os.environ.get("PECCA_TEST_SMALL") == "1":
             continue  # small mode: no model downloads / fine-tuning
-        if cls.requires_gpu and not gpu and n > 20000:
+        if cls.requires_gpu and n > 20000:
+            # only now do we need to know (importing torch is avoided otherwise)
+            gpu = has_accelerator() if gpu_known is None else gpu_known
+            if gpu:
+                out.append(nm)
+                continue
             warnings.warn(f"skipping {nm}: no GPU/MPS and n_rows={n} > 20000", stacklevel=2)
             continue
         out.append(nm)

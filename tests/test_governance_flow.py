@@ -171,8 +171,18 @@ def test_audit_exports(monkeypatch, tmp_path):
     )
     out = pecca.audit_pack("p/route_rfi", out="confluence")
     assert "Pecca-audit" in out and "<pre>" in open(out).read()
-    with pytest.raises(PeccaError, match="PDF"):
-        pecca.audit_pack("p/route_rfi", out="pdf")
+    import sys
+
+    with monkeypatch.context() as m:  # simulate the optional dependency being absent
+        m.setitem(sys.modules, "weasyprint", None)
+        with pytest.raises(PeccaError, match="PDF output needs extra dependencies"):
+            pecca.audit_pack("p/route_rfi", out="pdf")
+    try:
+        import weasyprint  # noqa: F401
+    except Exception:  # not installed or system libraries missing
+        pass
+    else:
+        assert pecca.audit_pack("p/route_rfi", out="pdf").endswith("audit.pdf")
     with pytest.raises(PeccaError, match="unknown audit output"):
         pecca.audit_pack("p/route_rfi", out="docx")
     _cfg({"extends": "none"})
