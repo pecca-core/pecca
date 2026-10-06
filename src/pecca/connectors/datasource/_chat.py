@@ -1,4 +1,4 @@
-"""Extract (input, output) from OpenAI-style request/response payloads."""
+"""Extract (input, output) from chat-completions-style request/response payloads."""
 
 from __future__ import annotations
 
