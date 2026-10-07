@@ -2,7 +2,7 @@
 [![CI](https://github.com/pecca-core/pecca/actions/workflows/ci.yml/badge.svg)](https://github.com/pecca-core/pecca/actions/workflows/ci.yml)
 [![Docs](https://img.shields.io/badge/docs-pecca--core.github.io-blue)](https://pecca-core.github.io/pecca)
 [![License](https://img.shields.io/badge/license-Apache--2.0-green.svg)](LICENSE)
-[![Python](https://img.shields.io/pypi/pyversions/pecca.svg)](https://pypi.org/project/pecca/)
+[![Python](https://img.shields.io/pypi/pyversions/pecca.svg?label=python)](https://pypi.org/project/pecca/)
 
 ## Replace repetitive LLM calls with small, auditable models.
 
