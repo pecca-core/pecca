@@ -36,6 +36,7 @@ def tiny_base(tmp_path):
             num_attention_heads=2,
             intermediate_size=32,
             max_position_embeddings=64,
+            num_labels=3,
         )
     ).save_pretrained(d)
     return str(d)
@@ -49,6 +50,8 @@ def test_xlmr_fit_predict_save_load(tiny_base, tmp_path, monkeypatch):
     monkeypatch.setattr(XlmrFinetune, "lr", 5e-3)
     monkeypatch.setattr(XlmrFinetune, "max_len", 16)
     monkeypatch.setenv("PECCA_XLMR_BASE", tiny_base)
+    # Accuracy bar is not stable on MPS. This test checks fit/save/load, which CPU already covers.
+    monkeypatch.setattr("pecca.candidates.transformers_ft._device", lambda: "cpu")
     rng = np.random.RandomState(0)
     vocab = {
         "a": ["card", "stolen", "lost"],
