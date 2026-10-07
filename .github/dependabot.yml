@@ -5,6 +5,11 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    # TODO: drop this ignore once databricks-sql-connector allows oauthlib>=4 (currently >=3.1.0,<4).
+    ignore:
+      - dependency-name: oauthlib
+        versions:
+          - ">=4"
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
