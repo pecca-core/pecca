@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-green.svg)](LICENSE)
 [![Python](https://img.shields.io/pypi/pyversions/pecca.svg?label=python)](https://pypi.org/project/pecca/)
 
-### Thanks for taking a look. If Pecca is interesting, a star 🌟 helps other people find it.
+Thanks for taking a look. If Pecca is interesting, a star 🌟 helps other people find it.
 
 ## Replace repetitive LLM calls with small, auditable models.
 
